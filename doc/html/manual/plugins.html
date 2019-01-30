@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5. Plugins &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.6. Other GUI features" href="other_GUI_features.html" />
+    <link rel="prev" title="2.4. Plotting 1D arrays" href="plotting_1d_arrays.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">2.1. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_IDS.html">2.2. Loading IDS from IMAS local data source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_node_selection.html">2.3. Node selection features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting_1d_arrays.html">2.4. Plotting 1D arrays</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#equilibrium-overview-plugin">2.5.1. Equilibrium overview plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#executing-the-equilibrium-overview-plugin">2.5.1.1. Executing the equilibrium overview plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#equilibrium-overview-plugin-gui-features">2.5.1.2. Equilibrium overview plugin GUI features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.6. Other GUI features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html">2.7. Scripting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. User Manual</a> &raquo;</li>
+        
+      <li>2.5. Plugins</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/manual/plugins.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugins">
+<span id="id1"></span><h1>2.5. Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h1>
+<p>IMASViz enables the use of custom made plugins. The plugins currently available
+are listed here together with a manual section on how to use them.</p>
+<div class="section" id="equilibrium-overview-plugin">
+<h2>2.5.1. Equilibrium overview plugin<a class="headerlink" href="#equilibrium-overview-plugin" title="Permalink to this headline">¶</a></h2>
+<p>This subsection describes and demonstrates the use of IMASViz
+<strong>equilibrium overview plugin</strong>, a simple utility for loading and displaying
+multiple data from <strong>equilibrium IDS</strong> at once.</p>
+<div class="section" id="executing-the-equilibrium-overview-plugin">
+<h3>2.5.1.1. Executing the equilibrium overview plugin<a class="headerlink" href="#executing-the-equilibrium-overview-plugin" title="Permalink to this headline">¶</a></h3>
+<p>The procedure of executing the IMASViz
+<strong>Equilibrium overview plugin</strong> is as follows:</p>
+<ol class="arabic">
+<li><p class="first">In opened IMAS database navigate to the <strong>equilibrium</strong> IDS.</p>
+</li>
+<li><p class="first">While holding the <strong>shift keyboard button</strong>, <strong>right-click</strong> on the
+<strong>equilibirum</strong> node. In a pop up menu a list of available plugins for the
+equilibrium IDS will be displayed.</p>
+</li>
+<li><p class="first">Click the <span class="guilabel">Equilibrium overview</span> option.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_popupmenu.png"><img alt="Equilibrium overviev plugin popup menu option" src="../_images/equilibrium_plugin_popupmenu.png" style="width: 283.2px; height: 72.0px;" /></a>
+</div>
+</li>
+</ol>
+<p>The plugin will then first grab the data from the Equilibrium IDS which
+takes a few seconds. After that the plugin window will appear.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_window_start.png"><img alt="Equilibrium overviev plugin main window." src="../_images/equilibrium_plugin_window_start.png" style="width: 768.0px; height: 425.4px;" /></a>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="equilibrium-overview-plugin-gui-features">
+<h3>2.5.1.2. Equilibrium overview plugin GUI features<a class="headerlink" href="#equilibrium-overview-plugin-gui-features" title="Permalink to this headline">¶</a></h3>
+<p>The Equilibrium plugin allows some interaction with the plots that are described
+below.</p>
+<div class="section" id="plot-at-time-slice-using-slider">
+<h4>2.5.1.2.1. Plot at time slice using slider<a class="headerlink" href="#plot-at-time-slice-using-slider" title="Permalink to this headline">¶</a></h4>
+<p>The plotting time value can be easily set by <strong>holding</strong> and <strong>moving</strong> the
+slider. By doing that the <strong>red dashed line</strong> on the left plot will move at the
+same time, indicating the selected time value (position).</p>
+<p>On <strong>slider release</strong> all plots are updated for the selected time.</p>
+</div>
+<div class="section" id="plot-at-time-slide-using-time-value">
+<h4>2.5.1.2.2. Plot at time slide using time value<a class="headerlink" href="#plot-at-time-slide-using-time-value" title="Permalink to this headline">¶</a></h4>
+<p>The time can be specified directly by typing the value to the <strong>time value box</strong>.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_window_time_value_textbox.png"><img alt="Time value box." src="../_images/equilibrium_plugin_window_time_value_textbox.png" style="width: 261.6px; height: 27.200000000000003px;" /></a>
+</div>
+</div></blockquote>
+<p>By pressing <span class="guilabel">enter</span> keyboard button, all plots are be updated for the
+specified time.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Check the left plot for the time values range.</p>
+</div>
+</div>
+<div class="section" id="run-through-time-slices">
+<h4>2.5.1.2.3. Run through time slices<a class="headerlink" href="#run-through-time-slices" title="Permalink to this headline">¶</a></h4>
+<p>This feature allows the plugin to go through all time values and at the same
+time update all plots, giving a good overall overview.</p>
+<p>This is done by pressing the <span class="guilabel">Run</span> button.</p>
+</div>
+<div class="section" id="enable-plot-grid">
+<h4>2.5.1.2.4. Enable plot grid<a class="headerlink" href="#enable-plot-grid" title="Permalink to this headline">¶</a></h4>
+<p>To enable grid on all plots check the <span class="guilabel">Enable Grid</span> option.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="other_GUI_features.html" class="btn btn-neutral float-right" title="2.6. Other GUI features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plotting_1d_arrays.html" class="btn btn-neutral" title="2.4. Plotting 1D arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

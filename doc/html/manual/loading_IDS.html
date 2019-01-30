@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. Loading IDS from IMAS local data source &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.3. Node selection features" href="signal_node_selection.html" />
+    <link rel="prev" title="2.1. Getting Started" href="getting_started.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">2.1. Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Loading IDS from IMAS local data source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loading-imas-ids">2.2.1. Loading IMAS IDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-ids">2.2.2. Open IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="signal_node_selection.html">2.3. Node selection features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting_1d_arrays.html">2.4. Plotting 1D arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.5. Other GUI features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html">2.6. Scripting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. User Manual</a> &raquo;</li>
+        
+      <li>2.2. Loading IDS from IMAS local data source</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/manual/loading_IDS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="loading-ids-from-imas-local-data-source">
+<span id="loading-ids"></span><h1>2.2. Loading IDS from IMAS local data source<a class="headerlink" href="#loading-ids-from-imas-local-data-source" title="Permalink to this headline">¶</a></h1>
+<p>This section describes and demonstrates how to load the <strong>IMAS IDS case</strong>
+within <strong>IMASViz</strong> and open one of the <strong>IDS nodes</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The procedure below is executed on the <strong>GateWay HPC</strong> and thus the
+<strong>IMAS IDS cases</strong> available on the GateWay are used.</p>
+</div>
+<div class="section" id="loading-imas-ids">
+<h2>2.2.1. Loading IMAS IDS<a class="headerlink" href="#loading-imas-ids" title="Permalink to this headline">¶</a></h2>
+<p>The procedure to load the IDS is as follows:</p>
+<ul class="simple">
+<li>In the main <span class="guilabel">IMASViz GUI</span>, select the first
+tab - <span class="guilabel">Local data source</span>.</li>
+<li>Enter the following parameters, listed below, to the appropriate text fields.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2"><strong>IMAS IDS case</strong></th>
+</tr>
+<tr class="row-even"><th class="head">Parameters</th>
+<th class="head">Values</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>User name</td>
+<td>g2penkod</td>
+</tr>
+<tr class="row-even"><td>IMAS database name</td>
+<td>viztest</td>
+</tr>
+<tr class="row-odd"><td>Shot number</td>
+<td>52344</td>
+</tr>
+<tr class="row-even"><td>Run number</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the data source is a pulse file located in
+<code class="file docutils literal notranslate"><span class="pre">$HOME/public/imasdb/&lt;IMAS</span> <span class="pre">database</span> <span class="pre">name&gt;/3/0/</span></code> directory. In this
+case, the <code class="file docutils literal notranslate"><span class="pre">~public/imasdb/viztest/3/0/</span></code> directory of user <code class="docutils literal notranslate"><span class="pre">g2penkod</span></code>.</p>
+<p>The filled GUI should then look as shown in the next figure:</p>
+<a class="reference internal image-reference" href="../_images/startup_window_filled.png"><img alt="../_images/startup_window_filled.png" class="align-center" src="../_images/startup_window_filled.png" style="width: 480.0px; height: 160.0px;" /></a>
+</div>
+<div class="section" id="open-ids">
+<h2>2.2.2. Open IDS<a class="headerlink" href="#open-ids" title="Permalink to this headline">¶</a></h2>
+<p>The procedure to open any IDS is the same. In this manual,
+the procedure will be shown on <strong>magnetics IDS</strong>.</p>
+<ol class="arabic">
+<li><p class="first">Click <span class="guilabel">Open</span> button to open the IDS.</p>
+<p>A navigation tree window will open, as shown in the figure below.</p>
+<a class="reference internal image-reference" href="../_images/DTVFrame_empty.png"><img alt="../_images/DTVFrame_empty.png" class="align-center" src="../_images/DTVFrame_empty.png" style="width: 550px;" /></a>
+</li>
+<li><p class="first">Press the <strong>arrow button</strong> <a class="reference internal" href="../_images/DTV_IDS_root_arrow.png"><img alt="icon_arrowIDSroot" src="../_images/DTV_IDS_root_arrow.png" style="width: 86.25px; height: 12.75px;" /></a>  on the left side of the
+<strong>IDS root node</strong>.</p>
+<p>This will expand the navigation <span class="guilabel">tree window</span> and display a
+list of all IDSs.
+The tree will allow browsing data for the specific shot number which is
+displayed by the root node ( <code class="docutils literal notranslate"><span class="pre">IDSs(52344)</span></code> ).</p>
+<a class="reference internal image-reference" href="../_images/DTV_IDS_root_open.png"><img alt="../_images/DTV_IDS_root_open.png" class="align-center" src="../_images/DTV_IDS_root_open.png" style="width: 550px;" /></a>
+<p>When IDS or node label is selected the <span class="guilabel">Node documentation</span>
+widget will display the basic information (name and documentation) of
+the node, as shown below.</p>
+<a class="reference internal image-reference" href="../_images/DTVFrame_node_doc.png"><img alt="../_images/DTVFrame_node_doc.png" class="align-center" src="../_images/DTVFrame_node_doc.png" style="width: 550px;" /></a>
+<p>The <span class="guilabel">Node Documentation</span> widget can be freely taken out from the
+main window by clicking <span class="guilabel">undock</span> button <img alt="button_undock" src="../_images/button_undock.png" /> the and positioned anywhere on the screen. The same thing goes for the
+<span class="guilabel">Preview Plot</span> and <span class="guilabel">Log</span> widget.</p>
+<a class="reference internal image-reference" href="../_images/DTVFrame_undock_example.png"><img alt="../_images/DTVFrame_undock_example.png" class="align-center" src="../_images/DTVFrame_undock_example.png" style="width: 550px;" /></a>
+</li>
+<li><p class="first">Open <strong>magnetics IDS</strong> by right-clicking on the <strong>magnetics</strong> node
+and selecting the command <span class="guilabel">Get magnetics data</span> (occurrence 0)
+as shown in the figure below.</p>
+<a class="reference internal image-reference" href="../_images/DTV_open_magnetics_IDS.png"><img alt="../_images/DTV_open_magnetics_IDS.png" class="align-center" src="../_images/DTV_open_magnetics_IDS.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Alternative: Double-clicking on the <strong>IDS node label</strong> -&gt;
+<strong>occurrence 0</strong> (default) of the selected IDS will load.</p>
+</div>
+<p>The magnetics IDS nodes are displayed as new nodes in the tree, as shown in
+the figure below. Nodes of an IDS are organized according to the
+<strong>IMAS data dictionary</strong>. Inside the <strong>magnetics</strong> tree, plottable
+<strong>FLT_1D</strong> nodes are colored blue (array length &gt; 0).</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/DTV_magnetics_IDS_contents_FLT_1D.png"><img alt="../_images/DTV_magnetics_IDS_contents_FLT_1D.png" class="align-center" src="../_images/DTV_magnetics_IDS_contents_FLT_1D.png" style="width: 335.20000000000005px; height: 323.20000000000005px;" /></a>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="signal_node_selection.html" class="btn btn-neutral float-right" title="2.3. Node selection features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting_started.html" class="btn btn-neutral" title="2.1. Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

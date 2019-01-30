@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. Release notes &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. User Manual" href="../manual/index.html" />
+    <link rel="prev" title="1.1. Description" href="description.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">1.1. Description</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. Release notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-2-0">1.2.1. Version 2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-2">1.2.2. Version 1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-1-1">1.2.3. Version 1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/index.html">2. User Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. Introduction</a> &raquo;</li>
+        
+      <li>1.2. Release notes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/intro/release_notes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="release-notes">
+<span id="imasviz-release-notes"></span><h1>1.2. Release notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-2-0">
+<h2>1.2.1. Version 2.0<a class="headerlink" href="#version-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Released:</p>
+<p>/</p>
+<p>Changes:</p>
+<ul>
+<li><p class="first"><strong>Full GUI migration from wxPython and wxmPlot to PyQt and pyqtgraph Python</strong>
+<strong>libraries</strong></p>
+</li>
+<li><p class="first">Basic plot feature performance improved greatly.
+Quick comparison for plotting 17 plots to a single panel using default
+plotting options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>wxPython IMASViz: ~13s</li>
+<li>PyQt5 IMASViz:  less than 1s (more than <strong>13x speed improvement</strong>!)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Superior plot export possibilities</p>
+</li>
+<li><p class="first">GUI improvements</p>
+</li>
+<li><p class="first">Database tree browser interface display improvements</p>
+</li>
+<li><p class="first">Added first ‘node contents display’ feature (displayed in the
+<span class="guilabel">Node Documentation</span> Widget)</p>
+</li>
+<li><p class="first">Reduced the number of separate windows, introduce docked widgets</p>
+</li>
+<li><p class="first">Introduce first GUI icons</p>
+</li>
+<li><p class="first">MultiPlot feature relabeled to TablePlotView</p>
+</li>
+<li><p class="first">SubPlot feature relabeled to StackedPlotView</p>
+</li>
+<li><p class="first">Add support for IMAS versions 3.20.0, 3.21.0 and 3.21.1</p>
+</li>
+<li><p class="first">Included <strong>documentation + manual</strong> (~60 pages in PDF) in a form of
+reStructuredText source files for document generation (single source can be
+generated into multiple formats e.g. PDF, HMTL…)</p>
+</li>
+<li><p class="first">In-code documentation greatly improved and extended</p>
+</li>
+<li><p class="first">and more…</p>
+</li>
+</ul>
+<p>Short summary of files and line changes count (ignoring generated files and
+scripts):</p>
+<ul class="simple">
+<li>193 commits,</li>
+<li>268 files changed,</li>
+<li>13316 insertions(+),</li>
+<li>10162 deletions(-)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The migration to PyQt5 due to IMASViz containing a large code sets is not
+yet fully complete.
+List of known features yet to migrate to IMASViz 2.0:
+<code class="docutils literal notranslate"><span class="pre">Equilibrium</span> <span class="pre">plugin</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">selected</span> <span class="pre">nodes</span> <span class="pre">to</span> <span class="pre">existing</span> <span class="pre">TablePlotView</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">StackedPlotView</span> <span class="pre">manager</span></code>.</p>
+</div>
+<p>A quick GUI comparison between the <strong>previous</strong> and the <strong>new</strong> IMASViz GUI is
+shown below.</p>
+<p>Overview of IMASViz 1.2 GUI:</p>
+<a class="reference internal image-reference" href="../_images/GUI_overview_old.png"><img alt="../_images/GUI_overview_old.png" class="align-center" src="../_images/GUI_overview_old.png" style="width: 550px;" /></a>
+<p>Overview of IMASViz 2.0 GUI:</p>
+<a class="reference internal image-reference" href="../_images/GUI_overview_2.0.png"><img alt="../_images/GUI_overview_2.0.png" class="align-center" src="../_images/GUI_overview_2.0.png" style="width: 550px;" /></a>
+</div>
+<div class="section" id="version-1-2">
+<h2>1.2.2. Version 1.2<a class="headerlink" href="#version-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released:</p>
+<p>24.8.2018</p>
+<p>Changes:</p>
+<ul class="simple">
+<li>New functionality: selection command of nodes belonging to same parent AOS
+(Array of Structures)</li>
+<li>MultiPlot and SubPlot design improvements</li>
+<li>Adding support for IMAS versions 3.19.1</li>
+</ul>
+</div>
+<div class="section" id="version-1-1">
+<h2>1.2.3. Version 1.1<a class="headerlink" href="#version-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released:</p>
+<p>8.6.2018</p>
+<p>Changes (since March 2017):</p>
+<ul class="simple">
+<li>Bugs fixes &amp; performance improvement</li>
+<li>Code migration to Python3</li>
+<li>GUI improvements</li>
+<li>UDA support for visualizing remote shots data</li>
+<li>Reuse of plots layout (multiplots customization can be saved as a script file
+to be applied for any shot)</li>
+<li>A first plugins mechanism has been developed which allows developers to
+integrate their plugins to IMASViz</li>
+<li>The ‘Equilibrium overview plugin’ developed by Morales Jorge has been
+integrated into IMASViz</li>
+<li>Concerning UDA, WEST shots can be accessed if a SSH tunnel can be established
+to the remote WEST UDA server.</li>
+<li>Introducing MultiPlot and SubPlot features</li>
+<li>Add support for IMAS version 3.18.0</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../manual/index.html" class="btn btn-neutral float-right" title="2. User Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="description.html" class="btn btn-neutral" title="1.1. Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

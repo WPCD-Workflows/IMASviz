@@ -1,0 +1,1197 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.6. Scripting &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2.5. Other GUI features" href="other_GUI_features.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">2.1. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_IDS.html">2.2. Loading IDS from IMAS local data source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_node_selection.html">2.3. Node selection features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting_1d_arrays.html">2.4. Plotting 1D arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.5. Other GUI features</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.6. Scripting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-imasviz-path-to-pythonpath">2.6.1. Adding IMASViz Path to PYTHONPATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-script">2.6.2. Creating A Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-script">2.6.3. Running the script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#script-examples">2.6.4. Script examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1">2.6.4.1. Example 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2">2.6.4.2. Example 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2b">2.6.4.3. Example 2b</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3">2.6.4.4. Example 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-4">2.6.4.5. Example 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. User Manual</a> &raquo;</li>
+        
+      <li>2.6. Scripting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/manual/scripting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scripting">
+<span id="id1"></span><h1>2.6. Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h1>
+<p>There are two main methods to open and browse IMAS IDS database using
+<span class="guilabel">IMASViz</span>. First is the standard way of running IMASViz
+(as described in <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started</span></a>) and setting the parameters in the GUI,
+the second is through a script. Furthermore, some GUI actions (like node
+selection, plot action commands etc.) can be performed through scripting too.
+This way a simple IMASViz session can be set and populated on run.</p>
+<p>This section describes the second method: how to create and use
+<strong>user-made</strong> Python3 scripts that run and populate <span class="guilabel">IMASViz</span>.</p>
+<p><span class="guilabel">IMASViz scripting</span> can be seen as an
+advanced alternative to the <span class="guilabel">Apply Configuration</span> features
+(described in <a class="reference internal" href="signal_node_selection.html#apply-selection-from-configuration"><span class="std std-ref">Apply Selection From Saved Configuration</span></a> and
+<a class="reference internal" href="plotting_1d_arrays.html#apply-multiplot-configuration"><span class="std std-ref">Applying MultiPlot configuration to other IMAS database</span></a>).</p>
+<p>The procedure below can be used with either <strong>IMASViz module</strong> and
+<strong>IMASViz from source</strong> but the environment <strong>must be set accordingly to the
+method the IMASViz is used (!)</strong> (as described in
+<a class="reference internal" href="getting_started.html#running-on-gateway-as-a-module"><span class="std std-ref">Running IMASViz as a module on The GateWay</span></a> and <a class="reference internal" href="getting_started.html#running-from-source"><span class="std std-ref">Running IMASViz from source</span></a>).</p>
+<div class="section" id="adding-imasviz-path-to-pythonpath">
+<span id="scripting-adding-pythonpath"></span><h2>2.6.1. Adding IMASViz Path to PYTHONPATH<a class="headerlink" href="#adding-imasviz-path-to-pythonpath" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before proceeding, make sure that the environment is properly
+pre-set! This way also the <strong>VIZ_HOME</strong> system variable, required
+in this manual section, is available.</p>
+</div>
+<p>The IMASViz home directory can be added to <strong>PYTHONPATH</strong> system variable
+by running in the terminal the command below (use the command that matches
+your shell - <strong>c-shell</strong> or <strong>bash</strong>):</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>PYTHONPATH</strong> is a “list” of paths that tell Python where to look
+for sources, libraries etc.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> c-shell <span class="o">(</span>csh<span class="o">)</span>
+<span class="go">setenv PYTHONPATH ${VIZ_HOME}:${PYTHONPATH}</span>
+<span class="gp">#</span> bash
+<span class="go">export PYTHONPATH=${VIZ_HOME}:${PYTHONPATH}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-script">
+<span id="scripting-create"></span><h2>2.6.2. Creating A Script<a class="headerlink" href="#creating-a-script" title="Permalink to this headline">¶</a></h2>
+<p>This subsection will cover the basic procedure of writing a Python3 script that
+can be used with <span class="guilabel">IMASViz</span>. Few such working script examples
+are shown in section <a class="reference internal" href="#scripting-examples"><span class="std std-ref">Script examples</span></a>. The same examples can be found
+in project GIT repository
+<a class="reference external" href="https://git.iter.org/projects/VIS/repos/viz/browse/imasviz/VizExamples?at=refs%2Fheads%2Fviz2.0_develop">here</a>.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>First, the imports are required:</dt>
+<dd><ul class="first simple">
+<li>constants, functions, and methods of the Python interpreter,</li>
+<li>PyQt5 classes and routines, and</li>
+<li>IMASViz classes and routines.</li>
+</ul>
+<div class="last highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/python</span>
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizGUI.VizGUICommands.VizMenusManagement.QVizSignalHandling</span> \
+    <span class="kn">import</span> <span class="n">QVizSignalHandlingds</span><span class="o">.</span><span class="n">VizMenusManagement</span><span class="o">.</span><span class="n">QVizSignalHandling</span> \
+        <span class="kn">import</span> <span class="nn">QVizSignalHandling</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Set object managing the PyQt GUI application’s control flow:</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Check if necessary system variables are set</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Set Application Program Interface</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Set data source retriever/factory</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Load IMAS database and build the data tree view</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52344</span><span class="p">,</span>
+                                         <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                         <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                         <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Add the build data tree view (DTV) to a list (!)</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Set the list of node paths</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pathsList1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">pathsList1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Select signals corresponding to the list of node paths</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">pathsList1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Show the data tree window</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Plot selected nodes</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">]</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignalsFrom</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Plot data from the first data source (f1) to Table Plot View</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToTablePlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Plot data from the first data source (f1) to Stacked Plot View</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToStackedPlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Keep the application running</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The final script is available below.</p>
+<blockquote>
+<div><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/python</span>
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizGUI.VizGUICommands.VizMenusManagement.QVizSignalHandling</span> \
+    <span class="kn">import</span> <span class="n">QVizSignalHandling</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Load IMAS database and build the data tree view</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52344</span><span class="p">,</span>
+                                                <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                                <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
+
+<span class="c1"># Add data tree view frame to list (!)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">]</span>
+
+<span class="c1"># Set the list of node paths that are to be selected</span>
+<span class="n">pathsList1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">pathsList1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select signal nodes corresponding to the paths in pathsList</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">pathsList1</span><span class="p">)</span>
+
+<span class="c1"># Show the data tree view window</span>
+<span class="n">f1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plot signal nodes</span>
+<span class="c1"># Note: Data tree view does not need to be shown in order for this</span>
+<span class="c1">#       routine to work</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignalsFrom</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Plot data from the data source to Table Plot View</span>
+<span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToTablePlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Plot data from the data source to Stacked Plot View</span>
+<span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToStackedPlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="running-the-script">
+<h2>2.6.3. Running the script<a class="headerlink" href="#running-the-script" title="Permalink to this headline">¶</a></h2>
+<p>With the environment set (done in <a class="reference internal" href="#scripting-adding-pythonpath"><span class="std std-ref">Adding IMASViz Path to PYTHONPATH</span></a>) and
+script completed (done in <a class="reference internal" href="#scripting-create"><span class="std std-ref">Creating A Script</span></a>), the script can be run
+using the basic Python3 terminal command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 &lt;path_to_script&gt;/&lt;script_name&gt;.py</span>
+</pre></div>
+</div>
+<p>By running this script all <span class="guilabel">Data Tree Views</span>, <span class="guilabel">Plot Widgets</span>
+and <span class="guilabel">MultiPlot Views</span>, previously set in the script, should show,
+as shown in the figure below.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/scripting_run_result.png"><img alt="../_images/scripting_run_result.png" src="../_images/scripting_run_result.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text">The result of running the script example:
+<span class="guilabel">Data Tree View (DTV)</span>, <span class="guilabel">Plot Widget</span>,
+<span class="guilabel">Table Plot View</span> and <span class="guilabel">Stacked Plot View</span>
+containing multiple plots.</span></p>
+</div>
+</div>
+<div class="section" id="script-examples">
+<span id="scripting-examples"></span><h2>2.6.4. Script examples<a class="headerlink" href="#script-examples" title="Permalink to this headline">¶</a></h2>
+<p>Few complete script examples are shown below. The same examples can be found
+in project GIT repository
+<a class="reference external" href="https://git.iter.org/projects/VIS/repos/viz/browse/imasviz/VizExamples?at=refs%2Fheads%2Fviz2.0_develop">here</a>.</p>
+<div class="section" id="example-1">
+<h3>2.6.4.1. Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;This example demonstrates the procedure of plotting multiple arrays to</span>
+<span class="sd">a single plot, Table Plot View and Stacked Plot View, using IMAS IDS databases</span>
+<span class="sd">located on the GateWay HPC.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalValues</span> <span class="kn">import</span> <span class="n">QVizGlobalValues</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Load IMAS database</span>
+<span class="n">dataSource</span> <span class="o">=</span> <span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                                 <span class="n">dataSourceName</span><span class="o">=</span><span class="n">QVizGlobalValues</span><span class="o">.</span><span class="n">IMAS_NATIVE</span><span class="p">,</span>
+                                 <span class="n">shotNumber</span><span class="o">=</span><span class="mi">52702</span><span class="p">,</span>
+                                 <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;imas_public&#39;</span><span class="p">,</span>
+                                 <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;west&#39;</span><span class="p">)</span>
+
+<span class="c1"># Database on the GateWay HPC (comment the above dataSource code and uncomment</span>
+<span class="c1"># the one below)</span>
+<span class="c1"># dataSource = dataSourceFactory.create(shotNumber=52344,</span>
+<span class="c1">#                                       runNumber=0,</span>
+<span class="c1">#                                       userName=&#39;g2penkod&#39;,</span>
+<span class="c1">#                                       imasDbName=&#39;viztest&#39;)</span>
+<span class="c1">#</span>
+
+<span class="c1"># Build the data tree view frame</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSource</span><span class="p">)</span>
+
+<span class="c1"># Set the list of node paths that are to be selected</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select signal nodes corresponding to the paths in paths list</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">paths</span><span class="p">)</span>
+
+<span class="c1"># Plot signal nodes</span>
+<span class="c1"># Note: Data tree view does not need to be shown in order for this routine to</span>
+<span class="c1">#       work</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignals</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">app</span><span class="o">.</span><span class="k">exec</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example-2">
+<h3>2.6.4.2. Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># !/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;This example demonstrates the procedure of plotting multiple arrays to a</span>
+<span class="sd">single plot, Table Plot View and Stacked Plot View, using IMAS IDS databases</span>
+<span class="sd">located on the GateWay HPC.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizGUI.VizGUICommands.VizMenusManagement.QVizSignalHandling</span> \
+    <span class="kn">import</span> <span class="n">QVizSignalHandling</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Load IMAS database and build the data tree view frame</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52344</span><span class="p">,</span>
+                                                 <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                                 <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
+
+<span class="c1"># Load IMAS database and build the data tree view frame</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52682</span><span class="p">,</span>
+                                                 <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                                 <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
+
+<span class="c1"># Add data tree view frames to list (!)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">]</span>
+<span class="c1"># Set the list of node paths that are to be selected</span>
+<span class="n">pathsList1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">pathsList1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+<span class="n">pathsList2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="n">pathsList2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/bpol_probe(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/field/data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select signal nodes corresponding to the paths in paths list</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">pathsList1</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">pathsList2</span><span class="p">)</span>
+<span class="c1"># Might use also</span>
+<span class="c1"># QVizSelectSignals(f1.dataTreeView, pathsList1).execute()</span>
+<span class="c1"># QVizSelectSignals(f2.dataTreeView, pathsList2).execute()</span>
+
+<span class="c1"># Show the data tree view window</span>
+<span class="n">f1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">f2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plot signal nodes</span>
+<span class="c1"># Note: Data tree view does not need to be shown in order for this routine to</span>
+<span class="c1">#       work</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignalsFrom</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="c1"># Plot data from the first data source (f1) to Table Plot View</span>
+<span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToTablePlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Plot data from the first data source (f1) to Stacked Plot View</span>
+<span class="n">QVizSignalHandling</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">)</span><span class="o">.</span><span class="n">onPlotToStackedPlotView</span><span class="p">(</span><span class="n">all_DTV</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example-2b">
+<h3>2.6.4.3. Example 2b<a class="headerlink" href="#example-2b" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;This example demonstrates the procedure of plotting multiple arrays from</span>
+<span class="sd">two IMAS IDS databases to a single plot.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.util.GlobalOperations</span> <span class="kn">import</span> <span class="n">GlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource</span> <span class="kn">import</span> <span class="n">DataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalValues</span> <span class="kn">import</span> <span class="n">QVizGlobalValues</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">GlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">DataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Set and empty list for listing data tree view frames</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Set list of shots</span>
+<span class="n">n_shot</span> <span class="o">=</span> <span class="p">[</span><span class="mi">52702</span><span class="p">,</span> <span class="mi">52703</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># Load IMAS databases</span>
+    <span class="n">dataSource</span> <span class="o">=</span> <span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">dataSourceName</span><span class="o">=</span><span class="n">QVizGlobalValues</span><span class="o">.</span><span class="n">IMAS_NATIVE</span><span class="p">,</span>
+                                          <span class="n">shotNumber</span><span class="o">=</span><span class="n">n_shot</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                          <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                          <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;imas_public&#39;</span><span class="p">,</span>
+                                          <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;west&#39;</span><span class="p">)</span>
+    <span class="c1"># Append data tree view frame to list</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSource</span><span class="p">))</span>
+
+<span class="c1"># Set the list of node paths (for both databases) that are to be selected</span>
+<span class="n">paths1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">paths1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+<span class="n">paths2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">paths2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/bpol_probe(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/field/data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select signal nodes corresponding to the paths in paths list</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">paths1</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">paths2</span><span class="p">)</span>
+<span class="c1"># Plot signal nodes</span>
+<span class="c1"># Note: Data tree view does not need to be shown in order for this routine to</span>
+<span class="c1">#       work</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignalsFrom</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Show the data tree view window</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">app</span><span class="o">.</span><span class="k">exec</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example-3">
+<h3>2.6.4.4. Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;This example demonstrates the procedure of plotting multiple arrays to a</span>
+<span class="sd">single Table Plot View.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalValues</span> <span class="kn">import</span> <span class="n">QVizGlobalValues</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Load IMAS database</span>
+<span class="n">dataSource</span> <span class="o">=</span> <span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                                    <span class="n">dataSourceName</span><span class="o">=</span><span class="n">QVizGlobalValues</span><span class="o">.</span><span class="n">IMAS_NATIVE</span><span class="p">,</span>
+                                    <span class="n">shotNumber</span><span class="o">=</span><span class="mi">52682</span><span class="p">,</span>
+                                    <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                    <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;imas_public&#39;</span><span class="p">,</span>
+                                    <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;west&#39;</span><span class="p">)</span>
+
+<span class="c1"># Database on the GateWay HPC (comment the above dataSource code and uncomment</span>
+<span class="c1"># the one below)</span>
+<span class="c1"># dataSource = dataSourceFactory.create(shotNumber=52344,</span>
+<span class="c1">#                                       runNumber=0,</span>
+<span class="c1">#                                       userName=&#39;g2penkod&#39;,</span>
+<span class="c1">#                                       imasDbName=&#39;viztest&#39;)</span>
+
+<span class="c1"># Build the data tree view frame</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSource</span><span class="p">)</span>
+
+<span class="c1"># Set the list of node paths that are to be selected</span>
+<span class="n">pathsList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">pathsList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;magnetics/flux_loop(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)/flux/data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select signal nodes corresponding to the paths in paths list</span>
+<span class="n">api</span><span class="o">.</span><span class="n">SelectSignals</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pathsList</span><span class="p">)</span>
+
+<span class="c1"># Plot the set of signal nodes selected by the user to a new Table Plot View.</span>
+<span class="n">api</span><span class="o">.</span><span class="n">PlotSelectedSignalsInTablePlotViewFrame</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Show the data tree view window</span>
+<span class="n">api</span><span class="o">.</span><span class="n">ShowDataTree</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">app</span><span class="o">.</span><span class="k">exec</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example-4">
+<h3>2.6.4.5. Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># A module providing a number of functions and variables that can be used to</span>
+<span class="c1"># manipulate different parts of the Python runtime environment.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># PyQt library imports</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="c1"># IMASViz source imports</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalOperations</span> <span class="kn">import</span> <span class="n">QVizGlobalOperations</span>
+<span class="kn">from</span> <span class="nn">imasviz.Viz_API</span> <span class="kn">import</span> <span class="n">Viz_API</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizDataSource.QVizDataSourceFactory</span> <span class="kn">import</span> <span class="n">QVizDataSourceFactory</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizGUI.VizGUICommands.VizDataSelection.QVizSelectSignals</span> <span class="kn">import</span> <span class="n">QVizSelectSignals</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizGUI.VizGUICommands.VizDataSelection.QVizUnselectAllSignals</span> <span class="kn">import</span> <span class="n">QVizUnselectAllSignals</span>
+<span class="kn">from</span> <span class="nn">imasviz.VizUtils.QVizGlobalValues</span> <span class="kn">import</span> <span class="n">QVizGlobalValues</span>
+
+<span class="c1"># Set object managing the PyQt GUI application&#39;s control flow and main</span>
+<span class="c1"># settings</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="c1"># Check if necessary system variables are set</span>
+<span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">checkEnvSettings</span><span class="p">()</span>
+
+<span class="c1"># Set Application Program Interface</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Viz_API</span><span class="p">()</span>
+
+<span class="c1"># Set data source retriever/factory</span>
+<span class="n">dataSourceFactory</span> <span class="o">=</span> <span class="n">QVizDataSourceFactory</span><span class="p">()</span>
+
+<span class="c1"># Set user (get current user)</span>
+<span class="n">userName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span>
+
+<span class="c1"># Load IMAS database</span>
+<span class="n">dataSource</span> <span class="o">=</span> <span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                                    <span class="n">dataSourceName</span><span class="o">=</span><span class="n">QVizGlobalValues</span><span class="o">.</span><span class="n">IMAS_NATIVE</span><span class="p">,</span>
+                                    <span class="n">shotNumber</span><span class="o">=</span><span class="mi">52344</span><span class="p">,</span>
+                                    <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                    <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;imas_public&#39;</span><span class="p">,</span>
+                                    <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;west&#39;</span><span class="p">)</span>
+
+<span class="c1"># Database on the GateWay HPC (comment the above dataSource code and uncomment</span>
+<span class="c1"># the one below)</span>
+<span class="c1"># dataSource = dataSourceFactory.create(shotNumber=52344,</span>
+<span class="c1">#                                       runNumber=0,</span>
+<span class="c1">#                                       userName=&#39;g2penkod&#39;,</span>
+<span class="c1">#                                       imasDbName=&#39;viztest&#39;)</span>
+
+<span class="c1"># Build the data tree view frame</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSource</span><span class="p">)</span>
+
+<span class="c1"># Set configuration file</span>
+<span class="n">configFilePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/.imasviz/configuration_name.pcfg&quot;</span>
+
+<span class="c1"># Extract signal paths from the config file and add them to a list of</span>
+<span class="c1"># paths</span>
+<span class="n">pathsList</span> <span class="o">=</span> <span class="n">QVizGlobalOperations</span><span class="o">.</span><span class="n">getSignalsPathsFromConfigurationFile</span><span class="p">(</span>
+    <span class="n">configFile</span><span class="o">=</span><span class="n">configFilePath</span><span class="p">)</span>
+
+<span class="c1"># First unselect all signals (optional)</span>
+<span class="c1"># QVizUnselectAllSignals(dataTreeView=f.dataTreeView).execute()</span>
+
+<span class="c1"># Select the signals, defined by a path in a list of paths, in the</span>
+<span class="c1"># given Data Tree View (DTV) window</span>
+<span class="n">QVizSelectSignals</span><span class="p">(</span><span class="n">dataTreeView</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">dataTreeView</span><span class="p">,</span>
+                  <span class="n">pathsList</span><span class="o">=</span><span class="n">pathsList</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># Plot the set of the signal nodes selected using plot configuration file to</span>
+<span class="c1"># a new Table Plot View and apply plot configurations (colors, line width etc.)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">ApplyTablePlotViewConfiguration</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">configFilePath</span><span class="o">=</span><span class="n">configFilePath</span><span class="p">)</span>
+
+<span class="c1"># Keep the application running</span>
+<span class="n">app</span><span class="o">.</span><span class="k">exec</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="other_GUI_features.html" class="btn btn-neutral" title="2.5. Other GUI features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

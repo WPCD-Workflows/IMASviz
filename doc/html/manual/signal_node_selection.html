@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. Node selection features &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Plotting 1D arrays" href="plotting_1d_arrays.html" />
+    <link rel="prev" title="2.2. Loading IDS from IMAS local data source" href="loading_IDS.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">2.1. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_IDS.html">2.2. Loading IDS from IMAS local data source</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Node selection features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-one-by-one">2.3.1. Select One-by-one</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-all-nodes-of-the-same-structure-aos">2.3.2. Select All Nodes of the same Structure (AOS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-node-selection-configuration">2.3.3. Save Node Selection Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apply-selection-from-saved-configuration">2.3.4. Apply Selection From Saved Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#apply-selection-from-saved-node-selection-configuration">2.3.4.1. Apply Selection From Saved Node Selection Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apply-selection-from-multiplot-configuration">2.3.4.2. Apply Selection From MultiPlot Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unselect-selected-node-signals">2.3.5. Unselect selected Node Signals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unselect-one-by-one">2.3.5.1. Unselect One-by-one</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unselect-all">2.3.5.2. Unselect All</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plotting_1d_arrays.html">2.4. Plotting 1D arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.5. Other GUI features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html">2.6. Scripting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. Manual</a> &raquo;</li>
+        
+      <li>2.3. Node selection features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/manual/signal_node_selection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-selection-features">
+<span id="signal-node-selection"></span><h1>2.3. Node selection features<a class="headerlink" href="#node-selection-features" title="Permalink to this headline">¶</a></h1>
+<p><span class="guilabel">IMASViz</span> offers the user the ability to set or mark a
+selection of plottable arrays (nodes) as once. This way plotting multiple
+plots to the same <span class="guilabel">Figure</span> or to a <span class="guilabel">MultiPlot View</span>
+is more convenient and faster, avoiding “one-by-one” plotting.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">How to plot selection is described later in section
+<a class="reference internal" href="plotting_1d_arrays.html#plotting-1d-arrays"><span class="std std-ref">Plotting 1D arrays</span></a>.</p>
+</div>
+<p>In the continuation of this section different methods of node selection are
+described.</p>
+<div class="section" id="select-one-by-one">
+<h2>2.3.1. Select One-by-one<a class="headerlink" href="#select-one-by-one" title="Permalink to this headline">¶</a></h2>
+<p>To select nodes one by one, first, right-click on the wanted node.
+From the shown pop-up menu, select the command
+<span class="guilabel">Select &lt;node name&gt;</span> <a class="reference internal" href="../_images/plus.png"><img alt="icon_plus" src="../_images/plus.png" style="width: 15px; height: 15px;" /></a>.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/DTV_popupmenu_select.png"><img alt="../_images/DTV_popupmenu_select.png" src="../_images/DTV_popupmenu_select.png" style="width: 306.75px; height: 145.5px;" /></a>
+<p class="caption"><span class="caption-text">Selecting a plottable node.</span></p>
+</div>
+<p>The selected node label gets colored red, indicating that it is added
+to the selection.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/DTV_node_red.png"><img alt="../_images/DTV_node_red.png" src="../_images/DTV_node_red.png" style="width: 298.5px; height: 57.75px;" /></a>
+<p class="caption"><span class="caption-text">Node colored red -&gt; node is selected.</span></p>
+</div>
+<p>Repeat that procedure until all wanted nodes are selected.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/DTV_node_selection.png"><img alt="../_images/DTV_node_selection.png" src="../_images/DTV_node_selection.png" style="width: 345.75px; height: 576.0px;" /></a>
+<p class="caption"><span class="caption-text">Example of multiple nodes selection.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At the same time, nodes from other opened IDS databases too can be
+selected.</p>
+</div>
+</div>
+<div class="section" id="select-all-nodes-of-the-same-structure-aos">
+<h2>2.3.2. Select All Nodes of the same Structure (AOS)<a class="headerlink" href="#select-all-nodes-of-the-same-structure-aos" title="Permalink to this headline">¶</a></h2>
+<p>To select all nodes of the same structure (same node structure type),
+right-click on one of the nodes and from the shown popup-menu select the option
+<span class="guilabel">Select All Nodes From The Same AOS</span> <a class="reference internal" href="../_images/plus3x.png"><img alt="icon_plus3x" src="../_images/plus3x.png" style="width: 15px; height: 15px;" /></a>.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/DTV_popupmenu_select_AOS.png"><img alt="../_images/DTV_popupmenu_select_AOS.png" src="../_images/DTV_popupmenu_select_AOS.png" style="width: 335.25px; height: 146.25px;" /></a>
+<p class="caption"><span class="caption-text">Selecting plottable nodes of the same structure/type.</span></p>
+</div>
+<p>All nodes of the same structure will be selected and their label will be
+colored to red, indicating that they were added to the selection.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/DTV_node_selection_AOS.png"><img alt="../_images/DTV_node_selection_AOS.png" src="../_images/DTV_node_selection_AOS.png" style="width: 339.75px; height: 507.75px;" /></a>
+<p class="caption"><span class="caption-text">Node colored red -&gt; node is selected. All plottable nodes of the
+same structure/type are selected, in this case, 17 nodes.</span></p>
+</div>
+</div>
+<div class="section" id="save-node-selection-configuration">
+<h2>2.3.3. Save Node Selection Configuration<a class="headerlink" href="#save-node-selection-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Any node selection can be saved to a configuration file and used later with any
+opened IMAS database. To save a selection, follow the next steps:</p>
+<ol class="arabic">
+<li><p class="first">In the main tree browser menu navigate to <strong>Node Selection</strong> -&gt;
+<strong>Save Node Selection</strong>.</p>
+</li>
+<li><p class="first">In opened GUI window type the name of the configuration.</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/SavePlotSelection_dialog.png"><img alt="../_images/SavePlotSelection_dialog.png" src="../_images/SavePlotSelection_dialog.png" style="width: 189.0px; height: 126.0px;" /></a>
+<p class="caption"><span class="caption-text">Save Node Selection Dialog.</span></p>
+</div>
+</li>
+<li><p class="first">Press <strong>OK</strong> button.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The configurations are saved to <code class="docutils literal notranslate"><span class="pre">$HOME/.imasviz</span></code> folder.</p>
+</div>
+</div>
+<div class="section" id="apply-selection-from-saved-configuration">
+<span id="apply-selection-from-configuration"></span><h2>2.3.4. Apply Selection From Saved Configuration<a class="headerlink" href="#apply-selection-from-saved-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Applying saved node selection can be performed using both
+<span class="guilabel">Node Selection Configuration</span> and
+<span class="guilabel">MultiPlot Configuration</span>.</p>
+<div class="section" id="apply-selection-from-saved-node-selection-configuration">
+<h3>2.3.4.1. Apply Selection From Saved Node Selection Configuration<a class="headerlink" href="#apply-selection-from-saved-node-selection-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To apply selection from <span class="guilabel">Node Selection Configuration</span>, follow the
+next steps:</p>
+<ol class="arabic">
+<li><p class="first">In the main tree browser menu navigate to <strong>Actions</strong> -&gt;
+<strong>Apply Configuration</strong>. In the shown window switch to
+<span class="guilabel">Available Node Selection Configurations</span> tab.</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/ApplyPlotConfiguration_NodeSelection.png"><img alt="../_images/ApplyPlotConfiguration_NodeSelection.png" src="../_images/ApplyPlotConfiguration_NodeSelection.png" style="width: 326.25px; height: 336.75px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Apply Node Selection Configuration</span> tab.</span></p>
+</div>
+</li>
+<li><p class="first">Select the configuration from the list.</p>
+</li>
+<li><p class="first">Press <strong>Apply selection only</strong>.</p>
+<p>The signal nodes, found in the configuration file, will then be selected.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="apply-selection-from-multiplot-configuration">
+<h3>2.3.4.2. Apply Selection From MultiPlot Configuration<a class="headerlink" href="#apply-selection-from-multiplot-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To apply selection from <span class="guilabel">MultiPlot Configuration</span>, follow the
+next steps:</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">How the create MultiPlot Configuration is described in
+<a class="reference internal" href="plotting_1d_arrays.html#tpv"><span class="std std-ref">Table Plot View</span></a>.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">In Main Tree View Window menu navigate to <strong>Actions</strong> -&gt;
+<strong>Apply Configuration</strong>. In the shown window switch to
+<span class="guilabel">Apply Plot Configuration</span> tab.</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/ApplyPlotConfiguration_window.png"><img alt="../_images/ApplyPlotConfiguration_window.png" src="../_images/ApplyPlotConfiguration_window.png" style="width: 306.0px; height: 336.75px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Apply Plot Configuration</span> tab.</span></p>
+</div>
+</li>
+<li><p class="first">Select the configuration from the list.</p>
+</li>
+<li><p class="first">Press <strong>Apply selection only</strong>.</p>
+<p>The signal nodes, found in the configuration file, will then be selected.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="unselect-selected-node-signals">
+<h2>2.3.5. Unselect selected Node Signals<a class="headerlink" href="#unselect-selected-node-signals" title="Permalink to this headline">¶</a></h2>
+<p>There are few features that allow node signal unselection.</p>
+<div class="section" id="unselect-one-by-one">
+<h3>2.3.5.1. Unselect One-by-one<a class="headerlink" href="#unselect-one-by-one" title="Permalink to this headline">¶</a></h3>
+<p>To unselect nodes one by one, first, right-click on the selected node.
+From the shown pop-up menu, select the command
+<span class="guilabel">Unselect &lt;node name&gt;</span> <a class="reference internal" href="../_images/minus.png"><img alt="icon_minus" src="../_images/minus.png" style="width: 15px; height: 15px;" /></a>.</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/DTV_popupmenu_unselect.png"><img alt="../_images/DTV_popupmenu_unselect.png" src="../_images/DTV_popupmenu_unselect.png" style="width: 316.5px; height: 146.25px;" /></a>
+<p class="caption"><span class="caption-text">Unselecting plottable node.</span></p>
+</div>
+</div>
+<div class="section" id="unselect-all">
+<h3>2.3.5.2. Unselect All<a class="headerlink" href="#unselect-all" title="Permalink to this headline">¶</a></h3>
+<p>To unselect all selected nodes, first, right-click on the selected node.
+From the shown pop-up menu, select the command
+<span class="guilabel">Unselect Nodes</span> <a class="reference internal" href="../_images/minus3x.png"><img alt="icon_minus3x" src="../_images/minus3x.png" style="width: 15px; height: 15px;" /></a> -&gt;
+<span class="guilabel">This IMAS Database</span> <a class="reference internal" href="../_images/thisDTV.png"><img alt="icon_thisDTV" src="../_images/thisDTV.png" style="width: 15px; height: 15px;" /></a> or
+<span class="guilabel">All IMAS Databases</span> <a class="reference internal" href="../_images/allDTV.png"><img alt="icon_allDTV" src="../_images/allDTV.png" style="width: 15px; height: 15px;" /></a>.</p>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/DTV_popupmenu_unselect_all.png"><img alt="../_images/DTV_popupmenu_unselect_all.png" src="../_images/DTV_popupmenu_unselect_all.png" style="width: 480.0px; height: 146.25px;" /></a>
+<p class="caption"><span class="caption-text">Unselecting multiple plottable nodes at once.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plotting_1d_arrays.html" class="btn btn-neutral float-right" title="2.4. Plotting 1D arrays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="loading_IDS.html" class="btn btn-neutral" title="2.2. Loading IDS from IMAS local data source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
