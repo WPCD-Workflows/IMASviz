@@ -1,0 +1,99 @@
+.. _plugins_qtdesigner:
+
+Developing custom user interface (UI) plugins with Qt designer
+==============================================================
+
+**Qt Designer** is a tool for designing and building **Qt-based graphical user**
+**interfaces**. It allows the user to design custom widgets, dialogs, main
+windows etc. using on-screen forms and a user-friendly simple drag-and-drop
+interface. It also provides the user with convenient ability to preview the
+designs to ensure they work as intended.
+
+In general, Qt Designer mainly offers basic QT widgets such as Push Button,
+Line Edit, List Widget etc. This list of the QT Designer widgets can be extended
+by writing so-called **Qt designer plugins** (do not confuse with
+**IMASViz plugins**!). Normally this is done using C++ but PyQt5 also allows
+you to write QT Designer plugins in Python.
+
+Most of the time such designer plugin is used to expose a custom widget
+(written in Python) to QT Designer so that it appears in Designer’s widget box
+just like any other widget. It is possible to change the widget’s properties
+and to connect its signals and slots.
+
+.. note::
+   For more information on QT Designer and PyQt5 based plugins and widgets
+   check `this Link <http://pyqt.sourceforge.net/Docs/PyQt5/designer.html>`_.
+
+In this HOWTO section it will be described how to:
+  1. How to develop a **custom PyQt5 widget**
+  2. How to expose the **custom PyQt5 widget** class to **Qt designer** as a
+     **Qt designer plugin**
+  3. How to use the **custom PyQt5 widget** as a **Qt designer plugin** within
+     the Qt Designer
+  4. How to design of a custom **user interface (UI) plugin** (which includes
+     the custom **Qt designer plugin**) with Qt designer
+  5. How to use of the **UI plugin** in a standalone way as a
+     **PyQt5 application**
+  6. How to use of the **UI plugin** in **IMASViz**
+
+As a main example to work with, the **SOLPS overview Plugin**, also described
+(as IMASViz plugin) in :ref:`IMASViz_plugins`, will be used.
+
+A short demonstration video, showing the procedures described in points **3-6**
+(PyQt5 widget code development is **NOT** included!), is available below.
+
+
+.. only:: html
+
+   .. TODO: video is shown only in HTML documentation!
+   .. raw:: html
+
+      <video controls width="600" src="../_static/QtDesigner_and_IMASViz_plugin_short_demo.mp4"></video>
+
+
+.. only:: latex
+
+   .. TODO: requires the .mp4 file to be in the same directory as the .pdf file
+
+   `Local Video Link <QtDesigner_and_IMASViz_plugin_short_demo.mp4>`_.
+
+.. image sources (to be used)
+
+.. images/QtDesigner_EmptyMainWindow.png
+.. images/QtDesigner_SOLPSwidget_drag.png
+.. images/QtDesigner_SOLPSwidget_drop.png
+.. images/QtDesigner_SOLPSwidget_objectNameChange_before.png
+.. images/QtDesigner_SOLPSwidget_objectNameChange_after.png
+.. images/QtDesigner_MainWindow_windowTitleChange_before.png
+.. images/QtDesigner_MainWindow_windowTitleChange_after.png
+.. images/QtDesigner_widgetBox.png
+.. images/QtDesigner_PushButton_drag.png
+.. images/QtDesigner_add_3x_PushButton.png
+.. images/QtDesigner_PushButton_textEdit_before.png
+.. images/QtDesigner_PushButton_textEdit_after.png
+.. images/QtDesigner_PushButton_textEdit_finished.png
+.. images/QtDesigner_setToGridLayout_menu.png
+.. images/QtDesigner_setToGridLayout_finished.png
+.. images/QtDesigner_editSignalsSlots_menu.png
+.. images/QtDesigner_editSignalsSlots_redColorIndicator.png
+.. images/QtDesigner_editSignalsSlots_SetIDS_drag.png
+.. images/QtDesigner_editSignalsSlots_SetIDS_conf.png
+.. images/QtDesigner_editSignalsSlots_SetIDS_finished.png
+.. images/QtDesigner_editSignalsSlots_SetGGDData_conf.png
+.. images/QtDesigner_editSignalsSlots_PlotData_conf.png
+.. images/QtDesigner_editSignalsSlots_all_finished.png
+.. images/QtDesigner_preview_menu.png
+.. images/QtDesigner_preview_run.png
+.. images/QtDesigner_preview_run_IDSvariables.png
+.. images/QtDesigner_preview_run_SpecifyDataToPlot_default.png
+.. images/QtDesigner_preview_run_SpecifyDataToPlot_listOfQuantities.png
+.. images/QtDesigner_preview_run_PlotData.png
+.. images/QtDesigner_saveAs_menu.png
+.. images/QtDesigner_saveAs_set.png
+
+
+
+
+
+
+

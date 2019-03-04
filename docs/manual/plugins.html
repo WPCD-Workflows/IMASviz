@@ -24,15 +24,15 @@
 
   
 
-  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.6. Other GUI features" href="other_GUI_features.html" />
     <link rel="prev" title="2.4. Plotting 1D arrays" href="plotting_1d_arrays.html" /> 
 
   
-  <script src="../static/js/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -92,12 +92,17 @@
 <li class="toctree-l4"><a class="reference internal" href="#equilibrium-overview-plugin-gui-features">2.5.1.2. Equilibrium overview plugin GUI features</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#solps-overview-plugin">2.5.2. SOLPS overview plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#executing-the-solps-overview-plugin">2.5.2.1. Executing the SOLPS overview plugin</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.6. Other GUI features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripting.html">2.7. Scripting</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">3. HOWTOs</a></li>
 </ul>
 
             
@@ -165,9 +170,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="plugins">
-<span id="id1"></span><h1>2.5. Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h1>
-<p>IMASViz enables the use of custom made plugins. The plugins currently available
-are listed here together with a manual section on how to use them.</p>
+<span id="imasviz-plugins"></span><h1>2.5. Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h1>
+<p>IMASViz allows the use of custom-made plugins which further extend the IMASViz
+functionality. The plugins currently available are listed here together with a
+manual section on how to use them.</p>
 <div class="section" id="equilibrium-overview-plugin">
 <h2>2.5.1. Equilibrium overview plugin<a class="headerlink" href="#equilibrium-overview-plugin" title="Permalink to this headline">¶</a></h2>
 <p>This subsection describes and demonstrates the use of IMASViz
@@ -185,16 +191,18 @@ multiple data from <strong>equilibrium IDS</strong> at once.</p>
 equilibrium IDS will be displayed.</p>
 </li>
 <li><p class="first">Click the <span class="guilabel">Equilibrium overview</span> option.</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../images/equilibrium_plugin_popupmenu.png"><img alt="Equilibrium overviev plugin popup menu option" src="../images/equilibrium_plugin_popupmenu.png" style="width: 283.2px; height: 72.0px;" /></a>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_popupmenu.png"><img alt="Equilibrium overview plugin popup menu option." src="../_images/equilibrium_plugin_popupmenu.png" style="width: 283.2px; height: 72.0px;" /></a>
+<p class="caption"><span class="caption-text">Equilibrium overview plugin popup menu option.</span></p>
 </div>
 </li>
 </ol>
 <p>The plugin will then first grab the data from the Equilibrium IDS which
 takes a few seconds. After that the plugin window will appear.</p>
 <blockquote>
-<div><div class="figure align-center">
-<a class="reference internal image-reference" href="../images/equilibrium_plugin_window_start.png"><img alt="Equilibrium overviev plugin main window." src="../images/equilibrium_plugin_window_start.png" style="width: 768.0px; height: 425.4px;" /></a>
+<div><div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_window_start.png"><img alt="Equilibrium overview plugin main window." src="../_images/equilibrium_plugin_window_start.png" style="width: 768.0px; height: 425.4px;" /></a>
+<p class="caption"><span class="caption-text">Equilibrium overview plugin main window.</span></p>
 </div>
 </div></blockquote>
 </div>
@@ -213,8 +221,9 @@ same time, indicating the selected time value (position).</p>
 <h4>2.5.1.2.2. Plot at time slide using time value<a class="headerlink" href="#plot-at-time-slide-using-time-value" title="Permalink to this headline">¶</a></h4>
 <p>The time can be specified directly by typing the value to the <strong>time value box</strong>.</p>
 <blockquote>
-<div><div class="figure align-center">
-<a class="reference internal image-reference" href="../images/equilibrium_plugin_window_time_value_textbox.png"><img alt="Time value box." src="../images/equilibrium_plugin_window_time_value_textbox.png" style="width: 261.6px; height: 27.200000000000003px;" /></a>
+<div><div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/equilibrium_plugin_window_time_value_textbox.png"><img alt="Time value box." src="../_images/equilibrium_plugin_window_time_value_textbox.png" style="width: 261.6px; height: 27.200000000000003px;" /></a>
+<p class="caption"><span class="caption-text">Time value box.</span></p>
 </div>
 </div></blockquote>
 <p>By pressing <span class="guilabel">enter</span> keyboard button, all plots are be updated for the
@@ -234,6 +243,86 @@ time update all plots, giving a good overall overview.</p>
 <h4>2.5.1.2.4. Enable plot grid<a class="headerlink" href="#enable-plot-grid" title="Permalink to this headline">¶</a></h4>
 <p>To enable grid on all plots check the <span class="guilabel">Enable Grid</span> option.</p>
 </div>
+</div>
+</div>
+<div class="section" id="solps-overview-plugin">
+<h2>2.5.2. SOLPS overview plugin<a class="headerlink" href="#solps-overview-plugin" title="Permalink to this headline">¶</a></h2>
+<p>This subsection describes and demonstrates the use of IMASViz
+<strong>SOLPS overview plugin</strong>, a simple utility for loading and displaying
+grid geometry (including grid subsets), and physics quantities (such as
+electron density, ion temperature etc.) stored within
+<strong>edge_profiles IDS GGD (General Grid Description)</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <strong>SOLPS overview plugin</strong> can be run also as standalone
+(outside IMASViz) by navigating to <code class="docutils literal notranslate"><span class="pre">$VIZ_HOME/imasviz/VizPlugins/viz_solps</span></code>
+and running the command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">SOLPSPlugin.py</span></code>.</p>
+</div>
+<div class="section" id="executing-the-solps-overview-plugin">
+<h3>2.5.2.1. Executing the SOLPS overview plugin<a class="headerlink" href="#executing-the-solps-overview-plugin" title="Permalink to this headline">¶</a></h3>
+<p>The procedure of executing the IMASViz <strong>SOLPS overview plugin</strong> is as follows:</p>
+<ol class="arabic">
+<li><p class="first">In opened IMAS database navigate to the <strong>edge_profiles</strong> IDS.</p>
+</li>
+<li><p class="first">While holding the <strong>shift keyboard button</strong>, <strong>right-click</strong> on the
+<strong>edge_profiles</strong> node. In a pop up menu a list of available plugins for the
+edge_profiles IDS will be displayed.</p>
+</li>
+<li><p class="first">Click the <span class="guilabel">SOLPS overview</span> option.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_popupmenu.png"><img alt="SOLPS overview plugin popup menu option" src="../_images/SOLPS_plugin_popupmenu.png" style="width: 236.0px; height: 54.400000000000006px;" /></a>
+<p class="caption"><span class="caption-text">SOLPS overview plugin popup menu option</span></p>
+</div>
+<p>After that the main plugin window will appear, containing an empty plot
+widget and a few buttons.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_window_start.png"><img alt="SOLPS overview plugin main window." src="../_images/SOLPS_plugin_window_start.png" style="width: 265.2px; height: 423.59999999999997px;" /></a>
+<p class="caption"><span class="caption-text">SOLPS overview plugin main window.</span></p>
+</div>
+</li>
+<li><p class="first">Click the <span class="guilabel">Set IDS</span> button. The plugin will then first read the
+available data from the Edge Profiles IDS (provided by IMASViz) and build
+the tree view which takes a few seconds.</p>
+</li>
+<li><p class="first">Click the <span class="guilabel">Set Data</span> button. After that a dialog window will
+appear, requesting:</p>
+<ul class="simple">
+<li><span class="guilabel">GGD Grid (Slice)</span>, specifying a grid geometry time slice.
+In most cases the grid geometry does not change with time so in such cases
+is obsolete to ‘re-write’ it (that is also the reason why the
+<strong>GGD Grid (grid_ggd)</strong> and <strong>GGD Quantities (ggd)</strong> structures are
+separated).</li>
+<li><span class="guilabel">GGD Quantities (Slice)</span>, specifying the time slice for physics
+quantities,</li>
+<li><span class="guilabel">Grid Subset</span>, listing all available 2D grid subsets for specified
+<strong>GGD Grid</strong> and <strong>GGD Quantities</strong> slice.</li>
+<li><span class="guilabel">Grid Subset Quantity</span>, listing all available quantities for
+grid subset specified by <span class="guilabel">Grid Subset</span> drop down list.</li>
+</ul>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_dialog_set_data.png"><img alt="SOLPS overview plugin dialog for setting data (basic example values are set)." src="../_images/SOLPS_plugin_dialog_set_data.png" style="width: 298.40000000000003px; height: 159.20000000000002px;" /></a>
+<p class="caption"><span class="caption-text">SOLPS overview plugin dialog for setting data (basic example values
+are set).</span></p>
+</div>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_dialog_list_grid_subset.png"><img alt="List of available (2D) grid subsets for current IDS." src="../_images/SOLPS_plugin_dialog_list_grid_subset.png" style="width: 300.8px; height: 177.60000000000002px;" /></a>
+<p class="caption"><span class="caption-text">List of available (2D) grid subsets for current IDS.</span></p>
+</div>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_dialog_list_quantities.png"><img alt="List of available physics quantities for current IDS." src="../_images/SOLPS_plugin_dialog_list_quantities.png" style="width: 302.40000000000003px; height: 484.8px;" /></a>
+<p class="caption"><span class="caption-text">List of available physics quantities for current IDS.</span></p>
+</div>
+<p>After the requested parameters are set, press the <span class="guilabel">OK</span> button.</p>
+</li>
+<li><p class="first">Click the <span class="guilabel">Plot Data</span> button. After pressing the button the plot
+widget will be populated with plot created using the specified data.</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/SOLPS_plugin_plot_te.png"><img alt="SOLPS overview plugin plot - **Cells** grid subset (all 2D quad elements in the domain) + electron temperature quantity values." src="../_images/SOLPS_plugin_plot_te.png" style="width: 352.8px; height: 562.4px;" /></a>
+<p class="caption"><span class="caption-text">SOLPS overview plugin plot - <strong>Cells</strong> grid subset (all 2D quad
+elements in the domain) + electron temperature quantity values.</span></p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -290,14 +379,14 @@ time update all plots, giving a good overall overview.</p>
               SOURCELINK_SUFFIX: '.txt'
           };
       </script>
-        <script type="text/javascript" src="../static/jquery.js"></script>
-        <script type="text/javascript" src="../static/underscore.js"></script>
-        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
     
 
   
 
-  <script type="text/javascript" src="../static/js/theme.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

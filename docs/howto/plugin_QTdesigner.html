@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developing custom user interface (UI) plugins with Qt designer &mdash; IMASViz 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/index.html">2. User Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Developing custom user interface (UI) plugins with Qt designer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/howto/plugin_QTdesigner.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developing-custom-user-interface-ui-plugins-with-qt-designer">
+<span id="plugins-qtdesigner"></span><h1>Developing custom user interface (UI) plugins with Qt designer<a class="headerlink" href="#developing-custom-user-interface-ui-plugins-with-qt-designer" title="Permalink to this headline">¶</a></h1>
+<p><strong>Qt Designer</strong> is a tool for designing and building <strong>Qt-based graphical user</strong>
+<strong>interfaces</strong>. It allows the user to design custom widgets, dialogs, main
+windows etc. using on-screen forms and a user-friendly simple drag-and-drop
+interface. It also provides the user with convenient ability to preview the
+designs to ensure they work as intended.</p>
+<p>In general, Qt Designer mainly offers basic QT widgets such as Push Button,
+Line Edit, List Widget etc. This list of the QT Designer widgets can be extended
+by writing so-called <strong>Qt designer plugins</strong> (do not confuse with
+<strong>IMASViz plugins</strong>!). Normally this is done using C++ but PyQt5 also allows
+you to write QT Designer plugins in Python.</p>
+<p>Most of the time such designer plugin is used to expose a custom widget
+(written in Python) to QT Designer so that it appears in Designer’s widget box
+just like any other widget. It is possible to change the widget’s properties
+and to connect its signals and slots.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information on QT Designer and PyQt5 based plugins and widgets
+check <a class="reference external" href="http://pyqt.sourceforge.net/Docs/PyQt5/designer.html">this Link</a>.</p>
+</div>
+<dl class="docutils">
+<dt>In this HOWTO section it will be described how to:</dt>
+<dd><ol class="first last arabic simple">
+<li>How to develop a <strong>custom PyQt5 widget</strong></li>
+<li>How to expose the <strong>custom PyQt5 widget</strong> class to <strong>Qt designer</strong> as a
+<strong>Qt designer plugin</strong></li>
+<li>How to use the <strong>custom PyQt5 widget</strong> as a <strong>Qt designer plugin</strong> within
+the Qt Designer</li>
+<li>How to design of a custom <strong>user interface (UI) plugin</strong> (which includes
+the custom <strong>Qt designer plugin</strong>) with Qt designer</li>
+<li>How to use of the <strong>UI plugin</strong> in a standalone way as a
+<strong>PyQt5 application</strong></li>
+<li>How to use of the <strong>UI plugin</strong> in <strong>IMASViz</strong></li>
+</ol>
+</dd>
+</dl>
+<p>As a main example to work with, the <strong>SOLPS overview Plugin</strong>, also described
+(as IMASViz plugin) in <a class="reference internal" href="../manual/plugins.html#imasviz-plugins"><span class="std std-ref">Plugins</span></a>, will be used.</p>
+<p>A short demonstration video, showing the procedures described in points <strong>3-6</strong>
+(PyQt5 widget code development is <strong>NOT</strong> included!), is available below.</p>
+<video controls width="600" src="../_static/QtDesigner_and_IMASViz_plugin_short_demo.mp4"></video></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

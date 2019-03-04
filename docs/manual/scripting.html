@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.6. Scripting &mdash; IMASViz 2018 documentation</title>
+  <title>2.7. Scripting &mdash; IMASViz 2018 documentation</title>
   
 
   
@@ -24,14 +24,15 @@
 
   
 
-  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2.5. Other GUI features" href="other_GUI_features.html" /> 
+    <link rel="next" title="3. HOWTOs" href="../howto/index.html" />
+    <link rel="prev" title="2.6. Other GUI features" href="other_GUI_features.html" /> 
 
   
-  <script src="../static/js/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -85,23 +86,25 @@
 <li class="toctree-l2"><a class="reference internal" href="loading_IDS.html">2.2. Loading IDS from IMAS local data source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal_node_selection.html">2.3. Node selection features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plotting_1d_arrays.html">2.4. Plotting 1D arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.5. Other GUI features</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.6. Scripting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-imasviz-path-to-pythonpath">2.6.1. Adding IMASViz Path to PYTHONPATH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-script">2.6.2. Creating A Script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-the-script">2.6.3. Running the script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#script-examples">2.6.4. Script examples</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#example-1">2.6.4.1. Example 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-2">2.6.4.2. Example 2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-2b">2.6.4.3. Example 2b</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-3">2.6.4.4. Example 3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-4">2.6.4.5. Example 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">2.5. Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_GUI_features.html">2.6. Other GUI features</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.7. Scripting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-imasviz-path-to-pythonpath">2.7.1. Adding IMASViz Path to PYTHONPATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-script">2.7.2. Creating A Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-script">2.7.3. Running the script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#script-examples">2.7.4. Script examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1">2.7.4.1. Example 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2">2.7.4.2. Example 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2b">2.7.4.3. Example 2b</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3">2.7.4.4. Example 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-4">2.7.4.5. Example 4</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">3. HOWTOs</a></li>
 </ul>
 
             
@@ -149,7 +152,7 @@
         
           <li><a href="index.html">2. User Manual</a> &raquo;</li>
         
-      <li>2.6. Scripting</li>
+      <li>2.7. Scripting</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,7 +172,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="scripting">
-<span id="id1"></span><h1>2.6. Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>2.7. Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h1>
 <p>There are two main methods to open and browse IMAS IDS database using
 <span class="guilabel">IMASViz</span>. First is the standard way of running IMASViz
 (as described in <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started</span></a>) and setting the parameters in the GUI,
@@ -187,7 +190,7 @@ advanced alternative to the <span class="guilabel">Apply Configuration</span> fe
 method the IMASViz is used (!)</strong> (as described in
 <a class="reference internal" href="getting_started.html#running-on-gateway-as-a-module"><span class="std std-ref">Running IMASViz as a module on The GateWay</span></a> and <a class="reference internal" href="getting_started.html#running-from-source"><span class="std std-ref">Running IMASViz from source</span></a>).</p>
 <div class="section" id="adding-imasviz-path-to-pythonpath">
-<span id="scripting-adding-pythonpath"></span><h2>2.6.1. Adding IMASViz Path to PYTHONPATH<a class="headerlink" href="#adding-imasviz-path-to-pythonpath" title="Permalink to this headline">¶</a></h2>
+<span id="scripting-adding-pythonpath"></span><h2>2.7.1. Adding IMASViz Path to PYTHONPATH<a class="headerlink" href="#adding-imasviz-path-to-pythonpath" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Before proceeding, make sure that the environment is properly
@@ -210,7 +213,7 @@ for sources, libraries etc.</p>
 </div>
 </div>
 <div class="section" id="creating-a-script">
-<span id="scripting-create"></span><h2>2.6.2. Creating A Script<a class="headerlink" href="#creating-a-script" title="Permalink to this headline">¶</a></h2>
+<span id="scripting-create"></span><h2>2.7.2. Creating A Script<a class="headerlink" href="#creating-a-script" title="Permalink to this headline">¶</a></h2>
 <p>This subsection will cover the basic procedure of writing a Python3 script that
 can be used with <span class="guilabel">IMASViz</span>. Few such working script examples
 are shown in section <a class="reference internal" href="#scripting-examples"><span class="std std-ref">Script examples</span></a>. The same examples can be found
@@ -396,7 +399,7 @@ in project GIT repository
 </div></blockquote>
 </div>
 <div class="section" id="running-the-script">
-<h2>2.6.3. Running the script<a class="headerlink" href="#running-the-script" title="Permalink to this headline">¶</a></h2>
+<h2>2.7.3. Running the script<a class="headerlink" href="#running-the-script" title="Permalink to this headline">¶</a></h2>
 <p>With the environment set (done in <a class="reference internal" href="#scripting-adding-pythonpath"><span class="std std-ref">Adding IMASViz Path to PYTHONPATH</span></a>) and
 script completed (done in <a class="reference internal" href="#scripting-create"><span class="std std-ref">Creating A Script</span></a>), the script can be run
 using the basic Python3 terminal command:</p>
@@ -407,7 +410,7 @@ using the basic Python3 terminal command:</p>
 and <span class="guilabel">MultiPlot Views</span>, previously set in the script, should show,
 as shown in the figure below.</p>
 <div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../images/scripting_run_result.png"><img alt="../images/scripting_run_result.png" src="../images/scripting_run_result.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/scripting_run_result.png"><img alt="../_images/scripting_run_result.png" src="../_images/scripting_run_result.png" style="width: 550px;" /></a>
 <p class="caption"><span class="caption-text">The result of running the script example:
 <span class="guilabel">Data Tree View (DTV)</span>, <span class="guilabel">Plot Widget</span>,
 <span class="guilabel">Table Plot View</span> and <span class="guilabel">Stacked Plot View</span>
@@ -415,12 +418,12 @@ containing multiple plots.</span></p>
 </div>
 </div>
 <div class="section" id="script-examples">
-<span id="scripting-examples"></span><h2>2.6.4. Script examples<a class="headerlink" href="#script-examples" title="Permalink to this headline">¶</a></h2>
+<span id="scripting-examples"></span><h2>2.7.4. Script examples<a class="headerlink" href="#script-examples" title="Permalink to this headline">¶</a></h2>
 <p>Few complete script examples are shown below. The same examples can be found
 in project GIT repository
 <a class="reference external" href="https://git.iter.org/projects/VIS/repos/viz/browse/imasviz/VizExamples?at=refs%2Fheads%2Fviz2.0_develop">here</a>.</p>
 <div class="section" id="example-1">
-<h3>2.6.4.1. Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.4.1. Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -552,7 +555,7 @@ in project GIT repository
 </td></tr></table></div>
 </div>
 <div class="section" id="example-2">
-<h3>2.6.4.2. Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.4.2. Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -664,13 +667,13 @@ in project GIT repository
 <span class="c1"># Load IMAS database and build the data tree view frame</span>
 <span class="n">f1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52344</span><span class="p">,</span>
                                                  <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;penkod&#39;</span><span class="p">,</span>
                                                  <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
 
 <span class="c1"># Load IMAS database and build the data tree view frame</span>
 <span class="n">f2</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">CreateDataTree</span><span class="p">(</span><span class="n">dataSourceFactory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">shotNumber</span><span class="o">=</span><span class="mi">52682</span><span class="p">,</span>
                                                  <span class="n">runNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;g2penkod&#39;</span><span class="p">,</span>
+                                                 <span class="n">userName</span><span class="o">=</span><span class="s1">&#39;penkod&#39;</span><span class="p">,</span>
                                                  <span class="n">imasDbName</span><span class="o">=</span><span class="s1">&#39;viztest&#39;</span><span class="p">))</span>
 
 <span class="c1"># Add data tree view frames to list (!)</span>
@@ -712,7 +715,7 @@ in project GIT repository
 </td></tr></table></div>
 </div>
 <div class="section" id="example-2b">
-<h3>2.6.4.3. Example 2b<a class="headerlink" href="#example-2b" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.4.3. Example 2b<a class="headerlink" href="#example-2b" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -848,7 +851,7 @@ in project GIT repository
 </td></tr></table></div>
 </div>
 <div class="section" id="example-3">
-<h3>2.6.4.4. Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.4.4. Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -978,7 +981,7 @@ in project GIT repository
 </td></tr></table></div>
 </div>
 <div class="section" id="example-4">
-<h3>2.6.4.5. Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.4.5. Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1136,8 +1139,10 @@ in project GIT repository
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../howto/index.html" class="btn btn-neutral float-right" title="3. HOWTOs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="other_GUI_features.html" class="btn btn-neutral" title="2.5. Other GUI features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="other_GUI_features.html" class="btn btn-neutral" title="2.6. Other GUI features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1178,14 +1183,14 @@ in project GIT repository
               SOURCELINK_SUFFIX: '.txt'
           };
       </script>
-        <script type="text/javascript" src="../static/jquery.js"></script>
-        <script type="text/javascript" src="../static/underscore.js"></script>
-        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
     
 
   
 
-  <script type="text/javascript" src="../static/js/theme.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
