@@ -465,8 +465,8 @@ on **equilibrium.time_slice[0].profiles_1d.f** (Torodial Flux) array.
 MultiPlot features
 ------------------
 
-IMASViz provides few features that allow plotting a selection of plottable
-arrays to a single plot view window.
+IMASViz provides few features that allow plotting each signal from a selection
+to its own plot view window.
 
 Currently there are two such features available:
    - :guilabel:`Table Plot View` and

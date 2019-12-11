@@ -4,10 +4,13 @@
 Description
 ===========
 
-**IMASViz** is a visualization tool developed to be used within
-**Integrated Modelling Analysis Suite** (**IMAS)**
-for the purposes of visualizing static and dynamic IMAS data, stored
-within IMAS **Interface Data Structures** (**IDSs**).
+**IMASViz** is a post-processing tool for visualization and data analysis of
+the static and dynamic data, stored within
+**Integrated Modelling Analysis Suite** (**IMAS**) database pulse files e.g.
+**Interface Data Structures** (**IDSs**). To perform those features it provides
+a convenient Graphical User Interface (GUI) that allows easier and more
+straightforward handling of the available signals. The main IMASViz features
+are done through plotting the data, representing it in a form of plots/graphs.
 While the tool itself is already available for use it is still under active
 development, and various features, GUI improvements etc. are still being
 implemented.
@@ -28,15 +31,15 @@ While submitting the ticket please use the options listed below
 
 Developers:
 
-  - **Ludovic Fleury** (CEA Cadarache, Research Institute for Magnetics fusion,
-    e-mail: Ludovic.FLEURY@cea.fr)
+  - **Ludovic Fleury** (CEA Cadarache, Research Institute for Magnetics Fusion,
+    e-mail: ludovic.fleury@cea.fr)
   - **Dejan Penko** (University of Ljubljana, Mech.Eng., LECAD Lab,
     e-mail: dejan.penko@lecad.fs.uni-lj.si)
 
 .. Plugin developers
 
-..   - ‘Equilibrium plugin’: Jorge Morales (CEA Cadarache, Research Institute for Magnetics fusion)
-..   - ‘Tofu plugin’: Didier Vezinet (CEA Cadarache, Research Institute for Magnetics fusion)
+..   - ‘Equilibrium plugin’: Jorge Morales (CEA Cadarache, Research Institute for Magnetics Fusion)
+..   - ‘Tofu plugin’: Didier Vezinet (CEA Cadarache, Research Institute for Magnetics Fusion)
 
 The tool uses the following Python packages:
 
@@ -65,7 +68,7 @@ The tool uses the following Python packages:
     PyQtgraph makes heavy use of the Qt GUI platform (via PyQt or PySide) for its
     high-performance graphics and numpy for heavy number crunching. In particular,
     pyqtgraph uses Qt’s GraphicsView framework which is a highly capable graphics
-    system on its own; we bring optimized and simplified primitives to this
+    system on its own and brings optimized and simplified primitives to this
     framework to allow data visualization with minimal effort.
 
     For more on **pyqtgraph** see
@@ -82,14 +85,17 @@ The tool uses the following Python packages:
 
 **4. sphinx**
 
-    Sphinx is a tool originally created as a Python documentation generator
+    Sphinx is a tool originally created as a Python documentation generator,
     but it allows also generating documentation in form of html, latex etc.
 
     For more on **Sphinx** see
     `Sphinx webpage <http://www.sphinx-doc.org/en/master/>`_.
 
+.. TODO texlive, latexmk, libfreetype
+.. sudo apt-get install latexmk texlive texlive-science texlive-formats-extra
+
 IMASViz tool is available on **ITER git repository** (access permission is
-required) under project **Visualization/VIZ**, branch **viz2.0_develop**.
+required) under project **Visualization/VIZ**, branch **develop**.
 
 Direct link to the **IMASViz** git.iter repository:
 `IMASViz <https://git.iter.org/projects/VIS/repos/viz/browse>`_.

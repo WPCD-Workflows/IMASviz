@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.1. Description &mdash; IMASViz 2018 documentation</title>
+  <title>1.1. Description &mdash; IMASViz 2019 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.2. Release notes" href="release_notes.html" />
     <link rel="prev" title="1. Introduction" href="index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -155,10 +157,13 @@
             
   <div class="section" id="description">
 <span id="id1"></span><h1>1.1. Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
-<p><strong>IMASViz</strong> is a visualization tool developed to be used within
-<strong>Integrated Modelling Analysis Suite</strong> (<strong>IMAS)</strong>
-for the purposes of visualizing static and dynamic IMAS data, stored
-within IMAS <strong>Interface Data Structures</strong> (<strong>IDSs</strong>).
+<p><strong>IMASViz</strong> is a post-processing tool for visualization and data analysis of
+the static and dynamic data, stored within
+<strong>Integrated Modelling Analysis Suite</strong> (<strong>IMAS</strong>) database pulse files e.g.
+<strong>Interface Data Structures</strong> (<strong>IDSs</strong>). To perform those features it provides
+a convenient Graphical User Interface (GUI) that allows easier and more
+straightforward handling of the available signals. The main IMASViz features
+are done through plotting the data, representing it in a form of plots/graphs.
 While the tool itself is already available for use it is still under active
 development, and various features, GUI improvements etc. are still being
 implemented.</p>
@@ -166,32 +171,32 @@ implemented.</p>
 the developers via e-mail or submit a ticket on
 <a class="reference external" href="https://jira.iter.org">JIRA ITER Webpage</a>.</p>
 <p>While submitting the ticket please use the options listed below</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="36%" />
-<col width="64%" />
+<col style="width: 36%" />
+<col style="width: 64%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Field</strong></th>
-<th class="head"><strong>Required Option</strong></th>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Required Option</strong></p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Project</td>
-<td>IMAS (IMAS)</td>
+<tbody>
+<tr class="row-even"><td><p>Project</p></td>
+<td><p>IMAS (IMAS)</p></td>
 </tr>
-<tr class="row-odd"><td>Components</td>
-<td>VIZ</td>
+<tr class="row-odd"><td><p>Components</p></td>
+<td><p>VIZ</p></td>
 </tr>
 </tbody>
 </table>
 <p>Developers:</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>Ludovic Fleury</strong> (CEA Cadarache, Research Institute for Magnetics fusion,
-e-mail: <a class="reference external" href="mailto:Ludovic&#46;FLEURY&#37;&#52;&#48;cea&#46;fr">Ludovic<span>&#46;</span>FLEURY<span>&#64;</span>cea<span>&#46;</span>fr</a>)</li>
-<li><strong>Dejan Penko</strong> (University of Ljubljana, Mech.Eng., LECAD Lab,
-e-mail: <a class="reference external" href="mailto:dejan&#46;penko&#37;&#52;&#48;lecad&#46;fs&#46;uni-lj&#46;si">dejan<span>&#46;</span>penko<span>&#64;</span>lecad<span>&#46;</span>fs<span>&#46;</span>uni-lj<span>&#46;</span>si</a>)</li>
+<li><p><strong>Ludovic Fleury</strong> (CEA Cadarache, Research Institute for Magnetics Fusion,
+e-mail: <a class="reference external" href="mailto:ludovic&#46;fleury&#37;&#52;&#48;cea&#46;fr">ludovic<span>&#46;</span>fleury<span>&#64;</span>cea<span>&#46;</span>fr</a>)</p></li>
+<li><p><strong>Dejan Penko</strong> (University of Ljubljana, Mech.Eng., LECAD Lab,
+e-mail: <a class="reference external" href="mailto:dejan&#46;penko&#37;&#52;&#48;lecad&#46;fs&#46;uni-lj&#46;si">dejan<span>&#46;</span>penko<span>&#64;</span>lecad<span>&#46;</span>fs<span>&#46;</span>uni-lj<span>&#46;</span>si</a>)</p></li>
 </ul>
 </div></blockquote>
 <p>The tool uses the following Python packages:</p>
@@ -217,7 +222,7 @@ development (for example, property trees such as used in Qt Designer).</p>
 <p>PyQtgraph makes heavy use of the Qt GUI platform (via PyQt or PySide) for its
 high-performance graphics and numpy for heavy number crunching. In particular,
 pyqtgraph uses Qt’s GraphicsView framework which is a highly capable graphics
-system on its own; we bring optimized and simplified primitives to this
+system on its own and brings optimized and simplified primitives to this
 framework to allow data visualization with minimal effort.</p>
 <p>For more on <strong>pyqtgraph</strong> see
 <a class="reference external" href="http://www.pyqtgraph.org/">pyqtgraph webpage</a>.</p>
@@ -232,13 +237,13 @@ platforms.</p>
 </div></blockquote>
 <p><strong>4. sphinx</strong></p>
 <blockquote>
-<div><p>Sphinx is a tool originally created as a Python documentation generator
+<div><p>Sphinx is a tool originally created as a Python documentation generator,
 but it allows also generating documentation in form of html, latex etc.</p>
 <p>For more on <strong>Sphinx</strong> see
 <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx webpage</a>.</p>
 </div></blockquote>
 <p>IMASViz tool is available on <strong>ITER git repository</strong> (access permission is
-required) under project <strong>Visualization/VIZ</strong>, branch <strong>viz2.0_develop</strong>.</p>
+required) under project <strong>Visualization/VIZ</strong>, branch <strong>develop</strong>.</p>
 <p>Direct link to the <strong>IMASViz</strong> git.iter repository:
 <a class="reference external" href="https://git.iter.org/projects/VIS/repos/viz/browse">IMASViz</a>.</p>
 </div>
@@ -254,7 +259,7 @@ required) under project <strong>Visualization/VIZ</strong>, branch <strong>viz2.
         <a href="release_notes.html" class="btn btn-neutral float-right" title="1.2. Release notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -280,35 +285,16 @@ required) under project <strong>Visualization/VIZ</strong>, branch <strong>viz2.
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
