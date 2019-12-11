@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.6. Other GUI features &mdash; IMASViz 2018 documentation</title>
+  <title>2.6. Other GUI features &mdash; IMASViz 2019 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.7. Scripting" href="scripting.html" />
     <link rel="prev" title="2.5. Plugins" href="plugins.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -90,6 +92,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.6. Other GUI features</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#hide-show-plot-window">2.6.1. Hide/Show Plot Window</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#delete-plot-window">2.6.2. Delete Plot Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-ids">2.6.3. Export IDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-plot">2.6.4. Export plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hide-show-delete-dtv">2.6.5. Hide/Show/Delete DTV</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="scripting.html">2.7. Scripting</a></li>
@@ -173,12 +178,12 @@ signal node. From the shown pop-up menu, select the command
 <span class="guilabel">Show/Hide</span> <a class="reference internal" href="../_images/showHide.png"><img alt="icon_showHide" src="../_images/showHide.png" style="width: 15px; height: 15px;" /></a> and select the plot window you wish to
 show or hide.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Shown plot windows will be hidden while hidden windows will be shown.</p>
+<p class="admonition-title">Note</p>
+<p>Shown plot windows will be hidden while hidden windows will be shown.</p>
 </div>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_show_hide.png"><img alt="../_images/DTV_popupmenu_show_hide.png" src="../_images/DTV_popupmenu_show_hide.png" style="width: 566.25px; height: 162.75px;" /></a>
-<p class="caption"><span class="caption-text">Show/Hide plot window.</span></p>
+<p class="caption"><span class="caption-text">Show/Hide plot window.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="delete-plot-window">
@@ -189,12 +194,112 @@ From the shown pop-up menu, select the command
 all plot windows of certain type (<span class="guilabel">Figure</span>,
 <span class="guilabel">Table Plot View</span> etc.).</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The plot window will be deleted permanently.</p>
+<p class="admonition-title">Warning</p>
+<p>The plot window will be deleted permanently.</p>
 </div>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_delete.png"><img alt="../_images/DTV_popupmenu_delete.png" src="../_images/DTV_popupmenu_delete.png" style="width: 547.5px; height: 169.5px;" /></a>
-<p class="caption"><span class="caption-text">Delete plot window.</span></p>
+<p class="caption"><span class="caption-text">Delete plot window.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="export-ids">
+<h2>2.6.3. Export IDS<a class="headerlink" href="#export-ids" title="Permalink to this headline">¶</a></h2>
+<p>This feature allows the user to export the opened IDSs to a separate IDS with
+custom parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only IDSs that are currently opened and populated in the tree view window are
+exported using this feature.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IMAS database (e.g. device or machine) must exist before trying to export IDS
+to it.</p>
+</div>
+<p>To export the IDSs, first navigate to the menu <span class="guilabel">Actions</span> -&gt;
+<span class="guilabel">Export to IDS</span>.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/DTV_menu_export_to_IDS.png"><img alt="../_images/DTV_menu_export_to_IDS.png" src="../_images/DTV_menu_export_to_IDS.png" style="width: 164.25px; height: 78.75px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Export to IDS</span> feature in the menu bar.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>A popup dialog will be shown where the IDS case parameters are set.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/dialog_ExportToIDS.png"><img alt="../_images/dialog_ExportToIDS.png" src="../_images/dialog_ExportToIDS.png" style="width: 414.0px; height: 165.75px;" /></a>
+<p class="caption"><span class="caption-text">Empty dialog of the <span class="guilabel">Export to IDS</span> feature.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The IDS case parameters are described below:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>GUI Fields</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>User name</p></td>
+<td><p>Creator/owner of the IMAS IDSs database</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMAS database name</p></td>
+<td><p>IMAS database label, usually device/machine name of the
+IMAS IDS database (i. e. iter, aug, west…)</p></td>
+</tr>
+<tr class="row-even"><td><p>Shot number</p></td>
+<td><p>Pulse shot number</p></td>
+</tr>
+<tr class="row-odd"><td><p>Run number</p></td>
+<td><p>Pulse run number</p></td>
+</tr>
+</tbody>
+</table>
+<p>When the case parameters are set, press the <span class="guilabel">OK</span> button to export to
+the specified new IDS.</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/dialog_ExportToIDS_filled.png"><img alt="../_images/dialog_ExportToIDS_filled.png" src="../_images/dialog_ExportToIDS_filled.png" style="width: 414.0px; height: 165.75px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Export to IDS</span> feature dialog with set parameters.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>The export status gets displayed in the tree view log widget.</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/ExportToIDS_log_success.png"><img alt="../_images/ExportToIDS_log_success.png" src="../_images/ExportToIDS_log_success.png" style="width: 297.75px; height: 168.75px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Export to IDS</span> finish message.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="export-plot">
+<h2>2.6.4. Export plot<a class="headerlink" href="#export-plot" title="Permalink to this headline">¶</a></h2>
+<p>This feature allows the user to export:</p>
+<ul class="simple">
+<li><p>plot to image,</p></li>
+<li><p>plot to .SVG format,</p></li>
+<li><p>plot to matplotlib window, and</p></li>
+<li><p>plot data to CSV or HDF5 format.</p></li>
+</ul>
+<p>This feature is accessible by right-clicking anywhere inside the plot window
+and by selecting <span class="guilabel">Export…</span> option in the shown popup menu.</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/ExportFeature_1.png"><img alt="../_images/ExportFeature_1.png" src="../_images/ExportFeature_1.png" style="width: 25%;" /></a>
+<p class="caption"><span class="caption-text">Selections of the <span class="guilabel">Export</span> feature in the popup menu.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>A dialog window will be shown, displaying the possible export options.
+Some the export options allow also setting basic parameters such as image
+size etc.</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/ExportFeature_2.png"><img alt="../_images/ExportFeature_2.png" src="../_images/ExportFeature_2.png" style="width: 35%;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Export</span> feature dialog window.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="hide-show-delete-dtv">
+<h2>2.6.5. Hide/Show/Delete DTV<a class="headerlink" href="#hide-show-delete-dtv" title="Permalink to this headline">¶</a></h2>
+<p>This feature allows the user to either hide, show or delete existing
+<strong>Data Tree Views</strong> (DTVs).</p>
+<p>This feature is available from the starting dialog window (the one where the
+database parameters <strong>user</strong>/<strong>database</strong>/<strong>shot</strong>/<strong>run</strong> are being set) by
+right clicking anywhere inside the window. A popup menu will be shown displaying
+those available options.</p>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/ShowHideDeleteDTV_1.png"><img alt="../_images/ShowHideDeleteDTV_1.png" src="../_images/ShowHideDeleteDTV_1.png" style="width: 653.4px; height: 295.2px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Show/Hide/Delete DTV</span> popup menu.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -210,7 +315,7 @@ all plot windows of certain type (<span class="guilabel">Figure</span>,
         <a href="scripting.html" class="btn btn-neutral float-right" title="2.7. Scripting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plugins.html" class="btn btn-neutral" title="2.5. Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plugins.html" class="btn btn-neutral float-left" title="2.5. Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -236,35 +341,16 @@ all plot windows of certain type (<span class="guilabel">Figure</span>,
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

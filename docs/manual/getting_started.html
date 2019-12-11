@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1. Getting Started &mdash; IMASViz 2018 documentation</title>
+  <title>2.1. Getting Started &mdash; IMASViz 2019 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. Loading IDS from IMAS local data source" href="loading_IDS.html" />
     <link rel="prev" title="2. User Manual" href="index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -83,20 +85,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">2. User Manual</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Getting Started</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#running-imasviz-as-a-module-on-the-gateway">2.1.1. Running IMASViz as a module on The GateWay</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#setting-the-environment">2.1.1.1. Setting the Environment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-imasviz">2.1.1.2. Running IMASViz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-imasviz-as-a-module">2.1.1. Running IMASViz as a module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-gateway-hpc">2.1.1.1. On the GateWay HPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-iter-hpc">2.1.1.2. On ITER HPC</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#available-benchmark-imas-databases">2.1.2. Available benchmark IMAS databases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-imasviz-from-source">2.1.3. Running IMASViz from source</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#requirements">2.1.3.1. Requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#obtaining-the-source-code">2.1.3.2. Obtaining the source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">2.1.3.3. Setting the environment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">2.1.3.4. Running IMASViz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-imasviz-from-source">2.1.2. Running IMASViz from source</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">2.1.2.1. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#obtaining-the-source-code">2.1.2.2. Obtaining the source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.1.2.3. Setting the environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.1.2.4. Running IMASViz</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#latest-documentation-and-manual">2.1.4. Latest documentation and manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#latest-documentation-and-manual">2.1.3. Latest documentation and manual</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="loading_IDS.html">2.2. Loading IDS from IMAS local data source</a></li>
@@ -178,19 +179,21 @@
 <span id="id1"></span><h1>2.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>This section describes setting the environment configuration required
 to run the IMASViz tool and how to run the application itself.</p>
-<div class="section" id="running-imasviz-as-a-module-on-the-gateway">
-<span id="running-on-gateway-as-a-module"></span><h2>2.1.1. Running IMASViz as a module on The GateWay<a class="headerlink" href="#running-imasviz-as-a-module-on-the-gateway" title="Permalink to this headline">¶</a></h2>
-<p>The procedure below describes how to use IMASViz if it is available as a
-module on the HPC cluster.</p>
+<div class="section" id="running-imasviz-as-a-module">
+<span id="running-on-gateway-as-a-module"></span><h2>2.1.1. Running IMASViz as a module<a class="headerlink" href="#running-imasviz-as-a-module" title="Permalink to this headline">¶</a></h2>
+<p>The procedure below describes how to load and run IMASViz which is available
+as a module on the GateWay and ITER HPC cluster.</p>
+<div class="section" id="on-the-gateway-hpc">
+<h3>2.1.1.1. On the GateWay HPC<a class="headerlink" href="#on-the-gateway-hpc" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="setting-the-environment">
-<h3>2.1.1.1. Setting the Environment<a class="headerlink" href="#setting-the-environment" title="Permalink to this headline">¶</a></h3>
+<h4>2.1.1.1.1. Setting the Environment<a class="headerlink" href="#setting-the-environment" title="Permalink to this headline">¶</a></h4>
 <p>In a new terminal, execute the following command in order to load the required
 modules:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load cineca</span>
 <span class="go">module load imasenv   # or any other specific imasenv module version</span>
-<span class="go">module load imas-viz/2.0.0</span>
+<span class="go">module load imas-viz/v2</span>
 
-<span class="gp">#</span> The next few modules should be loaded together with imas-viz/2.0.0
+<span class="gp">#</span> The next few modules should be loaded together with imasenv module
 <span class="gp">#</span> Listing them all here in <span class="k">case</span> of module related issues.
 <span class="gp">#</span> module load itm-gcc/6.1.0
 <span class="gp">#</span> module unload itm-python/2.7
@@ -198,9 +201,18 @@ modules:</p>
 <span class="gp">#</span> module load itm-qt/5.8.0
 </pre></div>
 </div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Listing all available imas-viz modules can be <span class="k">done</span> by running
+<span class="go">module av imas-viz</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> With the imas-viz module loaded <span class="o">(</span>version <span class="m">2</span>.3.0 or never<span class="o">)</span>
+<span class="gp">#</span> the documentation can be accessed by running
+<span class="go">biz-doc</span>
+</pre></div>
+</div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last"><strong>IMPORTANT!</strong> IMAS databases (IDSs) were written using specific version of
+<p class="admonition-title">Warning</p>
+<p><strong>IMPORTANT!</strong> IMAS databases (IDSs) were written using specific version of
 IMAS. In order to open these IDSs the <strong>same IMAS module version</strong> should
 be used due to possible IDS database structure changes through different
 versions. Any tools or utilities that work with IDSs, including <code class="docutils literal notranslate"><span class="pre">IMASViz</span></code>,
@@ -208,7 +220,7 @@ cannot work properly if this “IMAS version mismatch” is too great (!).</p>
 </div>
 </div>
 <div class="section" id="running-imasviz">
-<h3>2.1.1.2. Running IMASViz<a class="headerlink" href="#running-imasviz" title="Permalink to this headline">¶</a></h3>
+<h4>2.1.1.1.2. Running IMASViz<a class="headerlink" href="#running-imasviz" title="Permalink to this headline">¶</a></h4>
 <p>With the environment set, run the IMASviz by simply typing the following
 command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">viz</span>
@@ -217,101 +229,214 @@ command:</p>
 <p>The main GUI window of IMAS_VIZ should display, as shown in the figure below:</p>
 <a class="reference internal image-reference" href="../_images/startup_window_default.png"><img alt="../_images/startup_window_default.png" class="align-center" src="../_images/startup_window_default.png" style="width: 480.0px; height: 160.0px;" /></a>
 <p>The description of the above input parameters is as follows:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>GUI Fields</strong></th>
-<th class="head"><strong>Description</strong></th>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>GUI Fields</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>User name</td>
-<td>Creator/owner of the IMAS IDSs database</td>
+<tbody>
+<tr class="row-even"><td><p>User name</p></td>
+<td><p>Creator/owner of the IMAS IDSs database</p></td>
 </tr>
-<tr class="row-odd"><td>IMAS database name</td>
-<td>IMAS database label, usually device/machine name of the
-IMAS IDS database (i. e. iter, aug, west…)</td>
+<tr class="row-odd"><td><p>IMAS database name</p></td>
+<td><p>IMAS database label, usually device/machine name of the
+IMAS IDS database (i. e. iter, aug, west…)</p></td>
 </tr>
-<tr class="row-even"><td>Shot number</td>
-<td>Pulse shot number</td>
+<tr class="row-even"><td><p>Shot number</p></td>
+<td><p>Pulse shot number</p></td>
 </tr>
-<tr class="row-odd"><td>Run number</td>
-<td>Pulse run number</td>
+<tr class="row-odd"><td><p>Run number</p></td>
+<td><p>Pulse run number</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="available-benchmark-imas-databases">
-<h2>2.1.2. Available benchmark IMAS databases<a class="headerlink" href="#available-benchmark-imas-databases" title="Permalink to this headline">¶</a></h2>
-<p>On the GateWay HPC there are a few <strong>benchmark IMAS IDS cases</strong> available. These
+<div class="section" id="available-testing-imas-databases">
+<h4>2.1.1.1.3. Available testing IMAS databases<a class="headerlink" href="#available-testing-imas-databases" title="Permalink to this headline">¶</a></h4>
+<p>On the GateWay HPC there are a few <strong>testing IMAS IDS cases</strong> available. These
 databases are the main source of data used for IMASViz testing purposes and
 were also included in writing the this documentation. Users can freely use them
 for examples and practice purposes.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There IMAS IDS cases are confirmed to work with IMAS versions
-<strong>3.19.1</strong> - <strong>3.20.0</strong>.</p>
+<p class="admonition-title">Note</p>
+<p>There IMAS IDS cases are confirmed to work with IMAS versions
+<strong>3.23.2</strong> - <strong>3.24.0</strong>.</p>
 </div>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="40%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="4"><strong>Available IMAS IDS Case Parameters</strong></th>
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p><strong>Available IMAS IDS Case Parameters</strong></p></th>
 </tr>
-<tr class="row-even"><th class="head">Parameters</th>
-<th class="head">Case 1</th>
-<th class="head">Case 2</th>
-<th class="head">Case 3</th>
+<tr class="row-even"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Case 1</p></th>
+<th class="head"><p>Case 2</p></th>
+<th class="head"><p>Case 3</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-odd"><td>User name</td>
-<td>g2penkod</td>
-<td>g2penkod</td>
-<td>g2penkod</td>
+<tbody>
+<tr class="row-odd"><td><p>User name</p></td>
+<td><p>g2penkod</p></td>
+<td><p>g2penkod</p></td>
+<td><p>g2penkod</p></td>
 </tr>
-<tr class="row-even"><td>IMAS database name</td>
-<td>viztest</td>
-<td>viztest</td>
-<td>viztest</td>
+<tr class="row-even"><td><p>IMAS database name</p></td>
+<td><p>viztest</p></td>
+<td><p>viztest</p></td>
+<td><p>viztest</p></td>
 </tr>
-<tr class="row-odd"><td>Shot number</td>
-<td>52344</td>
-<td>52682</td>
-<td>53223</td>
+<tr class="row-odd"><td><p>Shot number</p></td>
+<td><p>52344</p></td>
+<td><p>52682</p></td>
+<td><p>53223</p></td>
 </tr>
-<tr class="row-even"><td>Run number</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<tr class="row-even"><td><p>Run number</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
+<div class="section" id="on-iter-hpc">
+<h3>2.1.1.2. On ITER HPC<a class="headerlink" href="#on-iter-hpc" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>2.1.1.2.1. Setting the Environment<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>In a new terminal, execute the following command in order to load the required
+modules:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load</span>
+<span class="go">module load IMAS   # or any other specific IMAS module version</span>
+<span class="go">module load Viz</span>
+
+<span class="gp">#</span> The next few modules should be loaded together with imasenv module
+<span class="gp">#</span> Listing them all here in <span class="k">case</span> of module related issues.
+<span class="gp">#</span> Qt5/5.10.1-intel-2018a
+<span class="gp">#</span> PyQt5/5.9.2-intel-2018a-Python-3.6.4
+<span class="gp">#</span> PyQtGraph/0.10.0-intel-2018a-Python-3.6.4
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Listing all available Viz modules can be <span class="k">done</span> by running
+<span class="go">module av Viz</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>IMPORTANT!</strong> IMAS databases (IDSs) were written using specific version of
+IMAS. In order to open these IDSs the <strong>same IMAS module version</strong> should
+be used due to possible IDS database structure changes through different
+versions. Any tools or utilities that work with IDSs, including <code class="docutils literal notranslate"><span class="pre">IMASViz</span></code>,
+cannot work properly if this “IMAS version mismatch” is too great (!).</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>2.1.1.2.2. Running IMASViz<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>With the environment set, run the IMASViz by simply typing the following
+command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">viz</span>
+</pre></div>
+</div>
+<p>The main GUI window of IMAS_VIZ should display, as shown in the figure below:</p>
+<a class="reference internal image-reference" href="../_images/startup_window_default.png"><img alt="../_images/startup_window_default.png" class="align-center" src="../_images/startup_window_default.png" style="width: 480.0px; height: 160.0px;" /></a>
+<p>The description of the above input parameters is as follows:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>GUI Fields</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>User name</p></td>
+<td><p>Creator/owner of the IMAS IDSs database</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMAS database name</p></td>
+<td><p>IMAS database label, usually device/machine name of the
+IMAS IDS database (i. e. iter, aug, west…)</p></td>
+</tr>
+<tr class="row-even"><td><p>Shot number</p></td>
+<td><p>Pulse shot number</p></td>
+</tr>
+<tr class="row-odd"><td><p>Run number</p></td>
+<td><p>Pulse run number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>2.1.1.2.3. Available testing IMAS databases<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>On the ITER HPC there are a few <strong>testing IMAS IDS cases</strong> available. These
+databases are the main source of data used for IMASViz testing purposes and
+were also included in writing the this documentation. Users can freely use them
+for examples and practice purposes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There IMAS IDS cases are confirmed to work with IMAS versions
+<strong>3.23.2</strong> - <strong>3.24.0</strong></p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="3"><p><strong>Available IMAS IDS Case Parameters</strong></p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Case 1</p></th>
+<th class="head"><p>Case 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>User name</p></td>
+<td><p>penkod</p></td>
+<td><p>penkod</p></td>
+</tr>
+<tr class="row-even"><td><p>IMAS database name</p></td>
+<td><p>viztest</p></td>
+<td><p>viztest</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shot number</p></td>
+<td><p>52344</p></td>
+<td><p>52682</p></td>
+</tr>
+<tr class="row-even"><td><p>Run number</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <div class="section" id="running-imasviz-from-source">
-<span id="running-from-source"></span><h2>2.1.3. Running IMASViz from source<a class="headerlink" href="#running-imasviz-from-source" title="Permalink to this headline">¶</a></h2>
+<span id="running-from-source"></span><h2>2.1.2. Running IMASViz from source<a class="headerlink" href="#running-imasviz-from-source" title="Permalink to this headline">¶</a></h2>
 <p>The procedure below describes how to run IMASViz from source.</p>
 <div class="section" id="requirements">
-<span id="imasviz-requirements"></span><h3>2.1.3.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<span id="imasviz-requirements"></span><h3>2.1.2.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
 <p>The fundamental requirements in order to locally run IMASViz are:</p>
 <ul class="simple">
-<li>IMAS</li>
-<li><dl class="first docutils">
-<dt>Python3 and Python libraries:</dt>
-<dd><ul class="first last">
-<li>PyQt5</li>
-<li>pyqtgraph</li>
-<li>matplotlib</li>
-<li>Sphinx (<strong class="command">pip3 install sphinx</strong>)</li>
-<li>Sphinx RTD theme (<strong class="command">pip3 install sphinx_rtd_theme</strong>)</li>
+<li><p>IMAS</p></li>
+<li><dl class="simple">
+<dt>Python3 and Python libraries:</dt><dd><ul>
+<li><p>PyQt5</p></li>
+<li><p>pyqtgraph</p></li>
+<li><p>matplotlib</p></li>
+<li><p>Sphinx (<strong class="command">pip3 install sphinx</strong>)</p></li>
+<li><p>Sphinx RTD theme (<strong class="command">pip3 install sphinx_rtd_theme</strong>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -319,24 +444,24 @@ for examples and practice purposes.</p>
 </ul>
 </div>
 <div class="section" id="obtaining-the-source-code">
-<span id="source-code"></span><h3>2.1.3.2. Obtaining the source code<a class="headerlink" href="#obtaining-the-source-code" title="Permalink to this headline">¶</a></h3>
+<span id="source-code"></span><h3>2.1.2.2. Obtaining the source code<a class="headerlink" href="#obtaining-the-source-code" title="Permalink to this headline">¶</a></h3>
 <p>To obtain the IMASViz code source the next two steps are required:</p>
 <ol class="arabic">
-<li><p class="first">Clone repository from <strong>git.iter.org</strong> (permissions are required!).</p>
+<li><p>Clone repository from <strong>git.iter.org</strong> (permissions are required!).</p>
 <p>Direct link to the <strong>IMASViz</strong> git.iter repository:
 <a class="reference external" href="https://git.iter.org/projects/VIS/repos/viz/browse">IMASViz</a>.</p>
 </li>
-<li><p class="first">Switch to IMASViz2.0 branch (required if master branch is not updated yet)</p>
+<li><p>Switch to IMASViz2.0 branch (required if master branch is not updated yet)</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git fetch # optional</span>
 <span class="go">git branch -r # optional</span>
-<span class="go">git checkout viz2.0_develop</span>
+<span class="go">git checkout develop</span>
 </pre></div>
 </div>
 </li>
 </ol>
 </div>
-<div class="section" id="id2">
-<h3>2.1.3.3. Setting the environment<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>2.1.2.3. Setting the environment<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>To set the environment, go to <code class="file docutils literal notranslate"><span class="pre">viz</span></code> directory and set <span class="guilabel">VIZ_HOME</span>
 and <span class="guilabel">VIZ_PRODUCTION</span> environment variables by running the next
 commands in the terminal:</p>
@@ -351,7 +476,7 @@ commands in the terminal:</p>
 </div>
 <p>Then proceed with the next instructions.</p>
 <div class="section" id="gateway-hpc">
-<h4>2.1.3.3.1. GateWay HPC<a class="headerlink" href="#gateway-hpc" title="Permalink to this headline">¶</a></h4>
+<h4>2.1.2.3.1. GateWay HPC<a class="headerlink" href="#gateway-hpc" title="Permalink to this headline">¶</a></h4>
 <p>Load next modules:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load cineca</span>
 <span class="go">module load imasenv</span>
@@ -362,15 +487,15 @@ commands in the terminal:</p>
 </div>
 </div>
 <div class="section" id="iter-hpc">
-<h4>2.1.3.3.2. ITER HPC<a class="headerlink" href="#iter-hpc" title="Permalink to this headline">¶</a></h4>
+<h4>2.1.2.3.2. ITER HPC<a class="headerlink" href="#iter-hpc" title="Permalink to this headline">¶</a></h4>
 <p>Load next module:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load IMAS/3.20.0-3.8.3</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>2.1.3.4. Running IMASViz<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>2.1.2.4. Running IMASViz<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>To run IMASViz, run the next commands in terminal:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 $VIZ_HOME/imasviz/VizGUI/QtVIZ_GUI.py</span>
 </pre></div>
@@ -378,36 +503,36 @@ commands in the terminal:</p>
 <p>The main GUI window of IMAS_VIZ should display, as shown in the figure below:</p>
 <a class="reference internal image-reference" href="../_images/startup_window_default.png"><img alt="../_images/startup_window_default.png" class="align-center" src="../_images/startup_window_default.png" style="width: 480.0px; height: 160.0px;" /></a>
 <p>The description of the above input parameters is as follows:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>GUI Fields</strong></th>
-<th class="head"><strong>Description</strong></th>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>GUI Fields</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>User name</td>
-<td>Creator/owner of the IMAS IDSs database</td>
+<tbody>
+<tr class="row-even"><td><p>User name</p></td>
+<td><p>Creator/owner of the IMAS IDSs database</p></td>
 </tr>
-<tr class="row-odd"><td>IMAS database name</td>
-<td>IMAS database label, usually device/machine name of the
-IMAS IDS database (i. e. iter, aug, west…)</td>
+<tr class="row-odd"><td><p>IMAS database name</p></td>
+<td><p>IMAS database label, usually device/machine name of the
+IMAS IDS database (i. e. iter, aug, west…)</p></td>
 </tr>
-<tr class="row-even"><td>Shot number</td>
-<td>Pulse shot number</td>
+<tr class="row-even"><td><p>Shot number</p></td>
+<td><p>Pulse shot number</p></td>
 </tr>
-<tr class="row-odd"><td>Run number</td>
-<td>Pulse run number</td>
+<tr class="row-odd"><td><p>Run number</p></td>
+<td><p>Pulse run number</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="section" id="latest-documentation-and-manual">
-<h2>2.1.4. Latest documentation and manual<a class="headerlink" href="#latest-documentation-and-manual" title="Permalink to this headline">¶</a></h2>
+<h2>2.1.3. Latest documentation and manual<a class="headerlink" href="#latest-documentation-and-manual" title="Permalink to this headline">¶</a></h2>
 <p>The documentation provided on other sources (confluence pages etc.) than the
 project repository might not be up to date. To get the latest documentation,
 first obtain the IMASViz source code (see <a class="reference internal" href="#source-code"><span class="std std-ref">Obtaining the source code</span></a>).</p>
@@ -419,15 +544,15 @@ first obtain the IMASViz source code (see <a class="reference internal" href="#s
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="k">for</span> PDF documentation
 <span class="go">module load texlive</span>
 <span class="go">make pdflatex</span>
-<span class="go">xdg-open build/latex/IMASViz.pdf</span>
+<span class="go">firefox build/latex/IMASViz.pdf</span>
 <span class="gp">#</span> <span class="k">for</span> HTML documentation
 <span class="go">make html</span>
 <span class="go">firefox build/html/index.html</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Additional prerequisites for generating the documentation:
+<p class="admonition-title">Note</p>
+<p>Additional prerequisites for generating the documentation:
 <strong>Sphinx</strong> and <strong>Sphinx RTD</strong> theme (listed in
 <a class="reference internal" href="#imasviz-requirements"><span class="std std-ref">Requirements</span></a>)</p>
 </div>
@@ -445,7 +570,7 @@ first obtain the IMASViz source code (see <a class="reference internal" href="#s
         <a href="loading_IDS.html" class="btn btn-neutral float-right" title="2.2. Loading IDS from IMAS local data source" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="2. User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="2. User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -471,35 +596,16 @@ first obtain the IMASViz source code (see <a class="reference internal" href="#s
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

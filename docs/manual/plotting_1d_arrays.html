@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.4. Plotting 1D arrays &mdash; IMASViz 2018 documentation</title>
+  <title>2.4. Plotting 1D arrays &mdash; IMASViz 2019 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.5. Plugins" href="plugins.html" />
     <link rel="prev" title="2.3. Node selection features" href="signal_node_selection.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -184,12 +186,12 @@ the IDS, and how to handle the existing plots.</p>
 <span id="plotting-single-1d-array"></span><h2>2.4.1. Plotting a single 1D array to plot figure<a class="headerlink" href="#plotting-a-single-1d-array-to-plot-figure" title="Permalink to this headline">¶</a></h2>
 <p>The procedure to plot 1D array is as follows:</p>
 <ol class="arabic">
-<li><p class="first">Navigate through the <strong>magnetics IDS</strong> and search for the node containing
+<li><p>Navigate through the <strong>magnetics IDS</strong> and search for the node containing
 <strong>FLT_1D</strong> data, for example <strong>magnetics.flux_loop[0].flux.data</strong>.
 Plottable FLT_1D nodes are colored <strong>blue</strong> (array length &gt; 0).</p>
 <div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/DTV_magnetics_IDS_contents_FLT_1D.png"><img alt="FLT_1D plot" src="../_images/DTV_magnetics_IDS_contents_FLT_1D.png" style="width: 335.20000000000005px; height: 323.20000000000005px;" /></a>
-<p class="caption"><span class="caption-text">Example of plottable FLT_1D node.</span></p>
+<p class="caption"><span class="caption-text">Example of plottable FLT_1D node.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>By clicking on the node the preview plot will be displayed in the
 <span class="guilabel">Preview Plot</span>, located in the main window. This
@@ -197,22 +199,21 @@ feature helps to quickly check how the data, stored in the FLT_1D, looks
 when plotted.</p>
 <div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/DTV_preview_plot.png"><img alt="Preview Plot" src="../_images/DTV_preview_plot.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-text">Preview Plot</span></p>
+<p class="caption"><span class="caption-text">Preview Plot</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Right-click on the <strong>magnetics.flux_loop[0].flux.data (FLT_1D)</strong> node.</p>
-</li>
-<li><p class="first">From the pop-up menu, select the command
+<li><p>Right-click on the <strong>magnetics.flux_loop[0].flux.data (FLT_1D)</strong> node.</p></li>
+<li><p>From the pop-up menu, select the command
 <span class="guilabel">Plot ids.magnetics.flux_loop[0].flux.data to</span> <a class="reference internal" href="../_images/plotSingle.png"><img alt="icon_plotSingle" src="../_images/plotSingle.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>.</p>
 <div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plotting_single_plot.png"><img alt="../_images/DTV_popupmenu_plotting_single_plot.png" src="../_images/DTV_popupmenu_plotting_single_plot.png" style="width: 565.6px; height: 156.0px;" /></a>
-<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span></p>
+<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>The plot should display in plot figure as shown in the image below.</p>
 <div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../_images/plotWidget_basic.png"><img alt="../_images/plotWidget_basic.png" src="../_images/plotWidget_basic.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-text">Basic plot figure display.</span></p>
+<p class="caption"><span class="caption-text">Basic plot figure display.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
@@ -221,8 +222,8 @@ when plotted.</p>
 <p>The below features are available for any <span class="guilabel">plot display</span>. Most of them
 are available in the right-click menu.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Term <span class="guilabel">Plot Display</span> is used for any base subwindow for displaying
+<p class="admonition-title">Note</p>
+<p>Term <span class="guilabel">Plot Display</span> is used for any base subwindow for displaying
 plots. Following that the <span class="guilabel">Plot Figure</span> contains a single
 <span class="guilabel">Plot Display</span>, while <span class="guilabel">Table Plot View</span>
 and <span class="guilabel">Stacked Plot View</span> consist of multiple
@@ -230,7 +231,7 @@ and <span class="guilabel">Stacked Plot View</span> consist of multiple
 </div>
 <div class="figure align-center" id="id9">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu.png"><img alt="../_images/plotDisplay_popupmenu.png" src="../_images/plotDisplay_popupmenu.png" style="width: 450px;" /></a>
-<p class="caption"><span class="caption-text">Plot display window right-click menu.</span></p>
+<p class="caption"><span class="caption-text">Plot display window right-click menu.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="view-all">
 <h4>2.4.1.1.1. View All<a class="headerlink" href="#view-all" title="Permalink to this headline">¶</a></h4>
@@ -238,7 +239,7 @@ and <span class="guilabel">Stacked Plot View</span> consist of multiple
 <blockquote>
 <div><div class="figure align-center" id="id10">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_viewAll.png"><img alt="../_images/plotDisplay_popupmenu_viewAll.png" src="../_images/plotDisplay_popupmenu_viewAll.png" style="width: 115.5px; height: 141.0px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">View All</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">View All</span> feature in the right-click menu.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -250,7 +251,7 @@ without additional “plot margins” on the sides.</p>
 <blockquote>
 <div><div class="figure align-center" id="id11">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_autoRange.png"><img alt="../_images/plotDisplay_popupmenu_autoRange.png" src="../_images/plotDisplay_popupmenu_autoRange.png" style="width: 115.5px; height: 141.0px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Auto Range</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Auto Range</span> feature in the right-click menu.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -261,15 +262,15 @@ without additional “plot margins” on the sides.</p>
 <blockquote>
 <div><div class="figure align-center" id="id12">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_mouseMode.png"><img alt="../_images/plotDisplay_popupmenu_mouseMode.png" src="../_images/plotDisplay_popupmenu_mouseMode.png" style="width: 269.25px; height: 139.5px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Mouse Mode</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Mouse Mode</span> feature in the right-click menu.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id13">
 <a class="reference internal image-reference" href="../_images/plotDisplay_area_zoom.png"><img alt="../_images/plotDisplay_area_zoom.png" src="../_images/plotDisplay_area_zoom.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Area Zoom</span> example: Marking zoom area using.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Area Zoom</span> example: Marking zoom area using.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id14">
 <a class="reference internal image-reference" href="../_images/plotDisplay_area_zoom_result.png"><img alt="../_images/plotDisplay_area_zoom_result.png" src="../_images/plotDisplay_area_zoom_result.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Area Zoom</span> example: Result.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Area Zoom</span> example: Result.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -279,7 +280,7 @@ without additional “plot margins” on the sides.</p>
 <blockquote>
 <div><div class="figure align-center" id="id15">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_axisOptions.png"><img alt="../_images/plotDisplay_popupmenu_axisOptions.png" src="../_images/plotDisplay_popupmenu_axisOptions.png" style="width: 272.25px; height: 146.25px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Axis Options</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Axis Options</span> feature in the right-click menu.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -289,7 +290,7 @@ without additional “plot margins” on the sides.</p>
 <blockquote>
 <div><div class="figure align-center" id="id16">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_configurePlot.png"><img alt="../_images/plotDisplay_popupmenu_configurePlot.png" src="../_images/plotDisplay_popupmenu_configurePlot.png" style="width: 115.5px; height: 141.0px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Configure Plot</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Configure Plot</span> feature in the right-click menu.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 <p>Each plot can be customized. By selecting this feature a separate GUI window
@@ -298,11 +299,11 @@ properties that can be customized.</p>
 <blockquote>
 <div><div class="figure align-center" id="id17">
 <img alt="../_images/plotDisplay_configurePlot_window.png" src="../_images/plotDisplay_configurePlot_window.png" />
-<p class="caption"><span class="caption-text"><span class="guilabel">Configure Plot</span> GUI.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Configure Plot</span> GUI.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id18">
 <img alt="../_images/plot_configuration_example.png" src="../_images/plot_configuration_example.png" />
-<p class="caption"><span class="caption-text">Plot configuration example for single plot.</span></p>
+<p class="caption"><span class="caption-text">Plot configuration example for single plot.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -312,33 +313,32 @@ properties that can be customized.</p>
 <blockquote>
 <div><div class="figure align-center" id="id19">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_plotOptions.png"><img alt="../_images/plotDisplay_popupmenu_plotOptions.png" src="../_images/plotDisplay_popupmenu_plotOptions.png" style="width: 354.75px; height: 246.0px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Plot Options</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Plot Options</span> feature in the right-click menu.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
 <div class="section" id="export-feature">
 <h4>2.4.1.1.7. Export feature<a class="headerlink" href="#export-feature" title="Permalink to this headline">¶</a></h4>
-<dl class="docutils">
-<dt>The <span class="guilabel">Plot Display</span> scene can be exported to:</dt>
-<dd><ul class="first simple">
-<li>image file (PNG, JPG, …). A total of <strong>16</strong> image formats are supported.</li>
-<li>scalable vector graphics (SVG) file</li>
-<li>matplotlib window</li>
-<li>CSV file</li>
-<li>HDF5 file</li>
+<dl>
+<dt>The <span class="guilabel">Plot Display</span> scene can be exported to:</dt><dd><ul class="simple">
+<li><p>image file (PNG, JPG, …). A total of <strong>16</strong> image formats are supported.</p></li>
+<li><p>scalable vector graphics (SVG) file</p></li>
+<li><p>matplotlib window</p></li>
+<li><p>CSV file</p></li>
+<li><p>HDF5 file</p></li>
 </ul>
 <div class="figure align-center" id="id20">
 <a class="reference internal image-reference" href="../_images/plotDisplay_popupmenu_export.png"><img alt="../_images/plotDisplay_popupmenu_export.png" src="../_images/plotDisplay_popupmenu_export.png" style="width: 115.5px; height: 141.0px;" /></a>
-<p class="caption"><span class="caption-text"><span class="guilabel">Export</span> feature in the right-click menu.</span></p>
+<p class="caption"><span class="caption-text"><span class="guilabel">Export</span> feature in the right-click menu.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id21">
 <a class="reference internal image-reference" href="../_images/plotDisplay_export_window.png"><img alt="../_images/plotDisplay_export_window.png" src="../_images/plotDisplay_export_window.png" style="width: 222.0px; height: 324.75px;" /></a>
-<p class="caption"><span class="caption-text">Export GUI window.</span></p>
+<p class="caption"><span class="caption-text">Export GUI window.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
-<div class="last figure align-center" id="id22">
+<div class="figure align-center" id="id22">
 <a class="reference internal image-reference" href="../_images/plotDisplay_export_matplotlib.png"><img alt="../_images/plotDisplay_export_matplotlib.png" src="../_images/plotDisplay_export_matplotlib.png" style="width: 550px;" /></a>
 <p class="caption"><span class="caption-text">Comparison of IMASViz <span class="guilabel">Plot Figure</span> and
-<span class="guilabel">matplotlib window</span></span></p>
+<span class="guilabel">matplotlib window</span></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
 </div>
 </dd>
 </dl>
@@ -349,17 +349,15 @@ properties that can be customized.</p>
 <span id="add-plot-to-existing-figure"></span><h2>2.4.2. Adding a plot to existing figure<a class="headerlink" href="#adding-a-plot-to-existing-figure" title="Permalink to this headline">¶</a></h2>
 <p>The procedure of adding a plot to an already existing figure is as follows:</p>
 <ol class="arabic">
-<li><p class="first">From the previous navigation tree, navigate to the wanted node, for example
-<strong>ids.magnetics.flux_loop[16].flux.data</strong></p>
-</li>
-<li><p class="first">Right-click on the node.</p>
-</li>
-<li><p class="first">From the pop-up menu, navigate and select
+<li><p>From the previous navigation tree, navigate to the wanted node, for example
+<strong>ids.magnetics.flux_loop[16].flux.data</strong></p></li>
+<li><p>Right-click on the node.</p></li>
+<li><p>From the pop-up menu, navigate and select
 <span class="guilabel">Plot &lt;node name&gt; to</span> <a class="reference internal" href="../_images/plotSingle.png"><img alt="icon_plotSingle" src="../_images/plotSingle.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">Figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">Figure:0</span></p>
 <div class="figure align-center" id="id23">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plot_to_existing_figure.png"><img alt="../_images/DTV_popupmenu_plot_to_existing_figure.png" src="../_images/DTV_popupmenu_plot_to_existing_figure.png" style="width: 586.5px; height: 190.5px;" /></a>
-<p class="caption"><span class="caption-text">Plotting to existing figure.</span></p>
+<p class="caption"><span class="caption-text">Plotting to existing figure.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
@@ -368,7 +366,7 @@ below.</p>
 <blockquote>
 <div><div class="figure align-center" id="id24">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plot_to_existing_figure_result.png"><img alt="../_images/DTV_popupmenu_plot_to_existing_figure_result.png" src="../_images/DTV_popupmenu_plot_to_existing_figure_result.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-text">Plotting to existing figure - result.</span></p>
+<p class="caption"><span class="caption-text">Plotting to existing figure - result.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -378,53 +376,49 @@ below.</p>
 IDS databases (different shots too). The procedure is very similar to the one
 presented in the section <a class="reference internal" href="#add-plot-to-existing-figure"><span class="std std-ref">Adding a plot to existing figure</span></a>:</p>
 <ol class="arabic">
-<li><p class="first">Open another IMAS database, same as shown in section <a class="reference internal" href="loading_IDS.html#loading-ids"><span class="std std-ref">Loading IDS from IMAS local data source</span></a>.
+<li><p>Open another IMAS database, same as shown in section <a class="reference internal" href="loading_IDS.html#loading-ids"><span class="std std-ref">Loading IDS from IMAS local data source</span></a>.
 In this manual this will be demonstrated using IDS with <span class="guilabel">shot</span>
 <strong>52682</strong> and <span class="guilabel">run</span> <strong>0</strong> parameters.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="69%" />
-<col width="14%" />
-<col width="17%" />
+<col style="width: 69%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td colspan="3"><strong>Manual IDS case</strong></td>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p><strong>Manual IDS case</strong></p></td>
 </tr>
-<tr class="row-even"><td>parameters</td>
-<td colspan="2">values</td>
+<tr class="row-even"><td><p>parameters</p></td>
+<td colspan="2"><p>values</p></td>
 </tr>
-<tr class="row-odd"><td>User name</td>
-<td colspan="2">g2penkod</td>
+<tr class="row-odd"><td><p>User name</p></td>
+<td colspan="2"><p>g2penkod</p></td>
 </tr>
-<tr class="row-even"><td>IMAS database name</td>
-<td colspan="2">viztest</td>
+<tr class="row-even"><td><p>IMAS database name</p></td>
+<td colspan="2"><p>viztest</p></td>
 </tr>
-<tr class="row-odd"><td>Shot number</td>
-<td colspan="2">52682</td>
+<tr class="row-odd"><td><p>Shot number</p></td>
+<td colspan="2"><p>52682</p></td>
 </tr>
-<tr class="row-even"><td>Run number</td>
-<td colspan="2">0</td>
+<tr class="row-even"><td><p>Run number</p></td>
+<td colspan="2"><p>0</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">Load <strong>occurrence 0</strong> of <strong>magnetics</strong> IDS</p>
-</li>
-<li><p class="first">Navigate through the IDS search for the wanted node, for example
-<strong>ids.magnetics.flux_loop[0].flux.data</strong>.</p>
-</li>
-<li><p class="first">Right-click on the node.</p>
-</li>
-<li><p class="first">From the pop-up menu, navigate and select
+<li><p>Load <strong>occurrence 0</strong> of <strong>magnetics</strong> IDS</p></li>
+<li><p>Navigate through the IDS search for the wanted node, for example
+<strong>ids.magnetics.flux_loop[0].flux.data</strong>.</p></li>
+<li><p>Right-click on the node.</p></li>
+<li><p>From the pop-up menu, navigate and select
 <span class="guilabel">Plot &lt;node name&gt; to</span> <a class="reference internal" href="../_images/plotSingle.png"><img alt="icon_plotSingle" src="../_images/plotSingle.png" style="width: 15px; height: 15px;" /></a> -&gt;
-<span class="guilabel">Figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">Figure:0</span></p>
-</li>
+<span class="guilabel">Figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">Figure:0</span></p></li>
 </ol>
 <p>The plot will be added to the existing plot as shown in the image below.</p>
 <blockquote>
 <div><div class="figure align-center" id="id25">
 <a class="reference internal image-reference" href="../_images/DTV2_popupmenu_plot_to_existing_figure_result.png"><img alt="../_images/DTV2_popupmenu_plot_to_existing_figure_result.png" src="../_images/DTV2_popupmenu_plot_to_existing_figure_result.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-text">Plotting from other IDS to existing figure - result.</span></p>
+<p class="caption"><span class="caption-text">Plotting from other IDS to existing figure - result.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
 </div>
 </div></blockquote>
 </div>
@@ -433,34 +427,33 @@ In this manual this will be demonstrated using IDS with <span class="guilabel">s
 <p>The procedure of 1D arrays selection and plotting to figure is as
 follows:</p>
 <ol class="arabic">
-<li><p class="first">In main tree view window set a selection of nodes holding 1D arrays.</p>
+<li><p>In main tree view window set a selection of nodes holding 1D arrays.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">How to create a selection of arrays is described in section
+<p class="admonition-title">Note</p>
+<p>How to create a selection of arrays is described in section
 <a class="reference internal" href="signal_node_selection.html#signal-node-selection"><span class="std std-ref">Node selection features</span></a>.</p>
 </div>
 </li>
-<li><p class="first">When finished with node selection, either:
+<li><p>When finished with node selection, either:
 - right-click on any FLT_1D node, or
 - click <span class="guilabel">Node Selection</span> menu on menubar of the main tree view
-window.</p>
-</li>
-<li><p class="first">From the pop-up menu, navigate and select
+window.</p></li>
+<li><p>From the pop-up menu, navigate and select
 <span class="guilabel">Plot selected nodes to</span> <a class="reference internal" href="../_images/plotMultiple.png"><img alt="icon_plotMultiple" src="../_images/plotMultiple.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">Figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>-&gt;
 <span class="guilabel">This IMAS database</span> <a class="reference internal" href="../_images/thisDTV.png"><img alt="icon_thisDTV" src="../_images/thisDTV.png" style="width: 15px; height: 15px;" /></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The same procedure applies plotting the selection to an existing figure.</p>
+<p class="admonition-title">Note</p>
+<p>The same procedure applies plotting the selection to an existing figure.</p>
 </div>
 <div class="figure align-center" id="id26">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plot_selected_nodes_to_figure_thisDTV.png"><img alt="../_images/DTV_popupmenu_plot_selected_nodes_to_figure_thisDTV.png" src="../_images/DTV_popupmenu_plot_selected_nodes_to_figure_thisDTV.png" style="width: 767.25px; height: 137.25px;" /></a>
 <p class="caption"><span class="caption-text">Plotting selection to a new figure using selection from the currently
-opened IDS database.</span></p>
+opened IDS database.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="id27">
 <a class="reference internal image-reference" href="../_images/DTV_plot_selected_nodes_to_figure_thisDTV_result.png"><img alt="../_images/DTV_plot_selected_nodes_to_figure_thisDTV_result.png" src="../_images/DTV_plot_selected_nodes_to_figure_thisDTV_result.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-text">Example of plot figure, created by plotting data from node selection.</span></p>
+<p class="caption"><span class="caption-text">Example of plot figure, created by plotting data from node selection.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
@@ -474,24 +467,23 @@ it is already set as a default plotting feature for such arrays.</p>
 <a class="reference internal" href="#plotting-single-1d-array"><span class="std std-ref">Plotting a single 1D array to plot figure</span></a>. The procedure is described and demonstrated
 on <strong>equilibrium.time_slice[0].profiles_1d.phi</strong> (Torodial Flux) array.</p>
 <ol class="arabic">
-<li><p class="first">Navigate through the <strong>equilibrium IDS</strong> and search for the time slice node
+<li><p>Navigate through the <strong>equilibrium IDS</strong> and search for the time slice node
 containing
 <strong>FLT_1D</strong> data, for example <strong>equilibrium.time_slice[0].profiles_1d.phi</strong>.</p>
 <div class="figure align-center" id="id28">
 <a class="reference internal image-reference" href="../_images/DTV_plot_as_a_function_of_coordinate1.png"><img alt="../_images/DTV_plot_as_a_function_of_coordinate1.png" src="../_images/DTV_plot_as_a_function_of_coordinate1.png" style="width: 287.2px; height: 180.8px;" /></a>
-<p class="caption"><span class="caption-text">Example of plottable FLT_1D time slice node.</span></p>
+<p class="caption"><span class="caption-text">Example of plottable FLT_1D time slice node.</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Right-click on the <strong>equilibrium.time_slice[0].profiles_1d.phi (FLT_1D)</strong>
-node.</p>
-</li>
-<li><p class="first">From the pop-up menu, select the command
+<li><p>Right-click on the <strong>equilibrium.time_slice[0].profiles_1d.phi (FLT_1D)</strong>
+node.</p></li>
+<li><p>From the pop-up menu, select the command
 <span class="guilabel">Plot equilibrium.time_slice[0].profiles_1d.phi to</span>
 <a class="reference internal" href="../_images/plotSingle.png"><img alt="icon_plotSingle" src="../_images/plotSingle.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>.</p>
 <div class="figure align-center" id="id29">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plotting_as_a_function_of_coordinate1.png"><img alt="../_images/DTV_popupmenu_plotting_as_a_function_of_coordinate1.png" src="../_images/DTV_popupmenu_plotting_as_a_function_of_coordinate1.png" style="width: 666.4000000000001px; height: 191.20000000000002px;" /></a>
-<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span></p>
+<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
 </div>
 <p>The plot should display in plot figure as shown in the image below.
 Note that <strong>coordinate1 = ids.equilibrium.time_slice[0].profiles_1d.psi</strong>
@@ -501,7 +493,7 @@ for this FLT_1D data array.</p>
 <p class="caption"><span class="caption-text">Time slice plot figure display. The data are represented as a function of
 coordinate1 (<strong>ids.equilibrium.time_slice[0].profiles_1d.psi</strong>) for the
 first <strong>phi</strong> time slice
-(<strong>ids.equilibrium.time_slice[0].profiles_1d.phi</strong>).</span></p>
+(<strong>ids.equilibrium.time_slice[0].profiles_1d.phi</strong>).</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
 </div>
 <p>The time slider allows you to move along the time axis and the plot will
 change accordingly.</p>
@@ -510,13 +502,13 @@ change accordingly.</p>
 <p class="caption"><span class="caption-text">Time slice plot figure display for
 <strong>ids.equilibrium.time_slice[48].profiles_1d.phi</strong>. The data are
 represented as a function of coordinate1
-(<strong>ids.equilibrium.time_slice[48].profiles_1d.psi</strong>).</span></p>
+(<strong>ids.equilibrium.time_slice[48].profiles_1d.psi</strong>).</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Adding a plot (presented in <a class="reference internal" href="#add-plot-to-existing-figure"><span class="std std-ref">Adding a plot to existing figure</span></a>) to
+<p class="admonition-title">Note</p>
+<p>Adding a plot (presented in <a class="reference internal" href="#add-plot-to-existing-figure"><span class="std std-ref">Adding a plot to existing figure</span></a>) to
 such existing plot might not work as expected, as the sliding through
 indexes works directly only the last added plot.</p>
 </div>
@@ -530,24 +522,23 @@ feature for such arrays.</p>
 <p>The procedure is described and demonstrated
 on <strong>equilibrium.time_slice[0].profiles_1d.f</strong> (Torodial Flux) array.</p>
 <ol class="arabic">
-<li><p class="first">Navigate through the <strong>equilibrium IDS</strong> and search for the time slice node
+<li><p>Navigate through the <strong>equilibrium IDS</strong> and search for the time slice node
 containing
 <strong>FLT_1D</strong> data, for example <strong>equilibrium.time_slice[0].profiles_1d.f</strong>.</p>
 <div class="figure align-center" id="id32">
 <a class="reference internal image-reference" href="../_images/DTV_plot_as_a_function_of_coordinate1.png"><img alt="../_images/DTV_plot_as_a_function_of_coordinate1.png" src="../_images/DTV_plot_as_a_function_of_coordinate1.png" style="width: 287.2px; height: 180.8px;" /></a>
-<p class="caption"><span class="caption-text">Example of plottable FLT_1D time slice node.</span></p>
+<p class="caption"><span class="caption-text">Example of plottable FLT_1D time slice node.</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Right-click on the <strong>equilibrium.time_slice[0].profiles_1d.f (FLT_1D)</strong>
-node.</p>
-</li>
-<li><p class="first">From the pop-up menu, select the command
+<li><p>Right-click on the <strong>equilibrium.time_slice[0].profiles_1d.f (FLT_1D)</strong>
+node.</p></li>
+<li><p>From the pop-up menu, select the command
 <span class="guilabel">Plot equilibrium.time_slice[0].profiles_1d.f to</span>
 <a class="reference internal" href="../_images/plotSingle.png"><img alt="icon_plotSingle" src="../_images/plotSingle.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">figure</span> <a class="reference internal" href="../_images/Figure.png"><img alt="icon_Figure" src="../_images/Figure.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>.</p>
 <div class="figure align-center" id="id33">
 <a class="reference internal image-reference" href="../_images/DTV_popupmenu_plotting_as_a_function_of_time.png"><img alt="../_images/DTV_popupmenu_plotting_as_a_function_of_time.png" src="../_images/DTV_popupmenu_plotting_as_a_function_of_time.png" style="width: 657.6px; height: 264.0px;" /></a>
-<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span></p>
+<p class="caption"><span class="caption-text">Navigating through right-click menu to plot data to plot figure.</span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
 </div>
 <p>The plot should display in plot figure as shown in the image below.
 Note that Y-axis values are an array of
@@ -559,7 +550,7 @@ Note that Y-axis values are an array of
 <p class="caption"><span class="caption-text">Plot as a function of time. Y-axis values are an array of
 <strong>equilibrium.time_slice[:].profiles_1d.f[0]</strong> values through all time
 slices (marked by <strong>[:]</strong>) and X-axis values are time values found in
-<strong>equilibrium.time</strong>.</span></p>
+<strong>equilibrium.time</strong>.</span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
 </div>
 <p>The time slider allows you to move along the array index and the plot will
 change accordingly.</p>
@@ -568,34 +559,33 @@ change accordingly.</p>
 <p class="caption"><span class="caption-text">Plot as a function of time. Y-axis values are an array of
 <strong>equilibrium.time_slice[:].profiles_1d.f[23]</strong> values through all time
 slices (marked by <strong>[:]</strong>) and X-axis values are time values found in
-<strong>equilibrium.time</strong> node (array of FLT_1D values).</span></p>
+<strong>equilibrium.time</strong> node (array of FLT_1D values).</span><a class="headerlink" href="#id35" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Adding a plot (presented in <a class="reference internal" href="#add-plot-to-existing-figure"><span class="std std-ref">Adding a plot to existing figure</span></a>) to
+<p class="admonition-title">Note</p>
+<p>Adding a plot (presented in <a class="reference internal" href="#add-plot-to-existing-figure"><span class="std std-ref">Adding a plot to existing figure</span></a>) to
 such existing plot might not work as expected, as the sliding through
 indexes works directly only the last added plot.</p>
 </div>
 </div>
 <div class="section" id="multiplot-features">
 <span id="id2"></span><h2>2.4.7. MultiPlot features<a class="headerlink" href="#multiplot-features" title="Permalink to this headline">¶</a></h2>
-<p>IMASViz provides few features that allow plotting a selection of plottable
-arrays to a single plot view window.</p>
-<dl class="docutils">
-<dt>Currently there are two such features available:</dt>
-<dd><ul class="first last simple">
-<li><span class="guilabel">Table Plot View</span> and</li>
-<li><span class="guilabel">Stacked Plot View</span>.</li>
+<p>IMASViz provides few features that allow plotting each signal from a selection
+to its own plot view window.</p>
+<dl class="simple">
+<dt>Currently there are two such features available:</dt><dd><ul class="simple">
+<li><p><span class="guilabel">Table Plot View</span> and</p></li>
+<li><p><span class="guilabel">Stacked Plot View</span>.</p></li>
 </ul>
 </dd>
 </dl>
 <p>Each of those Plot Views feature its own plot display layout and plot display
 window interaction features.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In the old IMASViz, the <span class="guilabel">Table Plot View</span> is known as
+<p class="admonition-title">Note</p>
+<p>In the old IMASViz, the <span class="guilabel">Table Plot View</span> is known as
 <span class="guilabel">MultiPlot</span> and the <span class="guilabel">Stacked Plot View</span> is known as
 <span class="guilabel">SubPlot</span>. The decision to rename those features was made due to
 the previous names not properly describing the feature itself and both of
@@ -610,26 +600,24 @@ The plot displays are arranged to resemble a table layout, as shown in figure
 below.</p>
 <div class="figure align-center" id="id36">
 <a class="reference internal image-reference" href="../_images/TablePlotView_example.png"><img alt="../_images/TablePlotView_example.png" src="../_images/TablePlotView_example.png" style="width: 825.5px; height: 473.0px;" /></a>
-<p class="caption"><span class="caption-text">MultiPlot - <span class="guilabel">Table Plot View</span> Example.</span></p>
+<p class="caption"><span class="caption-text">MultiPlot - <span class="guilabel">Table Plot View</span> Example.</span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="creating-new-view">
 <h4>2.4.7.1.1. Creating New View<a class="headerlink" href="#creating-new-view" title="Permalink to this headline">¶</a></h4>
 <p>To create a new <span class="guilabel">Table Plot View</span>, follow the next steps:</p>
 <ol class="arabic">
-<li><p class="first">Create a selection of nodes, as described in section
-<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p>
-</li>
-<li><dl class="first docutils">
-<dt>When finished with node selection, either:</dt>
-<dd><ul class="first last simple">
-<li>right-click on any <strong>FLT_1D</strong> node or</li>
-<li>click <span class="guilabel">Node Selection</span> menu on menubar of the main tree view
-window.</li>
+<li><p>Create a selection of nodes, as described in section
+<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p></li>
+<li><dl class="simple">
+<dt>When finished with node selection, either:</dt><dd><ul class="simple">
+<li><p>right-click on any <strong>FLT_1D</strong> node or</p></li>
+<li><p>click <span class="guilabel">Node Selection</span> menu on menubar of the main tree view
+window.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">From the pop-up menu, navigate and select
+<li><p>From the pop-up menu, navigate and select
 <span class="guilabel">Plot selected nodes to</span> <a class="reference internal" href="../_images/plotMultiple.png"><img alt="icon_plotMultiple" src="../_images/plotMultiple.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">TablePlotView</span> <a class="reference internal" href="../_images/TablePlotView.png"><img alt="icon_TablePlotView" src="../_images/TablePlotView.png" style="width: 15px; height: 15px;" /></a> -&gt; <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>-&gt;
 <span class="guilabel">This IMAS database</span> <a class="reference internal" href="../_images/thisDTV.png"><img alt="icon_thisDTV" src="../_images/thisDTV.png" style="width: 15px; height: 15px;" /></a> or
@@ -637,19 +625,19 @@ window.</li>
 <div class="figure align-center" id="id37">
 <a class="reference internal image-reference" href="../_images/DTV_plot_selected_nodes_to_TPV_thisDTV.png"><img alt="../_images/DTV_plot_selected_nodes_to_TPV_thisDTV.png" src="../_images/DTV_plot_selected_nodes_to_TPV_thisDTV.png" style="width: 759.75px; height: 147.0px;" /></a>
 <p class="caption"><span class="caption-text">Plotting selection to a new figure using selection from the currently
-opened IDS database.</span></p>
+opened IDS database.</span><a class="headerlink" href="#id37" title="Permalink to this image">¶</a></p>
 </div>
 <p>The <span class="guilabel">Table Plot View</span> window will then be created and shown.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Each plot can be customized individually by right-clicking to the plot d
+<p class="admonition-title">Note</p>
+<p>Each plot can be customized individually by right-clicking to the plot d
 display and selecting option <span class="guilabel">Configure Plot</span>.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Scrolling down the <span class="guilabel">Table Plot View</span> window using the middle mouse
+<p class="admonition-title">Note</p>
+<p>Scrolling down the <span class="guilabel">Table Plot View</span> window using the middle mouse
 button is disabled as the same button is used to interact with the plot
 display (zoom in and out). Scrolling can be done by clicking the scroll bar
 on the right and dragging it up and down.</p>
@@ -662,59 +650,54 @@ on the right and dragging it up and down.</p>
 session and load it later.</p>
 <p>To create MultiPlot configuration, follow the next steps:</p>
 <ol class="arabic">
-<li><p class="first">Create a selection of nodes, as described in section
-<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p>
-</li>
-<li><p class="first">Create a <span class="guilabel">Table Plot View</span>, as described in <a class="reference internal" href="#tpv"><span class="std std-ref">Table Plot View</span></a>.</p>
-</li>
-<li><p class="first">In <span class="guilabel">Table Plot View</span> menubar navigate to <strong>Options</strong> -&gt;
+<li><p>Create a selection of nodes, as described in section
+<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p></li>
+<li><p>Create a <span class="guilabel">Table Plot View</span>, as described in <a class="reference internal" href="#tpv"><span class="std std-ref">Table Plot View</span></a>.</p></li>
+<li><p>In <span class="guilabel">Table Plot View</span> menubar navigate to <strong>Options</strong> -&gt;
 <strong>Save Plot Configuration</strong></p>
 <div class="figure align-center" id="id38">
 <a class="reference internal image-reference" href="../_images/SavePlotConfiguration_dialog.png"><img alt="../_images/SavePlotConfiguration_dialog.png" src="../_images/SavePlotConfiguration_dialog.png" style="width: 207.75px; height: 126.0px;" /></a>
-<p class="caption"><span class="caption-text">Save Plot Configuration Dialog Window.</span></p>
+<p class="caption"><span class="caption-text">Save Plot Configuration Dialog Window.</span><a class="headerlink" href="#id38" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Type configuration name in the text area.</p>
-</li>
-<li><p class="first">Press <strong>OK</strong>.</p>
-</li>
+<li><p>Type configuration name in the text area.</p></li>
+<li><p>Press <strong>OK</strong>.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The configurations files are saved to <code class="file docutils literal notranslate"><span class="pre">$HOME/.imasviz</span></code> folder.</p>
+<p class="admonition-title">Note</p>
+<p>The configurations files are saved to <code class="file docutils literal notranslate"><span class="pre">$HOME/.imasviz</span></code> folder.</p>
 </div>
 </div>
 <div class="section" id="applying-multiplot-configuration-to-other-imas-database">
 <span id="apply-multiplot-configuration"></span><h4>2.4.7.1.3. Applying MultiPlot configuration to other IMAS database<a class="headerlink" href="#applying-multiplot-configuration-to-other-imas-database" title="Permalink to this headline">¶</a></h4>
 <p>To apply MultiPlot configuration to any IMAS database, follow the next steps:</p>
 <ol class="arabic">
-<li><p class="first">Open IMAS database.</p>
+<li><p>Open IMAS database.</p>
 </li>
-<li><p class="first">In Main Tree View Window menu navigate to <strong>Actions</strong> -&gt;
+<li><p>In Main Tree View Window menu navigate to <strong>Actions</strong> -&gt;
 <strong>Apply Configuration</strong>. In the shown window switch to
 <span class="guilabel">Apply Plot Configuration</span> tab.</p>
 <div class="figure align-center" id="id39">
 <a class="reference internal image-reference" href="../_images/ApplyPlotConfiguration_window.png"><img alt="../_images/ApplyPlotConfiguration_window.png" src="../_images/ApplyPlotConfiguration_window.png" style="width: 306.0px; height: 336.75px;" /></a>
-<p class="caption"><span class="caption-text">Apply Plot Configuration GUI Window.</span></p>
+<p class="caption"><span class="caption-text">Apply Plot Configuration GUI Window.</span><a class="headerlink" href="#id39" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Select the configuration from the list.</p>
-</li>
-<li><p class="first">Press <strong>Apply selection and plot selected data</strong>.</p>
+<li><p>Select the configuration from the list.</p></li>
+<li><p>Press <strong>Apply selection and plot selected data</strong>.</p>
 <p>The <span class="guilabel">Table Plot View</span> will be created using the data stored in the
 configuration file.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Currently this feature will take all plot data from single (currently)
+<p class="admonition-title">Note</p>
+<p>Currently this feature will take all plot data from single (currently)
 opened IMAS database, event though MultiPlot configuration was made using
 plots from multiple IMAS databases at once. This feature is to be improved
 in the future.</p>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The plots order depends on the order in which the data selection has
+<p class="admonition-title">Warning</p>
+<p>The plots order depends on the order in which the data selection has
 been performed. First selected data will be the first plots in the
 <span class="guilabel">Table Plot View</span> window.</p>
 </div>
@@ -730,26 +713,24 @@ using plot interaction features such as <span class="guilabel">Zoom in/out</span
 <span class="guilabel">Pan Mode</span>, <span class="guilabel">Area Zoom Mode</span> etc.</p>
 <div class="figure align-center" id="id40">
 <a class="reference internal image-reference" href="../_images/StackedPlotView_example.png"><img alt="../_images/StackedPlotView_example.png" src="../_images/StackedPlotView_example.png" style="width: 323.5px; height: 274.5px;" /></a>
-<p class="caption"><span class="caption-text">MultiPlot - <span class="guilabel">Stacked Plot View</span> Example.</span></p>
+<p class="caption"><span class="caption-text">MultiPlot - <span class="guilabel">Stacked Plot View</span> Example.</span><a class="headerlink" href="#id40" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="id4">
 <h4>2.4.7.2.1. Creating New View<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>To create a new <span class="guilabel">Stacked Plot View</span>, follow the next steps:</p>
 <ol class="arabic">
-<li><p class="first">Create a selection of nodes, as described in section
-<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p>
-</li>
-<li><dl class="first docutils">
-<dt>When finished with node selection, either:</dt>
-<dd><ul class="first last simple">
-<li>right-click on any FLT_1D node or</li>
-<li>click <span class="guilabel">Node Selection</span> menu on menubar of the main tree view
-window.</li>
+<li><p>Create a selection of nodes, as described in section
+<a class="reference internal" href="#plotting-a-selection-to-figure"><span class="std std-ref">Plotting a selection of 1D arrays to figure</span></a>.</p></li>
+<li><dl class="simple">
+<dt>When finished with node selection, either:</dt><dd><ul class="simple">
+<li><p>right-click on any FLT_1D node or</p></li>
+<li><p>click <span class="guilabel">Node Selection</span> menu on menubar of the main tree view
+window.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">From the pop-up menu, navigate and select
+<li><p>From the pop-up menu, navigate and select
 <span class="guilabel">Plot selected nodes to</span> <a class="reference internal" href="../_images/plotMultiple.png"><img alt="icon_plotMultiple" src="../_images/plotMultiple.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">StackedPlotView</span> <a class="reference internal" href="../_images/StackedPlotView.png"><img alt="icon_StackedPlotView" src="../_images/StackedPlotView.png" style="width: 15px; height: 15px;" /></a> -&gt;
 <span class="guilabel">New</span> <a class="reference internal" href="../_images/new.png"><img alt="icon_new" src="../_images/new.png" style="width: 15px; height: 15px;" /></a>-&gt;
@@ -758,14 +739,14 @@ window.</li>
 <div class="figure align-center" id="id41">
 <a class="reference internal image-reference" href="../_images/DTV_plot_selected_nodes_to_SPV_thisDTV.png"><img alt="../_images/DTV_plot_selected_nodes_to_SPV_thisDTV.png" src="../_images/DTV_plot_selected_nodes_to_SPV_thisDTV.png" style="width: 762.75px; height: 161.25px;" /></a>
 <p class="caption"><span class="caption-text">Plotting selection to a new figure using selection from the currently
-opened IDS database.</span></p>
+opened IDS database.</span><a class="headerlink" href="#id41" title="Permalink to this image">¶</a></p>
 </div>
 <p>The <span class="guilabel">Stacked Plot View</span> window will then be shown.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Each plot can be customized individually; right click on a node and
+<p class="admonition-title">Note</p>
+<p>Each plot can be customized individually; right click on a node and
 select ‘Configure Plot’.</p>
 </div>
 </div>
@@ -784,7 +765,7 @@ select ‘Configure Plot’.</p>
         <a href="plugins.html" class="btn btn-neutral float-right" title="2.5. Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="signal_node_selection.html" class="btn btn-neutral" title="2.3. Node selection features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="signal_node_selection.html" class="btn btn-neutral float-left" title="2.3. Node selection features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -810,35 +791,16 @@ select ‘Configure Plot’.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
