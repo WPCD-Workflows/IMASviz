@@ -232,6 +232,10 @@ To obtain the IMASViz code source the next two steps are required:
 
 1. Clone repository from **git.iter.org** (permissions are required!).
 
+   .. code-block:: console
+
+      git clone ssh://git@git.iter.org/vis/viz.git
+
    Direct link to the **IMASViz** git.iter repository:
    `IMASViz <https://git.iter.org/projects/VIS/repos/viz/browse>`_.
 

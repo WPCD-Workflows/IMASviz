@@ -1,0 +1,2998 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1.3. Developing a custom user interface (UI) plugins with Qt designer &mdash; IMASViz 2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3.1.2. Developing a simple plugin for plotting data from IDSs" href="plugin_getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> IMASViz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/index.html">2. User Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">3. HOWTOs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">3.1. Plugins</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plugin_introduction.html">3.1.1. IMASViz and plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin_getting_started.html">3.1.2. Developing a simple plugin for plotting data from IDSs</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.1.3. Developing a custom user interface (UI) plugins with Qt designer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#custom-pyqt5-widget-creation-code-development">3.1.3.1. Custom PyQt5 widget creation (code development)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#passing-custom-pyqt5-widget-to-qt-designer">3.1.3.2. Passing custom PyQt5 widget to Qt designer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-custom-application-plugin-with-qt-designer">3.1.3.3. Creating a custom application/plugin with Qt Designer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-plugin-to-imasviz">3.1.3.4. Adding plugin to IMASViz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-custom-plugin-in-imasviz">3.1.3.5. Running the custom plugin in IMASViz</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">IMASViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">3. HOWTOs</a> &raquo;</li>
+        
+          <li><a href="index.html">3.1. Plugins</a> &raquo;</li>
+        
+      <li>3.1.3. Developing a custom user interface (UI) plugins with Qt designer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/howto/plugins/plugin_QTdesigner.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developing-a-custom-user-interface-ui-plugins-with-qt-designer">
+<span id="plugins-qtdesigner"></span><h1>3.1.3. Developing a custom user interface (UI) plugins with Qt designer<a class="headerlink" href="#developing-a-custom-user-interface-ui-plugins-with-qt-designer" title="Permalink to this headline">¶</a></h1>
+<p><strong>Qt Designer</strong> is a tool for designing and building <strong>Qt-based graphical user</strong>
+<strong>interfaces</strong>. It allows the user to design custom widgets, dialogs, main
+windows, etc. using on-screen forms and a user-friendly simple drag-and-drop
+interface. It also provides the user with a convenient ability to preview the
+designs to ensure they work as intended.</p>
+<p>In general, Qt Designer mainly offers basic Qt widgets such as
+<span class="guilabel">Push Button</span>, <span class="guilabel">Line Edit</span>, <span class="guilabel">List Widget</span>, etc.
+This list of the <strong>Qt Designer</strong> widgets can be
+extended by writing so-called <strong>Qt designer plugins</strong> (do not confuse with
+<strong>IMASViz plugins</strong>!). Normally this is done using C++ but PyQt5 also allows
+you to write Qt Designer plugins in Python3 programming language.</p>
+<p>Such designer plugin is used to pass a custom widget source code
+(written in Python3) to Qt Designer. This way the widget becomes available
+within the Qt designer where it can be interactively moved, designed, connected
+to signals and slots and more.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information on Qt Designer and PyQt5 based plugins and widgets
+check <a class="reference external" href="http://pyqt.sourceforge.net/Docs/PyQt5/designer.html">this link</a>.</p>
+</div>
+<dl class="simple">
+<dt>In this HOWTO section it will be described how to:</dt><dd><ol class="arabic simple">
+<li><p>Develop a <strong>custom PyQt5 widget</strong></p></li>
+<li><p>Pass the <strong>custom PyQt5 widget</strong> class to <strong>Qt designer</strong> as a
+<strong>Qt designer plugin</strong></p></li>
+<li><p>Use the <strong>custom PyQt5 widget</strong> as a <strong>Qt designer plugin</strong> within
+the Qt Designer</p></li>
+<li><p>Design of a custom <strong>user interface (UI) plugin</strong> (which includes
+the custom <strong>Qt designer plugin</strong>) with Qt designer</p></li>
+<li><p>Use the <strong>UI plugin</strong> in a standalone way as a
+<strong>PyQt5 application</strong></p></li>
+<li><p>Use the <strong>UI plugin</strong> in <strong>IMASViz</strong></p></li>
+</ol>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Qt version of used PyQt5 (compiled with Qt) and Qt designer must match!</p>
+</div>
+<p>For the purposes of this HowTo section, a widget source code for the
+<strong>Magnetics IDS overview Plugin</strong> was developed and it is available in the
+IMASViz source code (VizPlugins/viz_example). As it is mainly intended only
+as an example of a plugin (including an example of the widget source code), it
+is referred to mainly as an <strong>Example Plugin</strong> (same goes for source files -
+exampleWidget.py and exampleplugin.py, introduced later in this howTo section).</p>
+<p>As and addition, below is a short demonstration video of
+<strong>SOLPS overview Plugin</strong>, showing an example of the processes listed in
+points <strong>3-6</strong>. More on this plugin (as IMASViz plugin) can be found in section
+<a class="reference internal" href="../../manual/plugins.html#imasviz-plugins"><span class="std std-ref">Plugins</span></a>.</p>
+<video controls width="600" src="../_static/QtDesigner_and_IMASViz_plugin_short_demo.mp4"></video><div class="section" id="custom-pyqt5-widget-creation-code-development">
+<h2>3.1.3.1. Custom PyQt5 widget creation (code development)<a class="headerlink" href="#custom-pyqt5-widget-creation-code-development" title="Permalink to this headline">¶</a></h2>
+<p>This section describes and demonstrates how to write a complete custom PyQt5
+widget that handles data stored within the <strong>Magnetics IDS</strong>. Later in this
+HowTo section, the same widget will be then used to create
+<strong>Magnetics IDS overview Plugin</strong> using Qt designer.</p>
+<p>The main final features of this custom plugin will be:</p>
+<ul>
+<li><ul class="simple">
+<li><p><strong>Opening and reading the contents a specified IDS</strong> (specified by the set
+case parameters)</p></li>
+</ul>
+<p><strong>OR</strong></p>
+<ul class="simple">
+<li><p><strong>reading the contents of an IDS which was passed to the plugin by “host”
+application</strong>, and</p></li>
+</ul>
+</li>
+<li><p>convenient plotting of all <strong>flux_loop</strong> and <strong>poloidal field probe</strong> (AoS)
+signals found in the <strong>Magnetics IDS</strong> (arrays of values).</p></li>
+</ul>
+<p>In this case, the whole widget source code is written in Python3 file named
+<strong>exampleWidget.py</strong>.</p>
+<p>The final code can be already observed and compared here:
+<a class="reference internal" href="#examplewidget-code"><span class="std std-ref">Full final code of the example PyQt5 widget</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is highly recommended to have the finished code opened on the side while
+going through this HowTo section to better understand the whole code.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to have at least basic knowledge from programming
+(especially with Python programming language) before proceeding with the
+widget development instructions. A complete beginner might find those
+instructions a bit overwhelming.</p>
+</div>
+<p>The steps are split into the next subsections:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Code header</p></li>
+<li><p>Import statements</p></li>
+<li><p>Widget Class definition</p>
+<blockquote>
+<div><p>3.1 Widget Constructor definition</p>
+<p>3.2 Widget base “set” and “get” routines</p>
+<p>3.3 Widget custom routines</p>
+</div></blockquote>
+</li>
+<li><p>PlotCanvas Class definition</p>
+<blockquote>
+<div><p>4.1 PlotCanvas Constructor definition</p>
+<p>4.2 PlotCanvas custom plotting routines</p>
+</div></blockquote>
+</li>
+<li><p>Running the code as the main program (standalone)</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="code-header">
+<h3>3.1.3.1.1. Code header<a class="headerlink" href="#code-header" title="Permalink to this headline">¶</a></h3>
+<p>The header of the custom PyQt5 widget source code should contain the basic
+information about the code itself:
+- the source code (.py) filename,
+- short description and the purpose of this script
+- authors name and
+- authors contact (e-mail is most convenient).</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#  Name   : exampleWidget</span>
+<span class="c1">#</span>
+<span class="c1">#          A PyQt5 widget to serve as an example of how to create custom widgets</span>
+<span class="c1">#          that can be used within Qt designer.</span>
+<span class="c1">#          This widget embeds Matplotlib canvas (plot space). It contains also</span>
+<span class="c1">#          defined PyQt5 slots for setting the magnetics IDS parameters and</span>
+<span class="c1">#          a slot (function) for executing the plot procedure,</span>
+<span class="c1">#          populating/filling the Matplotlib canvas.</span>
+<span class="c1">#</span>
+<span class="c1">#  Author :</span>
+<span class="c1">#         Dejan Penko</span>
+<span class="c1">#  E-mail :</span>
+<span class="c1">#         dejan.penko@lecad.fs.uni-lj.si</span>
+<span class="c1">#</span>
+<span class="c1">#****************************************************</span>
+<span class="c1">#     Copyright(c) 2019- D. Penko</span>
+</pre></div>
+</td></tr></table></div>
+<p>Documentation should be as important to a developer as all other facets of
+development. <strong>Every code should include documentation</strong> (in the forms of a
+header, code comments, etc.). It either explains what the code does, how it
+operates, how to use it etc. Documentation is an important part of software engineering.</p>
+<p>No matter what the code contains, chances are that someday other
+users will try to understand and use it. Taking that extra time to write a
+proper description of the contents of the code will save huge amounts of time
+and effort for everybody to understand the code.</p>
+</div>
+<div class="section" id="import-statements">
+<span id="plugins-qtdesigner-import-statement"></span><h3>3.1.3.1.2. Import statements<a class="headerlink" href="#import-statements" title="Permalink to this headline">¶</a></h3>
+<p>The custom PyQt5 widget requires additional sources - modules.</p>
+<p>The ones required in this case are:</p>
+<ul class="simple">
+<li><p>The common system, OS and logging modules:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># import module providing system-specific parameters and functions</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># import module providing miscellaneous operating system interfaces</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># import module providing log handling</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>PyQt5 modules:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># import modules providing PyQt5 parameters, functions etc.</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span><span class="p">,</span> <span class="n">pyqtSignal</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Matplotlib modules and setting matplotlib to use the Qt rendering:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># import module providing matplotlib parameters, functions etc.</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="hll"><span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Qt5Agg&#39;</span><span class="p">)</span> <span class="c1"># Use Qt rendering</span>
+</span><span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">NavigationToolbar2QT</span> <span class="k">as</span> <span class="n">NavigationToolbar</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>IMAS modules:</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># import module providing IMAS and IDS-related parameters, functions etc.</span>
+<span class="kn">import</span> <span class="nn">imas</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="widget-class">
+<span id="plugins-qtdesigner-widget-class"></span><h3>3.1.3.1.3. Widget class<a class="headerlink" href="#widget-class" title="Permalink to this headline">¶</a></h3>
+<p>This section describes and demonstrates how to define a new widget class in
+Python3.</p>
+<div class="section" id="class-definition">
+<h4>3.1.3.1.3.1. Class definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h4>
+<p>The initial and important part of this code is the definition of a new class
+inheriting from the PyQt5 <strong>QWidget</strong> class. In this case, the class is named
+<span class="guilabel">exampleWidget</span>.</p>
+<p>This class will later fully define the QWidget (contents, design, functions
+related to the widget and more).</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">exampleWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A widget for opening magnetics IDS, extracting the flux loop or</span>
+<span class="sd">    poloidal probe quantities and plotting them to matplotlib figure canvas.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not forget to describe the class - what is its purpose etc.</p>
+</div>
+<p>Here also a new PyQt signal is set, which will be needed later in code.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="c1"># Create a custom signal</span>
+    <span class="n">idsSet</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>In short, the signal on its own does not perform any action. Instead, it is
+<code class="docutils literal notranslate"><span class="pre">connected</span></code> to a <code class="docutils literal notranslate"><span class="pre">slot</span></code>. The slot can be any callable Python function.
+When the signal gets emitted the connected slot (Python function) gets called.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More on signal and slots:
+<a class="reference external" href="https://www.tutorialspoint.com/pyqt/pyqt_signals_and_slots.html">Link</a></p>
+</div>
+</div>
+<div class="section" id="constructor-definition">
+<span id="widget-constructor"></span><h4>3.1.3.1.3.2. Constructor definition<a class="headerlink" href="#constructor-definition" title="Permalink to this headline">¶</a></h4>
+<p>In short, constructors are generally used for initiating an object. The task of
+constructors is to initialize the data members of the class when an object of
+the class is created.</p>
+<p>In the case of this custom widget, the constructor required two additional
+arguments:</p>
+<ul class="simple">
+<li><p><span class="guilabel">parent</span> (can be either Qt object, later our case QMainWindow), and</p></li>
+<li><p><span class="guilabel">ids</span> (an IDS object).</p></li>
+</ul>
+<p>Both arguments are set as <strong>None</strong> (default values).</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : Qt widget parent (e.g. QMainWindow)</span>
+<span class="sd">            ids    (IDS object)   : IDS object - optional parameter.</span>
+<span class="sd">                                    This widget does not require IDS object in</span>
+<span class="sd">                                    order to work (the default IDS parameters</span>
+<span class="sd">                                    will be used to open the IDS).</span>
+<span class="sd">                                    However, if an IDS object is already</span>
+<span class="sd">                                    available it can be passed to the widget</span>
+<span class="sd">                                    to be used instead (for example, passing</span>
+<span class="sd">                                    the IDS object from the IMASViz to this</span>
+<span class="sd">                                    widget).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>And the <span class="guilabel">ids</span> object is set with:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>65
+66
+67</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set IDS object</span>
+        <span class="c1"># Note: if not provided as an argument it will be set to None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+</pre></div>
+</td></tr></table></div>
+<p>Regarding the <span class="guilabel">ids</span> object, the main idea is to make our widget
+capable of performing in two different ways. Either:</p>
+<ul class="simple">
+<li><p>use IDS object passed to the widget (in which case <strong>ids != None</strong>),</p></li>
+<li><p>if no IDS object was passed (<strong>ids == None</strong>), open IDS and create a new
+<span class="guilabel">ids</span> object.</p></li>
+</ul>
+<p>For example, in <strong>IMASViz</strong> there is at least one IDS open at the time and thus
+have the <span class="guilabel">ids</span> object available. Instead of opening the IDS again,
+the <span class="guilabel">ids</span> object can be just passed to the custom widget as an
+argument and the widget can continue to use it.</p>
+<p>If there is no IDS object available (meaning no IDS is already being
+opened), an IDS must be opened thus creating an object referring to the IDS.
+In the constructor we define a dictionary labeled as <span class="guilabel">self.idsParameters</span>
+which should contain all IDS parameters for IDS (will be used later to open the
+needed IDS):</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set IDS case parameters</span>
+        <span class="c1"># - Empty dictionary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># - shot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;52344&#39;</span>
+        <span class="c1"># - run r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+        <span class="c1"># - user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">)</span>
+        <span class="c1"># - device / machine / database name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;viztest&#39;</span>
+        <span class="c1"># - IMAS major version (3.x.y)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
+        <span class="c1"># - label of the IDS to be used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;magnetics&#39;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Constructor should contain also a check if the widget is being run in a desktop
+environment. This is mandatory as this is a widget which deals with GUI and
+visualization. The code should not be run from a “terminal-only” environment (for
+example <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user&#64;host</span></code> etc.).</p>
+<p>In this case we define a function named <span class="guilabel">checkDisplay()</span>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>188
+189
+190
+191
+192
+193</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">checkDisplay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DISPLAY&#39;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No display available!&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>and execute it in the constructor:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>61
+62
+63</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Check if display is available (display is mandatory, as this is</span>
+        <span class="c1"># PyQt5 widget)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkDisplay</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lastly, a widget layout and its contents need to be defined (plot canvas and
+matplotlib navigation toolbar):</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>PlotCanvas</strong> class definition and the definition of its routines
+will be done in the following sections.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>85
+86
+87
+88
+89
+90
+91
+92
+93</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set widget layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">QVBoxLayout</span><span class="p">())</span>
+        <span class="c1"># Set empty matplotlib canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">PlotCanvas</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Set matplotlib toolbar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span> <span class="o">=</span> <span class="n">NavigationToolbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Add canvas and toolbar to widget layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="base-set-and-get-routines">
+<h4>3.1.3.1.3.3. Base “set” and “get” routines<a class="headerlink" href="#base-set-and-get-routines" title="Permalink to this headline">¶</a></h4>
+<p>For setting and getting/returning the IDS case parameters, the definition of
+a few <span class="guilabel">set/get</span> routines is required.</p>
+<p>The <span class="guilabel">set</span> routines must be set as <strong>slots (&#64;pyqtSlot)</strong>. This clearly
+marks the function as a slot for PyQt5 and it also increases its speed and
+performance when being executed as slots in PyQt5 applications.</p>
+<p>The <span class="guilabel">get</span> routines are simple functions which return one variable
+value.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setShot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shot</span>
+
+    <span class="k">def</span> <span class="nf">getShot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setRun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run</span>
+
+    <span class="k">def</span> <span class="nf">getRun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setUser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+
+    <span class="k">def</span> <span class="nf">getUser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+
+    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ver</span>
+
+    <span class="k">def</span> <span class="nf">getIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idsName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">idsName</span>
+
+    <span class="k">def</span> <span class="nf">getIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="custom-functions-routines">
+<h4>3.1.3.1.3.4. Custom functions (routines)<a class="headerlink" href="#custom-functions-routines" title="Permalink to this headline">¶</a></h4>
+<p>The first “bundle” of functions deals with IDSs:</p>
+<p>1. <span class="guilabel">openIDS</span>: for opening the IDS (using the IDS case parameters,
+defined with the <span class="guilabel">self.idsParameters</span> dictionary),</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">openIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Open magnetics IDS.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">imas</span><span class="o">.</span><span class="n">ids</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]),</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">open_env</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">])</span>
+        <span class="c1"># Get magnetics IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>2. <span class="guilabel">setIDS</span>: for setting the IDS object (<span class="guilabel">self.ids</span>). Here also the
+<strong>emit signal</strong> statement is included. This way every time this function will be
+called/executed, this signal will get emmited. Later in the plugin this signal
+will be used to initiate the execution of certain functions on signal-emit.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>138
+139
+140
+141</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">setIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># Emit signal indicating that the IDS object is set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsSet</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>3. <span class="guilabel">getIDS</span>: for getting/returning the IDS object
+(<span class="guilabel">self.ids</span>).</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>143
+144</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">getIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span>
+</pre></div>
+</td></tr></table></div>
+<p>The second “bundle” of functions deals with executing the plotting procedures
+to populate the <strong>matplotlib canvas</strong>. At this point in this tutorial, the
+<strong>PlotCanvas</strong> class is not yet defined. This will be done in the next HowTo
+section. The functions needed are:</p>
+<ul class="simple">
+<li><p><span class="guilabel">plotFluxAoS</span>: for plotting all <strong>Flux_loop</strong> signal arrays values,
+and</p></li>
+<li><p><span class="guilabel">plotBPolAoS</span>: for plotting all <strong>poloidal field probe</strong> signal
+arrays values</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot Flux Loop arrays to canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39; IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Canvas figure check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># Plot flux loop Aos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot poloidal field probe arrays to canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39; IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Canvas figure check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># Plot Poloidal field AoS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="plotcanvas">
+<h3>3.1.3.1.4. PlotCanvas<a class="headerlink" href="#plotcanvas" title="Permalink to this headline">¶</a></h3>
+<p>This section describes and demonstrates how to define a new matplotlib
+FigureCanvas class in Python3.</p>
+<div class="section" id="id1">
+<h4>3.1.3.1.4.1. Class definition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Second main part this code (with the first being the definition of the
+<span class="guilabel">exampleWindget</span> class) is the definition of a new class inheriting
+from the matplotlib <span class="guilabel">FigureCanvas</span> class. In this case, the class
+is named <span class="guilabel">PlotCanvas</span>.</p>
+<p>This class will later fully define the matplotlib plot frame (canvas) and
+functions related to it.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>195
+196
+197
+198</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlotCanvas</span><span class="p">(</span><span class="n">FigureCanvas</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Matplotlib figure canvas that is to be embedded within the widget.</span>
+<span class="sd">    FigureCanvas is the area onto which the figure is drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id2">
+<h4>3.1.3.1.4.2. Constructor definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>In this case the constructor takes 4 additional arguments:</p>
+<ul class="simple">
+<li><p><span class="guilabel">parent</span> (our custom QWidget),</p></li>
+<li><p><span class="guilabel">width</span> (canvas width),</p></li>
+<li><p><span class="guilabel">height</span> (canvas height), and</p></li>
+<li><p><span class="guilabel">dpi</span> (dots per inch).</p></li>
+</ul>
+<p>The <span class="guilabel">parent</span> argument is set as <strong>None</strong>, <span class="guilabel">width</span> to <strong>5</strong>,
+<span class="guilabel">height</span> to <strong>5</strong> and <span class="guilabel">dpi</span> to <strong>100</strong> (default values).</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>200
+201
+202
+203
+204
+205
+206
+207</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : PyQt5 parent (e.g. QWidget).</span>
+<span class="sd">            width  (int)          : Canvas width.</span>
+<span class="sd">            height (int)          : Canvas height.</span>
+<span class="sd">            dpi    (int)          : Dots per inch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, a figure object <span class="guilabel">fig</span> is set:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Figure</strong> routine is taken from the import statement (see
+<a class="reference internal" href="#plugins-qtdesigner-import-statement"><span class="std std-ref">Import statements</span></a>).</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210</pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot poloidal field probe arrays to canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39; IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Canvas figure check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># Plot Poloidal field AoS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">openIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Open magnetics IDS.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">imas</span><span class="o">.</span><span class="n">ids</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]),</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">open_env</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">])</span>
+        <span class="c1"># Get magnetics IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">setIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># Emit signal indicating that the IDS object is set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsSet</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">getIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setShot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shot</span>
+
+    <span class="k">def</span> <span class="nf">getShot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setRun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run</span>
+
+    <span class="k">def</span> <span class="nf">getRun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setUser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+
+    <span class="k">def</span> <span class="nf">getUser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+
+    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ver</span>
+
+    <span class="k">def</span> <span class="nf">getIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idsName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">idsName</span>
+
+    <span class="k">def</span> <span class="nf">getIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">checkDisplay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DISPLAY&#39;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No display available!&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">PlotCanvas</span><span class="p">(</span><span class="n">FigureCanvas</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Matplotlib figure canvas that is to be embedded within the widget.</span>
+<span class="sd">    FigureCanvas is the area onto which the figure is drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : PyQt5 parent (e.g. QWidget).</span>
+<span class="sd">            width  (int)          : Canvas width.</span>
+<span class="sd">            height (int)          : Canvas height.</span>
+<span class="sd">            dpi    (int)          : Dots per inch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Set figure</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, the (by class) inherited <span class="guilabel">FigureCanvas</span> constructor is executed.
+The <span class="guilabel">fig</span> object is passed to it as an argument. This way the
+<strong>figure</strong> is embedded within the <strong>matplotlib canvas</strong>.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>211
+212</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set canvas (pass figure)</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, the <strong>parent</strong> of the <span class="guilabel">FigureCanvas</span> is set:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>213
+214</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set canvas parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lastly, the <span class="guilabel">FigureCanvas</span> <strong>size policy</strong> is set.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>215
+216
+217
+218</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set canvas size policy</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="n">setSizePolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The whole <span class="guilabel">PlotCanvas</span> constructor code:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : PyQt5 parent (e.g. QWidget).</span>
+<span class="sd">            width  (int)          : Canvas width.</span>
+<span class="sd">            height (int)          : Canvas height.</span>
+<span class="sd">            dpi    (int)          : Dots per inch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Set figure</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+        <span class="c1"># Set canvas (pass figure)</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+        <span class="c1"># Set canvas parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="c1"># Set canvas size policy</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="n">setSizePolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="custom-plotting-functions">
+<h4>3.1.3.1.4.3. Custom plotting functions<a class="headerlink" href="#custom-plotting-functions" title="Permalink to this headline">¶</a></h4>
+<p>There are two plotting functions required:</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">plotFluxAoS</span>, for plotting all <strong>flux_loop</strong> signal arrays, and</p></li>
+<li><p><span class="guilabel">plotBPolAoS</span>, for plotting all <strong>poloidal field probe</strong> signal
+arrays values.</p></li>
+</ol>
+<p>Both are very similar, the only difference between them is which data is
+extracted from the IDS and used for plotting. Because of this similarity, only
+the function <span class="guilabel">plotFluxAoS</span> will be described in depth.</p>
+<p>The function <span class="guilabel">plotFluxAoS</span> requires only one argument: the IDS object.
+The function must also set the provided <span class="guilabel">ids</span> object to
+<span class="guilabel">self.ids</span> object.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot values found in flux loops AoS.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            ids (IDS object) : IDS object referring to the IDS from which the</span>
+<span class="sd">                               data is to be extracted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Add/Update IDS reference to the object (figure canvas)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, figure subplot must be set:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>234
+235</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Set subplot</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, the time values must be extracted and assigned to <span class="guilabel">time_values</span>
+array. The time values will correspond to plot X-axis, thus, for easier
+representation, a new array <span class="guilabel">x</span> can be defined and the same values
+assigned to it.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>236
+237
+238</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Extract X-axis values (time)</span>
+        <span class="n">time_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">time_values</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, looping through all structured of the <strong>flux_loop</strong> AoS is required.
+Each array values (Y-axis values) need to be extracted and then together with
+the previously set time values (X-axis) a new plot can be added to the
+matplotlib figure. Because of the loop, this gets repeated until no more AoS
+arrays are left.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>239
+240
+241
+242
+243
+244
+245
+246
+247</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Get the size of AoS (number of arrays)</span>
+        <span class="n">num_flux_loop_AoS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">)</span>
+        <span class="c1"># For each array extract array values and create a plot</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_flux_loop_AoS</span><span class="p">):</span>
+            <span class="c1"># Extract array values</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Set plot (line) defined by X and Y values +</span>
+            <span class="c1"># set line as full line (-) and add legend label.</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Flux_loop[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, few additional modifications are required:</p>
+<ul class="simple">
+<li><p>enabling plot grid,</p></li>
+<li><p>setting X-axis, Y-axis label,</p></li>
+<li><p>setting plot title,</p></li>
+<li><p>enabling legend, and</p></li>
+<li><p>drawing the plot.</p></li>
+</ul>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>248
+249
+250
+251
+252
+253
+254
+255
+256</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="c1"># Enable grid</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="c1"># Set axis labels and plot title</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Flux Loop values&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Flux loop&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable legend</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># Draw/Show plots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Final <span class="guilabel">plotFluxAoS</span> code:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot values found in flux loops AoS.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            ids (IDS object) : IDS object referring to the IDS from which the</span>
+<span class="sd">                               data is to be extracted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Add/Update IDS reference to the object (figure canvas)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Set subplot</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="c1"># Extract X-axis values (time)</span>
+        <span class="n">time_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">time_values</span>
+        <span class="c1"># Get the size of AoS (number of arrays)</span>
+        <span class="n">num_flux_loop_AoS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">)</span>
+        <span class="c1"># For each array extract array values and create a plot</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_flux_loop_AoS</span><span class="p">):</span>
+            <span class="c1"># Extract array values</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Set plot (line) defined by X and Y values +</span>
+            <span class="c1"># set line as full line (-) and add legend label.</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Flux_loop[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable grid</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="c1"># Set axis labels and plot title</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Flux Loop values&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Flux loop&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable legend</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># Draw/Show plots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>As already stated, <span class="guilabel">plotBPolAoS</span> function code is almost identical
+to <span class="guilabel">plotFluxAoS</span> code.</p>
+<p>Final <span class="guilabel">plotBPolAoS</span>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot poloidal field probe values.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            ids (IDS object) : IDS object referring to the IDS from which the</span>
+<span class="sd">                               data is to be extracted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Add/Update IDS reference to the object (figure canvas)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Set subplot</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="c1"># Extract X-axis values (time)</span>
+        <span class="n">time_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">time_values</span>
+        <span class="c1"># Get the size of AoS (number of arrays)</span>
+        <span class="n">num_bpol_probe_AoS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">bpol_probe</span><span class="p">)</span>
+        <span class="c1"># For each array extract array values and create a plot</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bpol_probe_AoS</span><span class="p">):</span>
+            <span class="c1"># Extract array values</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">bpol_probe</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Set plot (line) defined by X and Y values +</span>
+            <span class="c1"># set line as full line (-) and add legend label.</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bpol_probe[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable grid</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="c1"># Set axis labels and plot title</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Poloidal field probe values&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Poloidal field probe&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable legend</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># Draw/Show plots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>At this point the <strong>exampleWidget.py</strong> code is finished and ready for use.</p>
+</div>
+</div>
+<div class="section" id="running-the-code-as-the-main-program-standalone">
+<h3>3.1.3.1.5. Running the code as the main program (standalone)<a class="headerlink" href="#running-the-code-as-the-main-program-standalone" title="Permalink to this headline">¶</a></h3>
+<p>To run this example widget in a standalone way, few more lines must be added to
+the <strong>exampleWidget.py</strong>.</p>
+<p>This part of the code contains setting the <span class="guilabel">QApplication</span>,
+<span class="guilabel">QMainWindow</span>, initiating the <span class="guilabel">exampleWidget</span> class,
+reading the IDS (parameters are set in the <span class="guilabel">exampleWidget</span>
+constructor) and executing the plotting procedures.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="c1"># Set application object</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="c1"># Set main PyQt5 window</span>
+    <span class="n">mainWindow</span> <span class="o">=</span> <span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="c1"># Set window title</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Example Widget&#39;</span><span class="p">)</span>
+    <span class="c1"># Set example widget object</span>
+    <span class="n">ew</span> <span class="o">=</span> <span class="n">exampleWidget</span><span class="p">()</span>
+    <span class="c1"># Open IDS (magnetics IDS)</span>
+    <span class="n">ew</span><span class="o">.</span><span class="n">openIDS</span><span class="p">()</span>
+    <span class="c1"># Plot Flux Loop arrays</span>
+    <span class="n">ew</span><span class="o">.</span><span class="n">plotFluxAoS</span><span class="p">()</span>
+    <span class="c1"># Plot poloidal field probe arrays (an option other than plotFluxAoS)</span>
+    <span class="c1"># ew.plotBPolAoS()</span>
+    <span class="c1"># Set example widget as a central widget of the main window</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">ew</span><span class="p">)</span>
+    <span class="c1"># Show the main window</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># Keep the application running (until the &#39;exit application&#39; command is</span>
+    <span class="c1"># executed</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+<p>The code can now be run from the terminal with the next command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 exampleWidget.py</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that the IDS with the specified case parameters exists (done in
+<a class="reference internal" href="#widget-constructor"><span class="std std-ref">Constructor definition</span></a> using <span class="guilabel">idsParameters</span> dictionary)!</p>
+</div>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/exampleWidget_standalone_run_flux_loop.png"><img alt="../../_images/exampleWidget_standalone_run_flux_loop.png" src="../../_images/exampleWidget_standalone_run_flux_loop.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text"><strong>exampleWidget.py</strong>: Plotting all <strong>magnetics IDS</strong> arrays (17) of AoS
+<strong>flux_loop</strong> found in IDS (on GateWay HPC) shot: 52344;   run: 0;
+user: g2penkod; device: viztest.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/exampleWidget_standalone_run_bpol_probe.png"><img alt="../../_images/exampleWidget_standalone_run_bpol_probe.png" src="../../_images/exampleWidget_standalone_run_bpol_probe.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text"><strong>exampleWidget.py</strong>: Plotting all <strong>magnetics IDS</strong> arrays (ABOUT 130) of AoS
+<strong>bpol_probe</strong> found in IDS (on GateWay HPC) shot: 52344;   run: 0;
+user: g2penkod; device: viztest.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="full-final-code-of-the-example-pyqt5-widget">
+<span id="examplewidget-code"></span><h3>3.1.3.1.6. Full final code of the example PyQt5 widget<a class="headerlink" href="#full-final-code-of-the-example-pyqt5-widget" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#  Name   : exampleWidget</span>
+<span class="c1">#</span>
+<span class="c1">#          A PyQt5 widget to serve as an example of how to create custom widgets</span>
+<span class="c1">#          that can be used within Qt designer.</span>
+<span class="c1">#          This widget embeds Matplotlib canvas (plot space). It contains also</span>
+<span class="c1">#          defined PyQt5 slots for setting the magnetics IDS parameters and</span>
+<span class="c1">#          a slot (function) for executing the plot procedure,</span>
+<span class="c1">#          populating/filling the Matplotlib canvas.</span>
+<span class="c1">#</span>
+<span class="c1">#  Author :</span>
+<span class="c1">#         Dejan Penko</span>
+<span class="c1">#  E-mail :</span>
+<span class="c1">#         dejan.penko@lecad.fs.uni-lj.si</span>
+<span class="c1">#</span>
+<span class="c1">#****************************************************</span>
+<span class="c1">#     Copyright(c) 2019- D. Penko</span>
+
+<span class="c1"># import module providing system-specific parameters and functions</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># import module providing miscellaneous operating system interfaces</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># import module providing log handling</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="c1"># import modules providing PyQt5 parameters, functions etc.</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span><span class="p">,</span> <span class="n">pyqtSignal</span>
+<span class="c1"># import module providing matplotlib parameters, functions etc.</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Qt5Agg&#39;</span><span class="p">)</span> <span class="c1"># Use Qt rendering</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">NavigationToolbar2QT</span> <span class="k">as</span> <span class="n">NavigationToolbar</span>
+<span class="c1"># import module providing IMAS and IDS-related parameters, functions etc.</span>
+<span class="kn">import</span> <span class="nn">imas</span>
+
+<span class="k">class</span> <span class="nc">exampleWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A widget for opening magnetics IDS, extracting the flux loop or</span>
+<span class="sd">    poloidal probe quantities and plotting them to matplotlib figure canvas.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create a custom signal</span>
+    <span class="n">idsSet</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : Qt widget parent (e.g. QMainWindow)</span>
+<span class="sd">            ids    (IDS object)   : IDS object - optional parameter.</span>
+<span class="sd">                                    This widget does not require IDS object in</span>
+<span class="sd">                                    order to work (the default IDS parameters</span>
+<span class="sd">                                    will be used to open the IDS).</span>
+<span class="sd">                                    However, if an IDS object is already</span>
+<span class="sd">                                    available it can be passed to the widget</span>
+<span class="sd">                                    to be used instead (for example, passing</span>
+<span class="sd">                                    the IDS object from the IMASViz to this</span>
+<span class="sd">                                    widget).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Run QWidget constructor</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="c1"># Check if display is available (display is mandatory, as this is</span>
+        <span class="c1"># PyQt5 widget)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkDisplay</span><span class="p">()</span>
+
+        <span class="c1"># Set IDS object</span>
+        <span class="c1"># Note: if not provided as an argument it will be set to None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+
+        <span class="c1"># Set IDS case parameters</span>
+        <span class="c1"># - Empty dictionary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># - shot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;52344&#39;</span>
+        <span class="c1"># - run r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+        <span class="c1"># - user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">)</span>
+        <span class="c1"># - device / machine / database name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;viztest&#39;</span>
+        <span class="c1"># - IMAS major version (3.x.y)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
+        <span class="c1"># - label of the IDS to be used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;magnetics&#39;</span>
+
+        <span class="c1"># Set widget layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">QVBoxLayout</span><span class="p">())</span>
+        <span class="c1"># Set empty matplotlib canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">PlotCanvas</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Set matplotlib toolbar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span> <span class="o">=</span> <span class="n">NavigationToolbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Add canvas and toolbar to widget layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot Flux Loop arrays to canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39; IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Canvas figure check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># Plot flux loop Aos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot poloidal field probe arrays to canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39; IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Canvas figure check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># Plot Poloidal field AoS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">openIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Open magnetics IDS.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">imas</span><span class="o">.</span><span class="n">ids</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]),</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">open_env</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">],</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">])</span>
+        <span class="c1"># Get magnetics IDS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">setIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># Emit signal indicating that the IDS object is set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsSet</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">getIDS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setShot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shot</span>
+
+    <span class="k">def</span> <span class="nf">getShot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;shot&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setRun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run</span>
+
+    <span class="k">def</span> <span class="nf">getRun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setUser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+
+    <span class="k">def</span> <span class="nf">getUser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+
+    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ver</span>
+
+    <span class="k">def</span> <span class="nf">getIMASmVer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;IMAS major version&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idsName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">idsName</span>
+
+    <span class="k">def</span> <span class="nf">getIDSname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idsParameters</span><span class="p">[</span><span class="s1">&#39;idsName&#39;</span><span class="p">]</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">checkDisplay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DISPLAY&#39;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No display available!&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">PlotCanvas</span><span class="p">(</span><span class="n">FigureCanvas</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Matplotlib figure canvas that is to be embedded within the widget.</span>
+<span class="sd">    FigureCanvas is the area onto which the figure is drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            parent (PyQt5 object) : PyQt5 parent (e.g. QWidget).</span>
+<span class="sd">            width  (int)          : Canvas width.</span>
+<span class="sd">            height (int)          : Canvas height.</span>
+<span class="sd">            dpi    (int)          : Dots per inch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Set figure</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+        <span class="c1"># Set canvas (pass figure)</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+        <span class="c1"># Set canvas parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="c1"># Set canvas size policy</span>
+        <span class="n">FigureCanvas</span><span class="o">.</span><span class="n">setSizePolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">,</span>
+                                   <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Expanding</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">plotFluxAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot values found in flux loops AoS.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            ids (IDS object) : IDS object referring to the IDS from which the</span>
+<span class="sd">                               data is to be extracted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Add/Update IDS reference to the object (figure canvas)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Set subplot</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="c1"># Extract X-axis values (time)</span>
+        <span class="n">time_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">time_values</span>
+        <span class="c1"># Get the size of AoS (number of arrays)</span>
+        <span class="n">num_flux_loop_AoS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">)</span>
+        <span class="c1"># For each array extract array values and create a plot</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_flux_loop_AoS</span><span class="p">):</span>
+            <span class="c1"># Extract array values</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">flux_loop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Set plot (line) defined by X and Y values +</span>
+            <span class="c1"># set line as full line (-) and add legend label.</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Flux_loop[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable grid</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="c1"># Set axis labels and plot title</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Flux Loop values&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Flux loop&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable legend</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># Draw/Show plots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">plotBPolAoS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot poloidal field probe values.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            ids (IDS object) : IDS object referring to the IDS from which the</span>
+<span class="sd">                               data is to be extracted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Add/Update IDS reference to the object (figure canvas)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="c1"># IDS check</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;IDS was not set/opened!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Set subplot</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="c1"># Extract X-axis values (time)</span>
+        <span class="n">time_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">time_values</span>
+        <span class="c1"># Get the size of AoS (number of arrays)</span>
+        <span class="n">num_bpol_probe_AoS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">bpol_probe</span><span class="p">)</span>
+        <span class="c1"># For each array extract array values and create a plot</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bpol_probe_AoS</span><span class="p">):</span>
+            <span class="c1"># Extract array values</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids</span><span class="o">.</span><span class="n">magnetics</span><span class="o">.</span><span class="n">bpol_probe</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Set plot (line) defined by X and Y values +</span>
+            <span class="c1"># set line as full line (-) and add legend label.</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bpol_probe[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable grid</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="c1"># Set axis labels and plot title</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Poloidal field probe values&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Poloidal field probe&#39;</span><span class="p">)</span>
+        <span class="c1"># Enable legend</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># Draw/Show plots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="c1"># Set application object</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="c1"># Set main PyQt5 window</span>
+    <span class="n">mainWindow</span> <span class="o">=</span> <span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="c1"># Set window title</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Example Widget&#39;</span><span class="p">)</span>
+    <span class="c1"># Set example widget object</span>
+    <span class="n">ew</span> <span class="o">=</span> <span class="n">exampleWidget</span><span class="p">()</span>
+    <span class="c1"># Open IDS (magnetics IDS)</span>
+    <span class="n">ew</span><span class="o">.</span><span class="n">openIDS</span><span class="p">()</span>
+    <span class="c1"># Plot Flux Loop arrays</span>
+    <span class="n">ew</span><span class="o">.</span><span class="n">plotFluxAoS</span><span class="p">()</span>
+    <span class="c1"># Plot poloidal field probe arrays (an option other than plotFluxAoS)</span>
+    <span class="c1"># ew.plotBPolAoS()</span>
+    <span class="c1"># Set example widget as a central widget of the main window</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">ew</span><span class="p">)</span>
+    <span class="c1"># Show the main window</span>
+    <span class="n">mainWindow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># Keep the application running (until the &#39;exit application&#39; command is</span>
+    <span class="c1"># executed</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="passing-custom-pyqt5-widget-to-qt-designer">
+<h2>3.1.3.2. Passing custom PyQt5 widget to Qt designer<a class="headerlink" href="#passing-custom-pyqt5-widget-to-qt-designer" title="Permalink to this headline">¶</a></h2>
+<p>In order to pass the <strong>custom PyQt5 widget</strong> to <strong>Qt designer</strong>, a separate
+Qt plugin Python file is required, written in Python3 programming language.
+<strong>The name of this file is of major importance</strong> as if set improperly the
+Qt designer will not recognize it!
+The name of this file should end with <strong>plugin.py</strong> (<strong>case
+sensitive!</strong>). In this case, the file is named <strong>exampleplugin.py</strong>. it must
+be placed in the same directory as the widget source code - <strong>exampleWidget.py</strong>.</p>
+<p>This plugin <em>.py</em> file for Qt designer follows a certain template which can be
+used and slightly modified as required..</p>
+<p>The whole code is shown below.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">An example of a widget as a Qt designer plugin. The widget plots magnetics IDS</span>
+<span class="sd">data.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QPixmap</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtDesigner</span> <span class="kn">import</span> <span class="n">QPyDesignerCustomWidgetPlugin</span>
+
+<span class="kn">from</span> <span class="nn">exampleWidget</span> <span class="kn">import</span> <span class="n">exampleWidget</span>
+
+<span class="k">class</span> <span class="nc">exampleplugin</span><span class="p">(</span><span class="n">QPyDesignerCustomWidgetPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plugin for exampleWidget functionality.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">exampleplugin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">exampleWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;exampleWidget&quot;</span>
+
+    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;IMASViz&quot;</span>
+
+    <span class="k">def</span> <span class="nf">icon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">_logo_pixmap</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">toolTip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Plot magnetics IDS data.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">whatsThis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">isContainer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">domXml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;widget class=&quot;exampleWidget&quot; name=&quot;exampleWidget&quot;&gt;</span><span class="se">\n</span><span class="s1">&lt;/widget&gt;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">includeFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;exampleWidget&quot;</span>
+
+<span class="c1"># Define the image used for the icon.</span>
+<span class="c1"># Note: This is IMASviz default pixmap.</span>
+<span class="n">_logo_16x16_xpm</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;16 16 3 1 &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;  c black&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;. c #0000E3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X c None&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX X  XX  XX  X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX    XX  XX XX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX  X X   XXX  &quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX XX X XX X  X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;................&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXX XX X X   XXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXX X XX XX XXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXX  XX X XXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXX  XX X   XXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">]</span>
+
+<span class="n">_logo_pixmap</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">_logo_16x16_xpm</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Below are listed lines of the Qt plugin code, which must be modified for any
+new widget, in order to properly refer to the widget source code - in this case
+<strong>exampleWidget</strong> (exampleWidget.py).</p>
+<ol class="arabic simple">
+<li><p>Import statement:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">exampleWidget</span> <span class="kn">import</span> <span class="n">exampleWidget</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="2">
+<li><p>Class label:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">exampleplugin</span><span class="p">(</span><span class="n">QPyDesignerCustomWidgetPlugin</span><span class="p">):</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="3">
+<li><p>Class constructor:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="hll">        <span class="nb">super</span><span class="p">(</span><span class="n">exampleplugin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="4">
+<li><p>Returning custom widget object on <span class="guilabel">createWidget</span>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If widget constructor requires arguments they must be included here! In this
+case <span class="guilabel">parent</span> and <span class="guilabel">ids</span>.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="n">exampleWidget</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="5">
+<li><p>Name:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="s2">&quot;exampleWidget&quot;</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="6">
+<li><p>Group:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="s2">&quot;IMASViz&quot;</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="7">
+<li><p>Tool tip:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">toolTip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="s2">&quot;Plot magnetics IDS data.&quot;</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="8">
+<li><p>XML attribute definition:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">domXml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="s1">&#39;&lt;widget class=&quot;exampleWidget&quot; name=&quot;exampleWidget&quot;&gt;</span><span class="se">\n</span><span class="s1">&lt;/widget&gt;&#39;</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="9">
+<li><p>Include file:</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">includeFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="s2">&quot;exampleWidget&quot;</span>
+</span></pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="10">
+<li><p>Icon - pixmap (optional):</p></li>
+</ol>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Define the image used for the icon.</span>
+<span class="c1"># Note: This is IMASviz default pixmap.</span>
+<span class="n">_logo_16x16_xpm</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;16 16 3 1 &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;  c black&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;. c #0000E3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X c None&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX X  XX  XX  X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX    XX  XX XX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX  X X   XXX  &quot;</span><span class="p">,</span>
+    <span class="s2">&quot; XX XX X XX X  X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;................&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXX XX X X   XXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXX X XX XX XXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXX  XX X XXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXX  XX X   XXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XXXXXXXXXXXXXXXX&quot;</span><span class="p">]</span>
+
+<span class="n">_logo_pixmap</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">_logo_16x16_xpm</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>With the source and plugin code (.py files) completed they are ready to be
+used in Qt designer.</p>
+<p>To achieve that, first the location of the necessary files must be provided to
+the Qt designer. This is done by adding a path to the <code class="docutils literal notranslate"><span class="pre">$PYQTDESIGNERPATH</span></code>
+system environment variable.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Bash shell
+<span class="go">export PYQTDESIGNERPATH=/path/to/source/files:${PYQTDESIGNERPATH}</span>
+<span class="gp">#</span> C-shell
+<span class="go">setenv PYQTDESIGNERPATH /path/to/source/files:${PYQTDESIGNERPATH}</span>
+</pre></div>
+</div>
+<p>in this case</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Bash shell
+<span class="go">export PYQTDESIGNERPATH=$VIZ_HOME/imasviz/VizPlugins/viz_example:${PYQTDESIGNERPATH}</span>
+<span class="gp">#</span> C-shell
+<span class="go">setenv PYQTDESIGNERPATH $VIZ_HOME/imasviz/VizPlugins/viz_example:${PYQTDESIGNERPATH}</span>
+</pre></div>
+</div>
+<p>With this step completed the PyQt5 widget, now Qt Designer plugin, is ready to
+be used within <strong>Qt Designer</strong>.</p>
+</div>
+<div class="section" id="creating-a-custom-application-plugin-with-qt-designer">
+<span id="examplewidget-creating-app"></span><h2>3.1.3.3. Creating a custom application/plugin with Qt Designer<a class="headerlink" href="#creating-a-custom-application-plugin-with-qt-designer" title="Permalink to this headline">¶</a></h2>
+<p>In this subsection, the process of creating a custom plugin/application GUI is
+presented.
+In <strong>Qt Designer</strong>, the GUI design and layout can be done conveniently with
+mouse drag-and-drop, popup-menu configurations and more.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A good video presentation how to use Qt Designer is available in
+<a class="reference internal" href="#plugins-qtdesigner"><span class="std std-ref">Developing a custom user interface (UI) plugins with Qt designer</span></a>.</p>
+</div>
+<p>The figure below presents the final look at the end of the plugin GUI design
+procedure.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_final.png"><img alt="../../_images/QtDesigner_examplePlugin_final.png" src="../../_images/QtDesigner_examplePlugin_final.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Final design of the example plugin, indented for plotting all slices of
+<strong>flux loop</strong> and <strong>poloidal field</strong> data found in <strong>magnetics IDS</strong>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Before continuing, the environment must be set properly.
+On the <strong>GateWay</strong>, a few modules are required to be loaded first and the
+<strong>LD_LIBRARY_PATH</strong> environment variable must be extended:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> On the GateWay
+<span class="go">module load itm-python3.6</span>
+<span class="go">module load itm-qt/5.8.0</span>
+<span class="go">setenv LD_LIBRARY_PATH ${ITM_PYTHON_PREFIX}/lib:${LD_LIBRARY_PATH}</span>
+</pre></div>
+</div>
+<p>The Qt designer can be then run by executing the next command in the terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> On the GateWay
+<span class="go">designer</span>
+</pre></div>
+</div>
+<p>A startup window will appear, as shown in the figure below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Qt version of used PyQt5 (compiled with Qt) and Qt designer <strong>must match</strong>!
+Qt designer with Qt version X will not be able to find a plugin which
+source (widget code) was written using PyQt5 compiled with Qt version Y!
+The environment-setting instructions above were tested on the <strong>GateWay</strong>
+in the time of writing this HowTo section.</p>
+</div>
+<div class="section" id="gui-design-procedure">
+<h3>3.1.3.3.1. GUI design procedure<a class="headerlink" href="#gui-design-procedure" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>First, a new <strong>Main Window</strong> must be created. This is done by selecting
+The <strong>Main Window</strong> option from the list of <span class="guilabel">templates/forms</span> and
+clicking the <span class="guilabel">Create</span> button, as shown in the figure below.</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_startup.png"><img alt="../../_images/QtDesigner_startup.png" src="../../_images/QtDesigner_startup.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text">Qt designer startup window.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>After this is done, on the far left side of the window lays a <strong>Widget Box</strong>
+which displays a
+collection of all available widgets. On the bottom of the list, a group
+<strong>IMASViz</strong> containing widget labeled <strong>exampleWidget</strong> can be found. This is
+the custom widget which was developed through the first half of this manual
+section. The group <strong>IMASViz</strong> was defined in the <strong>plugin.py</strong> file
+(<strong>def group</strong>).</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_witdgetBox_customWidgets.png"><img alt="../../_images/QtDesigner_witdgetBox_customWidgets.png" src="../../_images/QtDesigner_witdgetBox_customWidgets.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Custom widget (<code class="docutils literal notranslate"><span class="pre">exampleWidget</span></code>) in Qt designer.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Next, drag and drop <strong>exampleWidget</strong> to <span class="guilabel">MainWindow</span>. The result should be
+similar as in the figure below.</p></li>
+</ol>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_step_1.png"><img alt="../../_images/QtDesigner_examplePlugin_step_1.png" src="../../_images/QtDesigner_examplePlugin_step_1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text"><strong>exampleWidget</strong> within <span class="guilabel">MainWindow</span>.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Next, drag and drop 2x <span class="guilabel">Group Box</span> and 2x <span class="guilabel">vertical spacer</span>.</p></li>
+</ol>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_step_2.png"><img alt="../../_images/QtDesigner_examplePlugin_step_2.png" src="../../_images/QtDesigner_examplePlugin_step_2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Added 2x <span class="guilabel">Group Box</span> and 2x <span class="guilabel">vertical spacer</span> to <span class="guilabel">MainWindow</span>.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="arabic" start="4">
+<li><p>In top <span class="guilabel">Group Box</span>:</p>
+<p>4.1. Add 5x <span class="guilabel">Label</span>,  4x <span class="guilabel">LineEdit</span> and 1x
+<span class="guilabel">Push Button</span> widgets.</p>
+<blockquote>
+<div><div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_1.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_1.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Rough <span class="guilabel">Group Box</span> design and layout.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+<p>4.2. Right click within the box and select <span class="guilabel">Layout</span> -&gt;
+<span class="guilabel">Lay Out in a Grid</span>.</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_2.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_2.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_2.png" style="width: 500px;" /></a>
+</div>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_3.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_3.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_3.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Grid layout in the top <span class="guilabel">Group Box</span>.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+<p>4.3. Set suitable texts to <span class="guilabel">groupbox</span>, <span class="guilabel">Label</span> and
+<span class="guilabel">Push Button</span> widgets. Set default values to <span class="guilabel">LineEdit</span>
+widgets.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Top <span class="guilabel">Label</span> widget contains the next text:</p>
+<p><strong>Notes: \n - If disabled on start, the
+IDS is already available from other sources (application etc.) \n - Below
+are the default parameters for the benchmark IDS case (GateWay)</strong></p>
+<p><strong>\n</strong> are required to achieve line breaks.</p>
+</div>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_4.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_4.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_4.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Top <span class="guilabel">Group Box</span> with set labels and default values.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+<p>4.4. Select <span class="guilabel">Group Box</span> and change its next properties in the
+<span class="guilabel">Property Editor</span> found on the right side of the Qt Designer
+application:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>QGroupBox -&gt; checkable = True (check)</p></li>
+</ul>
+<div class="figure align-center" id="id13">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_5.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_5.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_5.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">Group Box</span> property <code class="docutils literal notranslate"><span class="pre">checkable</span></code> found in the
+<span class="guilabel">Property Editor</span>.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>QWidget -&gt; sizePolicy -&gt; Horizontal policy = Minimum</p></li>
+<li><p>QWidget -&gt; maximumSize -&gt; Width = 175</p></li>
+<li><p>Layout -&gt; layoutLeftMargin = 0</p></li>
+<li><p>Layout -&gt; layoutTopMargin = 0</p></li>
+<li><p>Layout -&gt; layoutRightMargin = 0</p></li>
+<li><p>Layout -&gt; layoutBottomMargin = 0</p></li>
+<li><p>Layout -&gt; layoutHorizontalSpacing = 0</p></li>
+<li><p>Layout -&gt; layoutVerticalSpacing = 0</p></li>
+</ul>
+</div></blockquote>
+<p>4.5. Select the top <span class="guilabel">Label</span> widget and change its next properties in the
+<span class="guilabel">Property Editor</span>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>QFrame -&gt; frameShape = StyledPanel</p></li>
+<li><p>QLabel -&gt; wordwrap = True (checked)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Manually (with mouse cursor) resize the <span class="guilabel">Group Box</span> and
+the <span class="guilabel">Label</span> to see the whole text of the top label.</p>
+</div>
+</div></blockquote>
+<p>4.6 Set next properties to all <span class="guilabel">LineEdit</span> widgets:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>QWidget -&gt; sizePolicy -&gt; Horizontal policy = Minimum</p></li>
+<li><p>QWidget -&gt; sizePolicy -&gt; Vertical policy = Fixed</p></li>
+</ul>
+<div class="figure align-center" id="id14">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_top_final.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_top_final.png" src="../../_images/QtDesigner_examplePlugin_groupbox_top_final.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Finished top <span class="guilabel">Group Box</span>.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+</li>
+<li><p>In bottom <span class="guilabel">Group Box</span>:</p>
+<p>5.1. Add 2x <span class="guilabel">Push Button</span> widget.</p>
+<blockquote>
+<div><div class="figure align-center" id="id15">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_bottom_1.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_bottom_1.png" src="../../_images/QtDesigner_examplePlugin_groupbox_bottom_1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Bottom <span class="guilabel">Group Box</span> template.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+<p>5.2. Label the <span class="guilabel">Group Box</span> and <span class="guilabel">Push Button</span> widgets.</p>
+<p>5.3. Right click within the box and select <span class="guilabel">Layout</span> -&gt;
+<span class="guilabel">Lay Out in a Grid</span>.</p>
+<blockquote>
+<div><div class="figure align-center" id="id16">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_groupbox_bottom_final.png"><img alt="../../_images/QtDesigner_examplePlugin_groupbox_bottom_final.png" src="../../_images/QtDesigner_examplePlugin_groupbox_bottom_final.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Finished bottom <span class="guilabel">Group Box</span>.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>6. Right click within the <span class="guilabel">MainWindow</span> and select <span class="guilabel">Layout</span> -&gt;
+<span class="guilabel">Lay Out in a Grid</span>.</p>
+<blockquote>
+<div><div class="figure align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_before_grid_layout.png"><img alt="../../_images/QtDesigner_examplePlugin_before_grid_layout.png" src="../../_images/QtDesigner_examplePlugin_before_grid_layout.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">MainWindow</span> before setting grid layout.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_after_grid_layout.png"><img alt="../../_images/QtDesigner_examplePlugin_after_grid_layout.png" src="../../_images/QtDesigner_examplePlugin_after_grid_layout.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text"><span class="guilabel">MainWindow</span> after setting grid layout.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+<ol class="arabic" start="7">
+<li><p>Change <span class="guilabel">MainWindow</span> properties:</p>
+<ul class="simple">
+<li><p>QWidget -&gt; windowTitle = Magnetics IDS Overview Plugin</p></li>
+</ul>
+</li>
+<li><p>Change <strong>exampleWidget</strong> properties:</p>
+<ul class="simple">
+<li><p>QObject -&gt; objectName = mainPluginWidget</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This property definition is crucial in the later sections in this HowTo
+manual when linking the plugin in IMASViz.</p>
+</div>
+<ul class="simple">
+<li><p>QWidget -&gt; sizePolicy -&gt; HorizontalPolicy = Expanding</p></li>
+<li><p>QWidget -&gt; sizePolicy -&gt; VerticalPolicy = Expanding</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="edit-signals-slots">
+<span id="plugins-qtdesigner-signals-slots"></span><h3>3.1.3.3.2. Edit signals/slots<a class="headerlink" href="#edit-signals-slots" title="Permalink to this headline">¶</a></h3>
+<p>By editing <strong>signals/slots</strong> the wanted actions such as plot execution etc. are
+added to the widgets.</p>
+<p>To edit <strong>signals/slots</strong>, in menubar, navigate to <strong>Edit</strong> -&gt;
+<strong>Edit Signals/Slots</strong></p>
+<div class="figure align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_1.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_1.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Edit Signals/Slots</strong> in menubar.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id20">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_2.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_2.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_2.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">While in <strong>Edit Signals/Slots mode</strong>, hovering with the mouse over widgets
+marks them with slight red color.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</div>
+<p>Link <strong>Line Edit</strong> widgets (located in the top <span class="guilabel">Group Box</span>) signals to
+<strong>exampleWidget</strong> slots. This is done by clicking on one of the <strong>Line Edit</strong>
+widgets (in this case that one which holds the <strong>Shot</strong> value), holding and
+dragging the shown arrow to <strong>exampleWidget</strong>, as shown in the figure below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_3.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_3.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_3.png" style="width: 200px;" /></a>
+</div>
+<p>Next, the <strong>Configure connection editor</strong> will be shown.</p>
+<div class="figure align-center" id="id21">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_4.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_4.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_4.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Configure connection editor</strong>, displaying list of available <strong>Line Edit</strong>
+(left) <strong>signals</strong> and available <strong>exampleWidget</strong> slots (right).</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
+<p>The slots are in this case actually functions/routines, which were defined
+in the <strong>exampleWidget</strong> source code (done in section
+<a class="reference internal" href="#plugins-qtdesigner-widget-class"><span class="std std-ref">Widget class</span></a>).</p>
+<p>In this case, when editing the text in <strong>Line Edit</strong> and applying the changes
+(pressing <code class="docutils literal notranslate"><span class="pre">enter</span></code> key etc.) the changed value must be passed to the
+<strong>exampleWidget</strong>. This is done by selecting the suitable signal and slot from
+the lists: <strong>textEdited</strong> and <strong>setShot</strong>, and pressing the
+<span class="guilabel">OK</span> button.</p>
+<div class="figure align-center" id="id22">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_5.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_5.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_5.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Selection of <strong>Line Edit</strong> signal <strong>textEdited</strong> and <strong>exampleWidget</strong> slot
+<strong>setShot</strong></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</div>
+<p>After that, while in the <strong>Edit Signals/Slots</strong>, the start and the end point
+of the red arrow will indicate which signal and slot are linked.</p>
+<div class="figure align-center" id="id23">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_6.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_6.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_6.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Red arrow indicating the <strong>sender</strong>, <strong>sender signal</strong>, <strong>receiver</strong> and
+<strong>slot</strong>.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</div>
+<p>The whole list of created slot/signal links is shown on the bottom right corner
+of the Qt Designer application.</p>
+<div class="figure align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_7.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_7.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_7.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">A list displaying a list of all created slot/signal lists, listing the
+<strong>sender</strong>, <strong>sender signal</strong>, <strong>receiver</strong> and <strong>slot</strong> for each link.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+</div>
+<p>The same as the first link, few more links are required. Below is a detailed
+table listing all necessary links.</p>
+<p>For easier interpretation, the <strong>sender</strong> and
+<strong>receiver</strong> in the table below are marked with their <strong>text label</strong> instead
+of their <strong>object name</strong> (used in the Qt Designer list of signal/slots).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 20%" />
+<col style="width: 23%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>SENDER</p></td>
+<td colspan="2"><p>RECEIVER</p></td>
+</tr>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Label/Value</p></td>
+<td><p>Signal</p></td>
+<td><p>Type</p></td>
+<td><p>Signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Line Edit</p></td>
+<td><p>52344</p></td>
+<td><p>textEdited(QString)</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>setShot(QString)</p></td>
+</tr>
+<tr class="row-even"><td><p>Line Edit</p></td>
+<td><p>0</p></td>
+<td><p>textEdited(QString)</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>setRun(QString)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Line Edit</p></td>
+<td><p>g2penkod</p></td>
+<td><p>textEdited(QString)</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>setUser(QString)</p></td>
+</tr>
+<tr class="row-even"><td><p>Line Edit</p></td>
+<td><p>viztest</p></td>
+<td><p>textEdited(QString)</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>setDevice(QString)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Push Button</p></td>
+<td><p>Open IDS</p></td>
+<td><p>clicked()</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>openIDS()</p></td>
+</tr>
+<tr class="row-even"><td><p>Push Button</p></td>
+<td><p>Plot flux
+loop</p></td>
+<td><p>clicked()</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>openIDS()</p></td>
+</tr>
+<tr class="row-odd"><td><p>Push Button</p></td>
+<td><p>Plot
+poloidal
+field</p></td>
+<td><p>clicked()</p></td>
+<td><p>exampleWidget</p></td>
+<td><p>openIDS()</p></td>
+</tr>
+<tr class="row-even"><td><p>exampleWidget</p></td>
+<td><p>Open IDS</p></td>
+<td><p>idsSet()</p></td>
+<td><p>Group Box (top)</p></td>
+<td><p>SetChecked(bool)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The final list of necessary signal/slot links in Qt Designer for this case is
+shown in the figure below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_8.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_8.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_8.png" style="width: 500px;" /></a>
+</div>
+<p>At this point, the plugin is completed.</p>
+</div>
+<div class="section" id="qt-designer-preview">
+<h3>3.1.3.3.3. Qt Designer Preview<a class="headerlink" href="#qt-designer-preview" title="Permalink to this headline">¶</a></h3>
+<p>The constructed plugin can be tested with the Qt Designer <strong>Preview</strong> option,
+found in the <strong>Form</strong> menu.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_9.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_9.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_9.png" style="width: 400px;" /></a>
+</div>
+<p>By pressing first the <span class="guilabel">Open IDS</span> button, waiting for a moment until
+the IDS data gets read, and then pressing the <span class="guilabel">Plot flux loop</span> button,
+the plot panel is populated as shown in the figure below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This specified case is done for the GateWay HPC. Make sure, that the
+corresponding IDS exists and that it contains the right data!</p>
+</div>
+<div class="figure align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/QtDesigner_examplePlugin_signalSlots_10.png"><img alt="../../_images/QtDesigner_examplePlugin_signalSlots_10.png" src="../../_images/QtDesigner_examplePlugin_signalSlots_10.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Plotting all <strong>Flux loop</strong> plots from the <strong>magnetics IDS</strong> with parameters
+(on GateWay HPC!) <strong>Shot:</strong> 52344, <strong>Run:</strong> 0, <strong>user</strong>: g2penkod,
+<strong>device</strong>: viztest.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="saving-the-qt-designer-form">
+<h3>3.1.3.3.4. Saving the Qt Designer form<a class="headerlink" href="#saving-the-qt-designer-form" title="Permalink to this headline">¶</a></h3>
+<p>The created Qt Designer GUI form (<strong>.ui</strong> extension) can be saved by navigating
+from menubar to <strong>File</strong> -&gt; <strong>Save</strong>. The name can be set customly, in this
+case it is saved as <strong>examplePlugin.ui</strong> (do not confuse it with
+<strong>examplePlugin.py</strong>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>IMPORTANT:</strong> <strong>the .ui file must be saved in the same
+directory as the source files</strong>, in this case <strong>exampleWidget.py</strong> and
+<strong>examplePlugin.py</strong>.</p>
+</div>
+</div>
+<div class="section" id="running-the-plugin-ui">
+<span id="examplewidget-running-ui"></span><h3>3.1.3.3.5. Running the plugin .ui<a class="headerlink" href="#running-the-plugin-ui" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>.ui</strong> plugin can be run using Python3 shell. Open Python3 shell and type
+the next commands:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">uic</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+<span class="n">uiObj</span> <span class="o">=</span> <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="s1">&#39;SOLPSplugin.ui&#39;</span><span class="p">)</span>
+<span class="n">uiObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>A script example <code class="docutils literal notranslate"><span class="pre">run_plugin_ui_standalone.py</span></code> is available in the plugin
+directory. It is run with the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 run_plugin_ui_standalone.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-imasviz">
+<h2>3.1.3.4. Adding plugin to IMASViz<a class="headerlink" href="#adding-plugin-to-imasviz" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before proceeding, make sure that you made the step 8. in
+<a class="reference internal" href="#examplewidget-creating-app"><span class="std std-ref">Creating a custom application/plugin with Qt Designer</span></a>. Setting the <strong>objectName</strong> of the
+custom widget to <strong>mainPluginWidget</strong> is mandatory!</p>
+</div>
+<p>The main idea for integration of plugin in IMASViz is to simplify the plugin
+usage and to add further functionalities to IMASViz. By running the plugin
+from IMASViz the IMASViz created <strong>IDS object</strong> is passed to the plugin, thus
+opening and setting the IDS is not necessary (required when running the plugin
+as a standalone application as shown in <a class="reference internal" href="#examplewidget-running-ui"><span class="std std-ref">Running the plugin .ui</span></a>).</p>
+<p>To run the plugin from IMASViz it must be first added (registered) in IMASViz
+<code class="docutils literal notranslate"><span class="pre">$VIZ_HOME/imasviz/VizPlugins/VizPlugins.py</span></code> source file. This is done through
+the next few steps:</p>
+<ol class="arabic simple">
+<li><p>Add plugin to a list of registered plugins</p></li>
+</ol>
+<p>The <strong>RegisteredPlugins</strong> dictionary contains major plugin properties. The
+relevant properties for <strong>examplePlugin</strong> are highlighted in the code block
+below, where:</p>
+<ul class="simple">
+<li><p><strong>example_UiPlugin</strong> is a dictionary key (dictionary within
+<strong>RegisteredPlugins</strong> dictionary).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Mandatory: in case the plugin is created with the help of <strong>Qt Designer</strong> and
+<strong>.ui</strong> file is created, the key must contain suffix <strong>_UiPlugin</strong> in order
+for IMASViz to recognize and use it correctly!</p>
+</div>
+<ul class="simple">
+<li><p><strong>UiFile</strong> dictionary key, holding full <strong>.ui</strong> filename.</p></li>
+<li><p><strong>dir</strong> dictionary key, holding the path to the dictionary where the <strong>.ui</strong>
+filename (and other plugin sources) are located.</p></li>
+<li><p><strong>targetIDSroot</strong> dictionary key, holding target <strong>IDS</strong> label.</p></li>
+<li><p><strong>targetOccurrence</strong> dictionary key, holding target <strong>IDS occurrence</strong> integer.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RegisteredPlugins</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;equilibriumcharts&#39;</span><span class="p">:</span><span class="s1">&#39;viz_equi.equilibriumcharts&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;SOLPS_UiPlugin&#39;</span><span class="p">:</span> <span class="p">{</span>
+                         <span class="s1">&#39;UiFile&#39;</span><span class="p">:</span> <span class="s1">&#39;SOLPSplugin.ui&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;dir&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VIZ_HOME&#39;</span><span class="p">]</span> <span class="o">+</span>
+                                <span class="s1">&#39;/imasviz/VizPlugins/viz_solps/&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;targetIDSroot&#39;</span> <span class="p">:</span> <span class="s1">&#39;edge_profiles&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;targetOccurrence&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+<span class="hll">                     <span class="s1">&#39;example_UiPlugin&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                         <span class="s1">&#39;UiFile&#39;</span><span class="p">:</span> <span class="s1">&#39;examplePlugin.ui&#39;</span><span class="p">,</span>
+</span><span class="hll">                         <span class="s1">&#39;dir&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VIZ_HOME&#39;</span><span class="p">]</span> <span class="o">+</span>
+</span><span class="hll">                                <span class="s1">&#39;/imasviz/VizPlugins/viz_example/&#39;</span><span class="p">,</span>
+</span><span class="hll">                         <span class="s1">&#39;targetIDSroot&#39;</span><span class="p">:</span> <span class="s1">&#39;magnetics&#39;</span><span class="p">,</span>
+</span><span class="hll">                         <span class="s1">&#39;targetOccurrence&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span>                     <span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Add plugin configuration</p></li>
+</ol>
+<p>Each plugin can have its own specific configuration. In the case of the
+<strong>examplePlugin</strong> there are no configurations required. Still, an empty
+configuration must be provided, as highlighted in the code block below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RegisteredPluginsConfiguration</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;equilibriumcharts&#39;</span><span class="p">:[{</span>
+                                      <span class="s1">&#39;time_i&#39;</span><span class="p">:</span> <span class="mf">31.880</span><span class="p">,</span> \
+                                      <span class="s1">&#39;time_e&#39;</span><span class="p">:</span> <span class="mf">32.020</span><span class="p">,</span> \
+                                      <span class="s1">&#39;delta_t&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> \
+                                      <span class="s1">&#39;shot&#39;</span><span class="p">:</span> <span class="mi">50642</span><span class="p">,</span> \
+                                      <span class="s1">&#39;run&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> \
+                                      <span class="s1">&#39;machine&#39;</span><span class="p">:</span> <span class="s1">&#39;west_equinox&#39;</span><span class="p">,</span> \
+                                      <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;imas_private&#39;</span><span class="p">}],</span>
+                                  <span class="s1">&#39;SOLPS_UiPlugin&#39;</span><span class="p">:[{}],</span>
+<span class="hll">                                  <span class="s1">&#39;example_UiPlugin&#39;</span><span class="p">:[{}]</span>
+</span>                           <span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Add necessary entries</p></li>
+</ol>
+<p>The entries are mainly related to plugin identification and presentation in
+IMASViz in terms of label in pop-up menus. The required entries are highlighted
+in the code blocks below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EntriesPerSubject</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;equilibriumcharts&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;equilibrium_overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                           <span class="s1">&#39;overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]},</span>
+                     <span class="s1">&#39;ToFuPlugin&#39;</span><span class="p">:</span>        <span class="p">{</span><span class="s1">&#39;interferometer_overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                                           <span class="s1">&#39;bolometer_overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                           <span class="s1">&#39;soft_x_rays_overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]},</span>
+                     <span class="s1">&#39;SOLPS_UiPlugin&#39;</span><span class="p">:</span>    <span class="p">{</span><span class="s1">&#39;edge_profiles_overview&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">],</span>
+                                           <span class="s1">&#39;overview&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">]},</span>
+<span class="hll">                     <span class="s1">&#39;example_UiPlugin&#39;</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;magnetics_overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</span><span class="hll">                                           <span class="s1">&#39;overview&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]}</span>
+</span>                     <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AllEntries</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;equilibriumcharts&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Equilibrium overview...&#39;</span><span class="p">)],</span>
+              <span class="s1">&#39;ToFuPlugin&#39;</span><span class="p">:</span>        <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tofu - geom...&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;tofu - data&#39;</span><span class="p">),</span>
+                                    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;tofu - geom...&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;tofu - data&#39;</span><span class="p">),</span>
+                                    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;tofu - geom...&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;tofu - data&#39;</span><span class="p">)],</span>
+              <span class="s1">&#39;SOLPS_UiPlugin&#39;</span><span class="p">:</span>    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SOLPS overview...&#39;</span><span class="p">)],</span>
+<span class="hll">              <span class="s1">&#39;example_UiPlugin&#39;</span><span class="p">:</span>  <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Magnetics overview...&#39;</span><span class="p">)]</span>
+</span>              <span class="p">}</span>
+</pre></div>
+</div>
+<p>Now everything is ready to run the plugin from IMASViz.</p>
+</div>
+<div class="section" id="running-the-custom-plugin-in-imasviz">
+<h2>3.1.3.5. Running the custom plugin in IMASViz<a class="headerlink" href="#running-the-custom-plugin-in-imasviz" title="Permalink to this headline">¶</a></h2>
+<p>When running the IMASViz, for the means of this manual, open the IDS with the
+same case parameters as defined in <a class="reference internal" href="#plugins-qtdesigner-signals-slots"><span class="std std-ref">Edit signals/slots</span></a>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/examplePlugin_IMASViz_IDS_parameters.png"><img alt="../../_images/examplePlugin_IMASViz_IDS_parameters.png" src="../../_images/examplePlugin_IMASViz_IDS_parameters.png" style="width: 500px;" /></a>
+</div>
+<p>In the <span class="guilabel">tree window</span>, navigate to <span class="guilabel">magnetics</span>.
+While holding <strong>shift key</strong> right click on the <span class="guilabel">magnetics</span> label and
+in the popup menu select the <span class="guilabel">Magnetics overview…</span> option.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/examplePlugin_IMASViz_DTV_popupmenu.png"><img alt="../../_images/examplePlugin_IMASViz_DTV_popupmenu.png" src="../../_images/examplePlugin_IMASViz_DTV_popupmenu.png" style="width: 400px;" /></a>
+</div>
+<p>On selection confirm, the <strong>examplePlugin</strong>, now referred to as
+<strong>Magnetics IDS Overview Plugin</strong>, the plugin window is shown.</p>
+<div class="figure align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/examplePlugin_IMASViz_window_1.png"><img alt="../../_images/examplePlugin_IMASViz_window_1.png" src="../../_images/examplePlugin_IMASViz_window_1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Magnetics IDS Overview Plugin</strong> on startup when run from within <strong>IMASViz</strong>.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</div>
+<p>It can be observed, that the top <span class="guilabel">Group Box</span> is disabled. This is due to our
+code and signal/slots, done in the plugin development phase in previous
+sections. This way if IDS object (now provided by IMASViz) is already provided
+on plugin startup the IDS set/open/read procedures are not required, but if
+needed are still functional and can be enabled with checking the checkbox. This
+way the plugin can be conveniently used as standalone or within other
+applications.</p>
+<p>By pressing either <span class="guilabel">Plot flux loop</span> or <span class="guilabel">Plot poloidal field</span>
+buttons the corresponding data, specified in the plugin code development phase,
+are plotted.</p>
+<div class="figure align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/examplePlugin_IMASViz_window_2.png"><img alt="../../_images/examplePlugin_IMASViz_window_2.png" src="../../_images/examplePlugin_IMASViz_window_2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Magnetics IDS Overview Plugin</strong> with plotted all <strong>Flux loop</strong> data from
+the <strong>magnetics IDS</strong> (parameters (on GateWay HPC!) <strong>Shot:</strong> 52344,
+<strong>Run:</strong> 0, <strong>user</strong>: g2penkod, <strong>device</strong>: viztest.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="plugin_getting_started.html" class="btn btn-neutral float-left" title="3.1.2. Developing a simple plugin for plotting data from IDSs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Dejan Penko, Fleury Ludovic
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
